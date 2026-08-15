@@ -1,0 +1,14 @@
+{
+  "name": "can-docs",
+  "private": true,
+  "description": "Cerulean Aviation Network 会员文档站",
+  "dependencies": {},
+  "devDependencies": {
+    "vitepress": "^2.0.0-alpha.19"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  }
+}

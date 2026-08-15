@@ -1,0 +1,90 @@
+{
+  "label": "English",
+  "lang": "en-US",
+  "link": "/en_US/",
+  "docs": {
+    "title": "Documentation",
+    "description": "Regulations, ATC guidelines and the story of the network.",
+    "sections": {
+      "regulations": {
+        "title": "Regulations"
+      },
+      "controllers": {
+        "title": "ATC"
+      },
+      "about": {
+        "title": "About"
+      }
+    }
+  },
+  "frame": {
+    "docs": {
+      "editions": {
+        "items": {
+          "firstEdition": "First Edition",
+          "secondEdition": "Second Edition"
+        }
+      },
+      "atc": {
+        "items": {
+          "professionalGuidelines": "Professional Guidelines"
+        }
+      },
+      "history": {
+        "title": "History"
+      },
+      "onThisPage": "On this page"
+    }
+  },
+  "theme": {
+    "nav": {
+      "home": "Home",
+      "mainSite": "Main site"
+    },
+    "docFooter": {
+      "prev": "Previous page",
+      "next": "Next page"
+    },
+    "appearance": {
+      "label": "Appearance",
+      "lightTitle": "Switch to light theme",
+      "darkTitle": "Switch to dark theme"
+    },
+    "sidebarMenuLabel": "Menu",
+    "returnToTopLabel": "Return to top",
+    "langMenuLabel": "Change language",
+    "skipToContentLabel": "Skip to content",
+    "lastUpdatedText": "Last updated",
+    "footer": {
+      "message": "The documents are published in Chinese; the Chinese text governs.",
+      "copyright": "© 2025–2026 Cerulean Aviation Network"
+    },
+    "notFound": {
+      "title": "Page not found",
+      "quote": "There is no document at this address — the link may be out of date.",
+      "linkText": "Back to the documentation",
+      "linkLabel": "Back to the documentation"
+    },
+    "search": {
+      "button": {
+        "buttonText": "Search",
+        "buttonAriaLabel": "Search"
+      },
+      "modal": {
+        "displayDetails": "Display detailed list",
+        "resetButtonTitle": "Reset search",
+        "backButtonTitle": "Close search",
+        "noResultsText": "No results for",
+        "footer": {
+          "selectText": "to select",
+          "selectKeyAriaLabel": "enter",
+          "navigateText": "to navigate",
+          "navigateUpKeyAriaLabel": "up arrow",
+          "navigateDownKeyAriaLabel": "down arrow",
+          "closeText": "to close",
+          "closeKeyAriaLabel": "escape"
+        }
+      }
+    }
+  }
+}
