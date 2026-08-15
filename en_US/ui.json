@@ -14,6 +14,9 @@
       },
       "about": {
         "title": "About"
+      },
+      "archive": {
+        "title": "Archive"
       }
     }
   },
@@ -21,8 +24,7 @@
     "docs": {
       "editions": {
         "items": {
-          "firstEdition": "First Edition",
-          "secondEdition": "Second Edition"
+          "firstEdition": "First Edition"
         }
       },
       "atc": {

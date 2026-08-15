@@ -8,8 +8,8 @@ hero:
   tagline: Cerulean Aviation Network
   actions:
     - theme: brand
-      text: Regulations (Second Edition)
-      link: /zh_CN/regulation_2nd
+      text: Regulations
+      link: /zh_CN/regulation
     - theme: alt
       text: ATC Professional Guidelines
       link: /zh_CN/atc
@@ -21,7 +21,7 @@ features:
   - icon: 📖
     title: Regulations
     details: The rules every member agrees to when they connect.
-    link: /zh_CN/regulation_2nd
+    link: /zh_CN/regulation
   - icon: 🎙️
     title: ATC
     details: Professional guidelines for working a position.

@@ -9,51 +9,48 @@ Cerulean Aviation Network 的会员文档站，VitePress。规划中的地址是
 录名：
 
 ```
-index.md            语言分流页（/，不属于任何语言）
+index.md               语言分流页（/，不属于任何语言）
 zh_CN/
-  ui.json           该语言的壳文案（导航、侧栏、搜索、页脚、404…）
-  index.md          /zh_CN/
-  regulation_2nd.md /zh_CN/regulation_2nd
-  regulation_1st.md
-  atc.md
-  history.md
+  ui.json              该语言的壳文案（导航、侧栏、搜索、页脚、404…）
+  index.md             /zh_CN/
+  regulation.md        /zh_CN/regulation          规章制度
+  atc.md               /zh_CN/atc                 管制员职业准则
+  history.md           /zh_CN/history             平台的历史
+  archive/
+    regulation.md      /zh_CN/archive/regulation  规章制度 第一版（已归档）
 en_US/
   ui.json
-  index.md          /en_US/
+  index.md             /en_US/
 ```
 
 `ui.json` 的键名沿用 can-web 词典里 `docs.sections.*` 和 `frame.docs.*` 的路径，
 两边可以直接对着搬；`.vitepress/config.mts` 只从这两份文件里取字，导航结构本身
 写成一份共用的 `themeConfigFor()`，免得各语言各自漂移。两份词典的键必须一一对
-应。
+应，链接地址集中在 `config.mts` 顶部的 `DOC` 里。
 
 ## 内容从哪来
 
-正文原来是 can-web 的 `/docs` 版块：`can-web/src/content/docs/*.mdx`，由
-`src/lib/docsNav.ts` 组织导航、`language/*.json` 提供栏目名。四篇文档整段照搬过
-来，**正文一字未改**：
+`atc.md`、`history.md` 和归档的 `archive/regulation.md` 来自 can-web 的 `/docs`
+版块（`src/content/docs/*.mdx`），**正文一字未改**：
 
-| 本站路径                 | 原路径                 | 原文件                                |
-| ------------------------ | ---------------------- | ------------------------------------- |
-| `/zh_CN/regulation_2nd`  | `/docs/regulation_2nd` | `src/content/docs/regulation_2nd.mdx` |
-| `/zh_CN/regulation_1st`  | `/docs/regulation_1st` | `src/content/docs/regulation_1st.mdx` |
-| `/zh_CN/atc`             | `/docs/atc`            | `src/content/docs/atc.mdx`            |
-| `/zh_CN/history`         | `/docs/history`        | `src/content/docs/history.mdx`        |
-
-**slug 没变**，只是前面换了语言目录，所以主站的 `/docs/<slug>` 可以一对一跳到
-`/zh_CN/<slug>`。侧栏的分组名（规章制度 / 管制员 / 关于）和条目名（第二版 / 第
-一版 / 职业准则 / 平台的历史）也沿用 `zh-cn.json` 里 `docs.sections.*` 和
-`frame.docs.*` 的原文。
+| 本站路径                       | 原路径                 | 原文件                                |
+| ------------------------------ | ---------------------- | ------------------------------------- |
+| `/zh_CN/atc`                   | `/docs/atc`            | `src/content/docs/atc.mdx`            |
+| `/zh_CN/history`               | `/docs/history`        | `src/content/docs/history.mdx`        |
+| `/zh_CN/archive/regulation`    | `/docs/regulation_1st` | `src/content/docs/regulation_1st.mdx` |
 
 迁移时只改了两处**呈现**，没有改任何规章文字：
 
-1. 两版规章末尾的管理组名单原本是一段 JSX（`<div className="overflow-x-auto">`
-   加一堆 Tailwind class）。`className` 和那些 class 在 VitePress 里都不存在，
-   所以换成原生 markdown 表格 —— VitePress 自己会把表格渲染成
-   `<table tabindex="0">`，横向滚动和 can-web 的 `rehypeScrollableTables` 是一
-   回事。
-2. 名单里有两格把两个邮箱塞进了同一个 `mailto:` 链接（`href` 只指向第一个，第
-   二个是纯文本却看着像链接）。拆成了两个各自正确的 `mailto:`。
+1. 规章末尾的管理组名单原本是一段 JSX（`<div className="overflow-x-auto">` 加一
+   堆 Tailwind class）。`className` 和那些 class 在 VitePress 里都不存在，所以换
+   成原生 markdown 表格 —— VitePress 自己会把表格渲染成 `<table tabindex="0">`，
+   横向滚动和 can-web 的 `rehypeScrollableTables` 是一回事。
+2. 名单里有两格把两个邮箱塞进了同一个 `mailto:` 链接（`href` 只指向第一个，第二
+   个是纯文本却看着像链接）。拆成了两个各自正确的 `mailto:`。
+
+`zh_CN/regulation.md` 不是迁移来的，是管理组新修订的版本，页首自带「本规则还未实
+行」的提示。**原来的第二版没有留在本站**，只在 can-web 的
+`/docs/regulation_2nd`（也还在本仓库的 git 历史里）。
 
 ## 没有迁过来的
 
@@ -86,12 +83,11 @@ zh-TW，要加的时候复制一份 `ja_JP/ui.json`、在 `config.mts` 的 `loca
 记、补一个 `ja_JP/index.md` 就行 —— 文案在 can-web 的 `language/ja-jp.json`、
 `language/zh-tw.json` 里都有现成的。
 
-**壳翻译了，正文没有。** 四篇文档只有中文原文：规章是有处分效力的文本，非官方译
-本不该由这里直接发布。所以英文侧只有一个首页，导航和侧栏指向 `zh_CN/` 下的中文
-页面，`/en_US/` 首页上写明了这一点。`themeConfig.i18nRouting` 因此设成
-`false` —— 默认行为是切换语言时把 `/zh_CN/regulation_2nd` 换成
-`/en_US/regulation_2nd`，那个文件不存在，会 404；关掉之后切换语言落在该语言的首
-页。
+**壳翻译了，正文没有。** 文档只有中文原文：规章是有处分效力的文本，非官方译本不
+该由这里直接发布。所以英文侧只有一个首页，导航和侧栏指向 `zh_CN/` 下的中文页
+面，`/en_US/` 首页上写明了这一点。`themeConfig.i18nRouting` 因此设成 `false` ——
+默认行为是切换语言时把 `/zh_CN/regulation` 换成 `/en_US/regulation`，那个文件不
+存在，会 404；关掉之后切换语言落在该语言的首页。
 
 译文落地时要做三件事：把 `config.mts` 里的 `DOC` 换成 `/<locale>/<slug>`、删掉
 各语言首页上「只有中文」的说明、把 `i18nRouting` 打开。
@@ -103,7 +99,7 @@ zh-TW，要加的时候复制一份 `ja_JP/ui.json`、在 `config.mts` 的 `loca
 端，所以这件事只能在客户端做。几条克制的规则：
 
 - **只在 `/` 和两个语言首页上判断。** 文档页一律不跳 —— 正文只有中文，把点进
-  `/zh_CN/regulation_2nd` 的人送去 `/en_US/` 是让他丢掉正要读的东西。
+  `/zh_CN/regulation` 的人送去 `/en_US/` 是让他丢掉正要读的东西。
 - **自动检测只发生在 `/`。** 直接打开 `/zh_CN/` 或 `/en_US/` 是明确的意思，不
   改，所以在英文首页上切回简体中文不会被脚本弹回去。
 - **`?lang=zh` / `?lang=en` 是显式覆盖**，会记进 `localStorage`，之后一直按它
@@ -113,16 +109,15 @@ zh-TW，要加的时候复制一份 `ja_JP/ui.json`、在 `config.mts` 的 `loca
   文，因为这个网络的默认语言是中文。
 - 脚本没跑起来时，分流页上那两条链接就是退路。
 
-`.vitepress/dist/index.html` 里那段脚本可以直接抽出来跑
-（12 个分支的用例见提交记录里的说明），改动它之后建议照样验一遍。
-
 ## 还没做的收尾
 
 站点还没部署，`docs.airwaysn.org` 目前不解析。在它上线**之前**不要动 can-web 的
 `/docs`，否则规章会直接 404。上线之后要做的是：
 
-1. `astro.config.mjs` 的 `redirects` 里把 `/docs` 和 `/docs/<slug>` 301 到
-   `docs.airwaysn.org/zh_CN/<slug>` —— 这四个地址在站外被引用过。
+1. `astro.config.mjs` 的 `redirects` 里把 `/docs/*` 301 过来：`/docs/atc` →
+   `/zh_CN/atc`、`/docs/history` → `/zh_CN/history`、`/docs/regulation_1st` →
+   `/zh_CN/archive/regulation`。**`/docs/regulation_2nd` 需要单独决定** —— 本站
+   没有第二版，而现行规章还是它。
 2. 删掉 `src/pages/docs/`、`src/content/docs/`、`src/content.config.ts` 里的
    `docs` collection、`src/lib/docsNav.ts`，以及 `language/*.json` 里的
    `docs.*` / `frame.docs.*`（`DocsLayout.astro` 还被分部规则和培训材料用着，
@@ -132,8 +127,9 @@ zh-TW，要加的时候复制一份 `ja_JP/ui.json`、在 `config.mts` 的 `loca
    `pages/index.astro`、`pages/404.astro`、`Exams.vue`。
 4. `src/middleware.ts` 的 `PROTECTED_PREFIXES` 去掉 `/docs`。
 
-**注意第 4 条会改变访问模型。** can-web 的 `/docs` 现在在 `PROTECTED_PREFIXES`
-里，匿名访客会被弹去 `/signin`；而首页和公开页头都链着它，所以未登录的人点「文
-档」实际是进不去的。这个站是公开的 —— 规章第一句就是「若您在平台上注册账号，即
-表示您同意遵守本规章制度」，注册前就该读得到，公开大概率是想要的结果，但这是一
-个要有意识做出的决定。
+**第 4 条会改变访问模型，而且现在就有影响。** can-web 的 `/docs` 在
+`PROTECTED_PREFIXES` 里，匿名访客会被弹去 `/signin`。`zh_CN/regulation.md` 页首
+那条「请参考 https://airwaysn.org/docs/regulation_2nd」是本站唯一一条指回主站的
+链接，所以**没登录的人点它会落到登录页**；等第 2 步删掉那边的 `/docs`，它会直接
+404。规章第一句就是「若您在平台上注册账号，即表示您同意遵守本规章制度」，注册前
+就该读得到——公开大概率是想要的结果，但这是一个要有意识做出的决定。

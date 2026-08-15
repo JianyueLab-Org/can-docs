@@ -14,6 +14,9 @@
       },
       "about": {
         "title": "关于"
+      },
+      "archive": {
+        "title": "归档"
       }
     }
   },
@@ -21,8 +24,7 @@
     "docs": {
       "editions": {
         "items": {
-          "firstEdition": "第一版",
-          "secondEdition": "第二版"
+          "firstEdition": "第一版"
         }
       },
       "atc": {

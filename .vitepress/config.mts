@@ -27,12 +27,13 @@ import enUS from "../en_US/ui.json";
 
 type Dict = typeof zhCN;
 
-/** 四篇文档现在的地址。译文落地前，两种语言都指向 zh_CN/ 下的中文原文。 */
+/** 文档现在的地址。译文落地前，两种语言都指向 zh_CN/ 下的中文原文。 */
 const DOC = {
-  secondEdition: "/zh_CN/regulation_2nd",
-  firstEdition: "/zh_CN/regulation_1st",
+  regulation: "/zh_CN/regulation",
   guidelines: "/zh_CN/atc",
   history: "/zh_CN/history",
+  // 归档：被现行规章取代的旧版本，留着是因为站外引用过。
+  firstEdition: "/zh_CN/archive/regulation",
 };
 
 /**
@@ -83,7 +84,8 @@ function themeConfigFor(d: Dict) {
       { text: t.nav.home, link: d.link },
       {
         text: d.docs.sections.regulations.title,
-        link: DOC.secondEdition,
+        link: DOC.regulation,
+        // 不带锚，所以归档里的旧版页面也算在这一项下面。
         activeMatch: "/regulation",
       },
       { text: d.docs.sections.controllers.title, link: DOC.guidelines },
@@ -91,13 +93,8 @@ function themeConfigFor(d: Dict) {
       { text: t.nav.mainSite, link: "https://airwaysn.org" },
     ],
     sidebar: [
-      {
-        text: d.docs.sections.regulations.title,
-        items: [
-          { text: f.editions.items.secondEdition, link: DOC.secondEdition },
-          { text: f.editions.items.firstEdition, link: DOC.firstEdition },
-        ],
-      },
+      // 规章只有一篇，就是顶层直链，不套一层同名的分组。
+      { text: d.docs.sections.regulations.title, link: DOC.regulation },
       {
         text: d.docs.sections.controllers.title,
         items: [
@@ -107,6 +104,10 @@ function themeConfigFor(d: Dict) {
       {
         text: d.docs.sections.about.title,
         items: [{ text: f.history.title, link: DOC.history }],
+      },
+      {
+        text: d.docs.sections.archive.title,
+        items: [{ text: f.editions.items.firstEdition, link: DOC.firstEdition }],
       },
     ],
     outline: { level: [2, 3] as [number, number], label: f.onThisPage },

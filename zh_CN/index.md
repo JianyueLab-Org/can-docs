@@ -8,8 +8,8 @@ hero:
   tagline: Cerulean Aviation Network
   actions:
     - theme: brand
-      text: 规章制度（第二版）
-      link: /zh_CN/regulation_2nd
+      text: 规章制度
+      link: /zh_CN/regulation
     - theme: alt
       text: 管制员职业准则
       link: /zh_CN/atc
@@ -21,7 +21,7 @@ features:
   - icon: 📖
     title: 规章制度
     details: 每位成员连线时都需遵守的规则。
-    link: /zh_CN/regulation_2nd
+    link: /zh_CN/regulation
   - icon: 🎙️
     title: 管制员
     details: 席位工作的专业指南。
