@@ -1,9 +1,5 @@
 # CAN 规章制度
 
-:::warning 警告
-本规则还未实行，现行有效的是[第二版](/zh_CN/regulation_2nd)。
-:::
-
 为规范飞行员和管制员行为，为平台提供良好的飞行环境，制定本规章
 **若您在平台上注册账号，即表示您同意遵守本规章制度**, 
 如果您失误注册了本平台账户请通过邮箱联系 [j.h.liang@jianyuelab.co](mailto:j.h.liang@jianyuelab.co) 平台主管 Jianyue Hugo Liang, a.k.a. Janyue Aosugi。

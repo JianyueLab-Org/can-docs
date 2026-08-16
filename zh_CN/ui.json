@@ -24,8 +24,7 @@
     "docs": {
       "editions": {
         "items": {
-          "secondEdition": "第二版（现行）",
-          "draft": "修订草案（未实行）",
+          "secondEdition": "第二版",
           "firstEdition": "第一版"
         }
       },
