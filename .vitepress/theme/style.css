@@ -1,109 +1,264 @@
 /**
- * Customize default theme styling by overriding CSS variables:
+ * 把 VitePress 默认主题接到网络的设计系统上。
+ *
+ * 这个文件原来是 `vitepress init` 生成的脚手架，一个字没改 —— 品牌色是 VitePress
+ * 的 indigo，首页大标题的渐变是 VitePress 自己的紫→青（#bd34fe → #41d1ff）。于是
+ * 文档站是这个网络里唯一一个不长着 Cerulean 样子的站点：读者从 airwaysn.org 点进
+ * docs.airwaysn.org，颜色、字体、圆角、阴影全换了一套。
+ *
+ * 下面做的只有一件事：把 VitePress 的主题变量指到 can-web `src/styles/globals.css`
+ * 里那套 token 上。**取值是照抄的，不是另配的一版** —— 色阶、文字三级、表面与描边、
+ * 圆角、阴影、字体栈，每一项都在 can-web 里有对应的名字，注释里写着是哪一个。这样
+ * 主站改了品牌色，这里只要跟着换一次十六进制值，而不是重新调一遍配色。
+ *
+ * 两处刻意不照抄，都是因为 can-web 的取值在这里会不可读：
+ *
+ * 1. **深色下的品牌文字色。** can-web 的 `.link` 无论明暗都用固定的
+ *    `--color-airwaysn-600`（#3a7ba8），在深色底 #0d1219 上只有 4.10:1，达不到
+ *    AA。这里深色侧改用 can-web 自己在 `:root.dark` 下给品牌语义色定的那两个值
+ *    （`--color-info` #6aa8cd、`--color-info-fg` #93c0db，7.24:1），所以仍然是主站
+ *    的色板，只是取了主站在深色下已经承认的那一档。
+ * 2. **VitePress 的 `XXX-1/2/3` 是一条有方向的色阶**（1 最实、用作文字，3 是实心
+ *    按钮底色且要能压住白字），明暗两侧方向相反。can-web 的 `.btn-primary` /
+ *    `.link` 是两条独立规则，没有这个约束，所以下面按 VitePress 的语义分配，而不是
+ *    按 can-web 的变量名一一对应。按钮那组变量再单独指回 `.btn-primary` 的原值。
+ *
+ * VitePress 的变量清单在这里：
  * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
  */
 
-/**
- * Colors
- *
- * Each colors have exact same color scale system with 3 levels of solid
- * colors with different brightness, and 1 soft color.
- *
- * - `XXX-1`: The most solid color used mainly for colored text. It must
- *   satisfy the contrast ratio against when used on top of `XXX-soft`.
- *
- * - `XXX-2`: The color used mainly for hover state of the button.
- *
- * - `XXX-3`: The color for solid background, such as bg color of the button.
- *   It must satisfy the contrast ratio with pure white (#ffffff) text on
- *   top of it.
- *
- * - `XXX-soft`: The color used for subtle background such as custom container
- *   or badges. It must satisfy the contrast ratio when putting `XXX-1` colors
- *   on top of it.
- *
- *   The soft color must be semi transparent alpha channel. This is crucial
- *   because it allows adding multiple "soft" colors on top of each other
- *   to create an accent, such as when having inline code block inside
- *   custom containers.
- *
- * - `default`: The color used purely for subtle indication without any
- *   special meanings attached to it such as bg color for menu hover state.
- *
- * - `brand`: Used for primary brand colors, such as link text, button with
- *   brand theme, etc.
- *
- * - `tip`: Used to indicate useful information. The default theme uses the
- *   brand color for this by default.
- *
- * - `warning`: Used to indicate warning to the users. Used in custom
- *   container, badges, etc.
- *
- * - `danger`: Used to show error, or dangerous message to the users. Used
- *   in custom container, badges, etc.
- * -------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------
+   设计 token —— can-web `src/styles/globals.css` 的 @theme 与 :root 的原值。
+   先落成本地变量，下面所有 VitePress 变量都从这里取，改品牌色只用动这一段。
+--------------------------------------------------------------------------- */
 
 :root {
-  --vp-c-default-1: var(--vp-c-gray-1);
-  --vp-c-default-2: var(--vp-c-gray-2);
-  --vp-c-default-3: var(--vp-c-gray-3);
-  --vp-c-default-soft: var(--vp-c-gray-soft);
+  /* 品牌色阶。can-web @theme 的 --color-airwaysn-50..900。 */
+  --can-brand-50: #f0f6fa;
+  --can-brand-100: #dceaf3;
+  --can-brand-200: #bdd9ea;
+  --can-brand-300: #93c0db;
+  --can-brand-400: #6aa8cd;
+  --can-brand-500: #4c92c1; /* --color-airwaysn */
+  --can-brand-600: #3a7ba8; /* --color-airwaysn-dark */
+  --can-brand-700: #2f6488;
+  --can-brand-800: #274f6b;
+  --can-brand-900: #1e3c52;
 
-  --vp-c-brand-1: var(--vp-c-indigo-1);
-  --vp-c-brand-2: var(--vp-c-indigo-2);
-  --vp-c-brand-3: var(--vp-c-indigo-3);
-  --vp-c-brand-soft: var(--vp-c-indigo-soft);
+  /* 文字三级：ink / muted / faint。 */
+  --can-ink: #101828;
+  --can-muted: #556070;
+  --can-faint: #8a94a6;
 
+  /* 表面与描边。 */
+  --can-surface: #ffffff;
+  --can-surface-raised: #ffffff;
+  --can-surface-sunken: #f7f8fa;
+  --can-surface-overlay: #ffffff;
+  --can-chrome: rgb(255 255 255 / 0.82);
+  --can-border-subtle: #e7eaee;
+  --can-border-strong: #d3d8e0;
+
+  /* 语义色。tip 走品牌色（VitePress 的默认约定，can-web 的 info 也是品牌色）。 */
+  --can-warning: #d97706;
+  --can-warning-fg: #b45309;
+  --can-danger: #dc2626;
+  --can-danger-fg: #b91c1c;
+
+  /* 圆角与阴影。can-web 的 --radius-control / --radius-card 和三级 shadow。 */
+  --can-radius-control: 0.5rem;
+  --can-radius-card: 0.875rem;
+  --can-shadow-card:
+    0 1px 2px 0 rgb(16 24 40 / 0.04), 0 1px 3px 0 rgb(16 24 40 / 0.06);
+  --can-shadow-card-hover:
+    0 4px 8px -2px rgb(16 24 40 / 0.08), 0 12px 24px -4px rgb(16 24 40 / 0.1);
+  --can-shadow-popover:
+    0 8px 16px -4px rgb(16 24 40 / 0.1), 0 20px 32px -8px rgb(16 24 40 / 0.14);
+}
+
+/* can-web 在 :root.dark 下换掉的那些值。VitePress 也把 .dark 打在 <html> 上，
+   所以这里的选择器和主站是同一个。 */
+.dark {
+  --can-ink: #f2f5f9;
+  --can-muted: #9aa6b6;
+  --can-faint: #6b7889;
+
+  --can-surface: #0d1219;
+  --can-surface-raised: #151c25;
+  --can-surface-sunken: #0a0f15;
+  --can-surface-overlay: #1b232e;
+  --can-chrome: rgb(13 18 25 / 0.82);
+  --can-border-subtle: #232c38;
+  --can-border-strong: #33404f;
+
+  --can-warning: #fbbf24;
+  --can-warning-fg: #fcd34d;
+  --can-danger: #f87171;
+  --can-danger-fg: #fca5a5;
+
+  /* 深色下阴影不再靠淡淡的灰投影读出来 —— 加深，否则卡片和背景糊在一起。 */
+  --can-shadow-card: 0 1px 2px 0 rgb(0 0 0 / 0.4), 0 1px 3px 0 rgb(0 0 0 / 0.3);
+  --can-shadow-card-hover:
+    0 4px 8px -2px rgb(0 0 0 / 0.45), 0 12px 24px -4px rgb(0 0 0 / 0.4);
+  --can-shadow-popover:
+    0 8px 16px -4px rgb(0 0 0 / 0.5), 0 20px 32px -8px rgb(0 0 0 / 0.45);
+}
+
+/* ---------------------------------------------------------------------------
+   字体。can-web @theme 的 --font-sans / --font-mono，原样搬过来 —— 这一站的正文
+   是中文，系统栈里的 CJK 回退（PingFang / 微软雅黑 / Noto Sans CJK）是它能在三个
+   平台上都不难看的原因。
+--------------------------------------------------------------------------- */
+
+:root {
+  --vp-font-family-base:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Noto Sans CJK SC", "Noto Sans", sans-serif;
+  --vp-font-family-mono:
+    ui-monospace, SFMono-Regular, "SF Mono", "JetBrains Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+}
+
+/* ---------------------------------------------------------------------------
+   颜色
+--------------------------------------------------------------------------- */
+
+:root {
+  /* 中性色。VitePress 拿它做菜单 hover 底、徽章底这类不带含义的提示。 */
+  --vp-c-default-1: var(--can-muted);
+  --vp-c-default-2: var(--can-faint);
+  --vp-c-default-3: var(--can-border-strong);
+  --vp-c-default-soft: color-mix(in srgb, var(--can-faint) 14%, transparent);
+
+  /* 品牌色。-1 是正文里的链接色，要在白底上过 AA：#3a7ba8 是 4.58:1，也正好是
+     can-web `.link` 用的那一档；#4c92c1 只有 3.39:1，所以它只当实心底色（-3），
+     压白字时靠字重和 14px 以上的字号，与主站 `.btn-primary` 一致。 */
+  --vp-c-brand-1: var(--can-brand-600);
+  --vp-c-brand-2: var(--can-brand-700); /* hover：主站 `.link:hover` 也是 700 */
+  --vp-c-brand-3: var(--can-brand-500);
+  --vp-c-brand-soft: color-mix(in srgb, var(--can-brand-500) 14%, transparent);
+
+  /* tip 沿用品牌色 —— VitePress 的默认约定，can-web 的 info 语义色也是品牌色。 */
   --vp-c-tip-1: var(--vp-c-brand-1);
   --vp-c-tip-2: var(--vp-c-brand-2);
   --vp-c-tip-3: var(--vp-c-brand-3);
   --vp-c-tip-soft: var(--vp-c-brand-soft);
 
-  --vp-c-warning-1: var(--vp-c-yellow-1);
-  --vp-c-warning-2: var(--vp-c-yellow-2);
-  --vp-c-warning-3: var(--vp-c-yellow-3);
-  --vp-c-warning-soft: var(--vp-c-yellow-soft);
+  --vp-c-warning-1: var(--can-warning-fg);
+  --vp-c-warning-2: var(--can-warning);
+  --vp-c-warning-3: var(--can-warning);
+  --vp-c-warning-soft: color-mix(in srgb, var(--can-warning) 14%, transparent);
 
-  --vp-c-danger-1: var(--vp-c-red-1);
-  --vp-c-danger-2: var(--vp-c-red-2);
-  --vp-c-danger-3: var(--vp-c-red-3);
-  --vp-c-danger-soft: var(--vp-c-red-soft);
+  --vp-c-danger-1: var(--can-danger-fg);
+  --vp-c-danger-2: var(--can-danger);
+  --vp-c-danger-3: var(--can-danger);
+  --vp-c-danger-soft: color-mix(in srgb, var(--can-danger) 12%, transparent);
+
+  /* 文字三级。 */
+  --vp-c-text-1: var(--can-ink);
+  --vp-c-text-2: var(--can-muted);
+  --vp-c-text-3: var(--can-faint);
+
+  /* 底色。VitePress 的四层对上 can-web 的四个 surface：
+     bg = surface（正文）、bg-alt = sunken（侧栏、导航条）、
+     bg-elv = raised（浮层、代码块组）、bg-soft = sunken（行内的软底块）。 */
+  --vp-c-bg: var(--can-surface);
+  --vp-c-bg-alt: var(--can-surface-sunken);
+  --vp-c-bg-elv: var(--can-surface-raised);
+  --vp-c-bg-soft: var(--can-surface-sunken);
+
+  /* 描边。VitePress 的 border 是较重的那条，divider / gutter 是较轻的。 */
+  --vp-c-border: var(--can-border-strong);
+  --vp-c-divider: var(--can-border-subtle);
+  --vp-c-gutter: var(--can-border-subtle);
 }
 
-/**
- * Component: Button
- * -------------------------------------------------------------------------- */
+/* 深色下 VitePress 的 -1/-3 方向要反过来：-1 是文字，得比底色亮。这里取 can-web
+   在 :root.dark 下给品牌语义色定的两档（--color-info / --color-info-fg），
+   7.24:1，而不是浅色侧那个 4.10:1 的 #3a7ba8。 */
+.dark {
+  --vp-c-brand-1: var(--can-brand-400);
+  --vp-c-brand-2: var(--can-brand-300);
+  --vp-c-brand-3: var(--can-brand-600);
+  --vp-c-brand-soft: color-mix(in srgb, var(--can-brand-500) 16%, transparent);
+
+  --vp-c-warning-soft: color-mix(in srgb, #f59e0b 16%, transparent);
+  --vp-c-danger-soft: color-mix(in srgb, #ef4444 16%, transparent);
+}
+
+/* ---------------------------------------------------------------------------
+   阴影。VitePress 从 1 到 5 由浅入深，can-web 只有三级，就按深浅分过去。
+--------------------------------------------------------------------------- */
+
+:root {
+  --vp-shadow-1: var(--can-shadow-card);
+  --vp-shadow-2: var(--can-shadow-card);
+  --vp-shadow-3: var(--can-shadow-card-hover);
+  --vp-shadow-4: var(--can-shadow-popover);
+  --vp-shadow-5: var(--can-shadow-popover);
+}
+
+/* ---------------------------------------------------------------------------
+   Component: Button —— 主按钮直接对上 can-web 的 `.btn-primary`：底 #4c92c1，
+   hover #3a7ba8，按下再深一档；次按钮对上 `.btn-secondary`：raised 底、ink 字、
+   border-strong 描边，hover 落到 sunken。
+--------------------------------------------------------------------------- */
 
 :root {
   --vp-button-brand-border: transparent;
-  --vp-button-brand-text: var(--vp-c-white);
-  --vp-button-brand-bg: var(--vp-c-brand-3);
+  --vp-button-brand-text: #ffffff;
+  --vp-button-brand-bg: var(--can-brand-500);
   --vp-button-brand-hover-border: transparent;
-  --vp-button-brand-hover-text: var(--vp-c-white);
-  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+  --vp-button-brand-hover-text: #ffffff;
+  --vp-button-brand-hover-bg: var(--can-brand-600);
   --vp-button-brand-active-border: transparent;
-  --vp-button-brand-active-text: var(--vp-c-white);
-  --vp-button-brand-active-bg: var(--vp-c-brand-1);
+  --vp-button-brand-active-text: #ffffff;
+  --vp-button-brand-active-bg: var(--can-brand-700);
+
+  --vp-button-alt-border: var(--can-border-strong);
+  --vp-button-alt-text: var(--can-ink);
+  --vp-button-alt-bg: var(--can-surface-raised);
+  --vp-button-alt-hover-border: var(--can-faint);
+  --vp-button-alt-hover-text: var(--can-ink);
+  --vp-button-alt-hover-bg: var(--can-surface-sunken);
+  --vp-button-alt-active-border: var(--can-faint);
+  --vp-button-alt-active-text: var(--can-ink);
+  --vp-button-alt-active-bg: var(--can-surface-sunken);
 }
 
-/**
- * Component: Home
- * -------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------
+   Component: Home —— 首页大标题的渐变。原来是 VitePress 自己的紫→青，换成品牌
+   色阶自己的一段（600 → 400），深色下整体提亮一档，否则在 #0d1219 上发闷。
+--------------------------------------------------------------------------- */
 
 :root {
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(
+  --vp-home-hero-name-background: linear-gradient(
     120deg,
-    #bd34fe 30%,
-    #41d1ff
+    var(--can-brand-600) 30%,
+    var(--can-brand-400)
   );
 
   --vp-home-hero-image-background-image: linear-gradient(
     -45deg,
-    #bd34fe 50%,
-    #47caff 50%
+    var(--can-brand-600) 50%,
+    var(--can-brand-400) 50%
   );
   --vp-home-hero-image-filter: blur(44px);
+}
+
+.dark {
+  --vp-home-hero-name-background: linear-gradient(
+    120deg,
+    var(--can-brand-400) 30%,
+    var(--can-brand-200)
+  );
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    var(--can-brand-500) 50%,
+    var(--can-brand-300) 50%
+  );
 }
 
 @media (min-width: 640px) {
@@ -118,14 +273,89 @@
   }
 }
 
-/**
- * Component: Custom Block
- * -------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------
+   Component: Custom Block —— 规章页开头那条 `:::warning` 就走这里。文字用正文色、
+   底用 soft、不描边，是 VitePress 的默认形状，只是颜色换成了上面那套。
+--------------------------------------------------------------------------- */
 
 :root {
   --vp-custom-block-tip-border: transparent;
   --vp-custom-block-tip-text: var(--vp-c-text-1);
   --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
   --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
+
+  --vp-custom-block-warning-border: transparent;
+  --vp-custom-block-warning-text: var(--vp-c-text-1);
+  --vp-custom-block-warning-bg: var(--vp-c-warning-soft);
+  --vp-custom-block-warning-code-bg: var(--vp-c-warning-soft);
+
+  --vp-custom-block-danger-border: transparent;
+  --vp-custom-block-danger-text: var(--vp-c-text-1);
+  --vp-custom-block-danger-bg: var(--vp-c-danger-soft);
+  --vp-custom-block-danger-code-bg: var(--vp-c-danger-soft);
 }
 
+/* ---------------------------------------------------------------------------
+   剩下几处 VitePress 没有开变量、但主站有明确做法的地方。除了紧接着的两条圆角
+   规则，选择器一律只用 `html` / `h1..h3` / 伪元素这类和 VitePress 内部类名无关的，
+   免得 2.0 alpha 改一次组件类名就把这里改哑了 —— 而且改哑是静默的，页面照样构建。
+--------------------------------------------------------------------------- */
+
+/* 圆角。VitePress 把它写死在组件里（按钮 20px/24px 的胶囊，容器 8px），没有开变量，
+   所以下面两条是全站**仅有**的按类名写的规则 —— 升级 VitePress 时只用核对这一段。
+   按钮那两条带 !important 不是随手加的：`.VPButton.medium` 在组件里是 `<style
+   scoped>`，编译出来是 `.VPButton.medium[data-v-…]`，特异性比这里高一级，不加就
+   完全不生效（改之前写成 `.VPButton{}` 一条，正是这样静默失效的）。容器那条靠
+   `.vp-doc` 前缀就够赢，不需要 !important。 */
+.VPButton.medium,
+.VPButton.big {
+  border-radius: var(--can-radius-control) !important;
+}
+.vp-doc .custom-block,
+.custom-block {
+  border-radius: var(--can-radius-card);
+}
+
+/* 告诉浏览器主题往哪边倒，它自己画的那部分（表单控件、导航之间的画布、原生滚动
+   条槽）才跟得上。can-web 的 globals.css 同样一段。 */
+html:not(.dark) {
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
+}
+
+/* 大字号的标题比正文收得更紧一点 —— 主站的 h1/h2/h3 一样。 */
+h1,
+h2,
+h3 {
+  letter-spacing: -0.018em;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--can-brand-500) 26%, transparent);
+}
+
+/* 键盘焦点一套写法，和主站同一条规则。 */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--can-brand-500);
+  outline-offset: 2px;
+  border-radius: var(--can-radius-control);
+}
+
+/* 细的、跟着主题走的滚动条，和主站一致。 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--can-border-strong) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--can-border-strong);
+  border-radius: 9999px;
+}
