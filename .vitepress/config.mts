@@ -1,3 +1,5 @@
+import { execFileSync } from "node:child_process";
+
 import { defineConfig } from "vitepress";
 
 import zhCN from "../zh_CN/ui.json";
@@ -75,6 +77,46 @@ const AUTO_LOCALE_SCRIPT = `(function () {
   } catch (e) {}
 })();`;
 
+/** 「在 GitHub 上编辑此页」指向的仓库。这一个是公开的，所以链接点得开。 */
+const REPO = "https://github.com/JianyueLab-Org/can-docs";
+
+/**
+ * 构建时能不能拿到**完整的** git 历史。
+ *
+ * `lastUpdated` 的时间戳是 VitePress 拿 `git log` 逐个文件问出来的，所以它只在
+ * 历史齐全时才是真的。两种情况下它会说谎或说不出话，都在这里挡掉：
+ *
+ * * **浅克隆。** `actions/checkout` 默认 `fetch-depth: 1`，仓库里只有一个提交，
+ *   于是每一页都会写着本次部署的时间 —— 一条几个月没动过的规章显示「今天更
+ *   新」。规章页上，错的日期比没有日期更糟。本仓库的 `deploy.yml` 传了
+ *   `fetch-depth: 0`，这里挡的是它哪天被改回去。
+ * * **git 不可用。** 构建镜像里没装 git、`.git` 没进 docker 构建上下文、或者
+ *   git 因为 `.git` 属主和当前用户对不上拒绝工作（dubious ownership）—— 三种都
+ *   会让 `git log` 失败。Dockerfile 里三件都处理了，这里同样是兜底。
+ *
+ * 判断不出来就返回 false：**宁可整站不显示日期，也不显示错的。** 关掉之后
+ * `page.lastUpdated` 是空的，页脚那一行整条不渲染，不会留下半句话。
+ */
+function hasFullGitHistory(): boolean {
+  let why: string;
+  try {
+    // 这一条命令同时验掉三件事：git 装了、当前目录是个能读的仓库、而且不是浅
+    // 克隆。前两件失败会抛，第三件返回 "true"。
+    const shallow = execFileSync("git", ["rev-parse", "--is-shallow-repository"], {
+      stdio: ["ignore", "pipe", "ignore"],
+      encoding: "utf8",
+    });
+    if (shallow.trim() === "false") return true;
+    why = "仓库是浅克隆（checkout 的 fetch-depth 不是 0）";
+  } catch {
+    why = "跑不了 git（没装，或者这里不是个能读的仓库）";
+  }
+  // 日期整站消失是件不响的事，构建日志里得留一句，否则只能靠肉眼发现页脚少了一
+  // 行、再从头查是哪一环。
+  console.warn(`[can-docs] 关掉了 lastUpdated：${why}`);
+  return false;
+}
+
 /** 两种语言的导航结构完全一样，只有文案不同 —— 写成一份，免得各自漂移。 */
 function themeConfigFor(d: Dict) {
   const t = d.theme;
@@ -111,6 +153,25 @@ function themeConfigFor(d: Dict) {
       },
     ],
     outline: { level: [2, 3] as [number, number], label: f.onThisPage },
+    // 页脚的「在 GitHub 上编辑此页」。:path 换的是**源文件**的相对路径
+    // （`page.filePath`，例如 zh_CN/regulation.md），不是浏览器地址栏里那个 —— 所
+    // 以两种语言都指向 zh_CN/ 下的中文原文时，链接落在真正被读的那一篇上，而不是
+    // 当前语言目录下并不存在的文件。归档页用 frontmatter 的 editLink: false 单独
+    // 关掉了：它是被现行规章取代的旧版本，是份记录，不该被「订正」。
+    editLink: { pattern: `${REPO}/edit/main/:path`, text: t.editLinkText },
+    lastUpdated: {
+      // **VitePress 2 删掉了顶层的 lastUpdatedText**，文案改从这里走。旧键留在
+      // 配置里不报错也不生效，只会一直显示内置的英文 "Last updated"。
+      text: t.lastUpdatedText,
+      // formatOptions 是**整体替换**默认值（`{ dateStyle, timeStyle }`）而不是合
+      // 并，所以不写 timeStyle 就只剩日期 —— 规章页上「几点几分」是噪声。
+      formatOptions: {
+        dateStyle: "long",
+        // 按**页面**语言格式化，不按访客浏览器的。正文只有中文、两种语言都指向
+        // 它，日期跟着页面走才不会一页之内两种写法。
+        forceLocale: true,
+      },
+    },
     docFooter: t.docFooter,
     darkModeSwitchLabel: t.appearance.label,
     lightModeSwitchTitle: t.appearance.lightTitle,
@@ -119,7 +180,6 @@ function themeConfigFor(d: Dict) {
     returnToTopLabel: t.returnToTopLabel,
     langMenuLabel: t.langMenuLabel,
     skipToContentLabel: t.skipToContentLabel,
-    lastUpdatedText: t.lastUpdatedText,
     footer: t.footer,
     notFound: t.notFound,
   };
@@ -133,13 +193,12 @@ export default defineConfig({
   titleTemplate: ":title · Cerulean Aviation Network",
   description: zhCN.docs.description,
   cleanUrls: true,
-  // lastUpdated 是关着的，两个原因，都得先解决才谈得上打开：
-  // 1. 它靠 `git log` 取每个文件的时间，而构建镜像里没有 git（装得上，但见 2）；
-  // 2. 组织那份 deploy-k8s.yml 用 actions/checkout 的默认 fetch-depth: 1，仓库
-  //    里只有一个提交，于是每一页的时间戳都会等于本次部署 —— 一条几个月没动过
-  //    的规章会写着「今天更新」。规章页上，错的日期比没有日期更糟。
-  // 打开的前提是构建时能拿到完整历史。ui.json 里的 lastUpdatedText 先留着。
-  lastUpdated: false,
+  // 当初关掉它的两个前提条件现在都补上了：Dockerfile 装了 git 并且 .git 进了构
+  // 建上下文，deploy.yml 给组织那份 deploy-k8s.yml 传了 fetch-depth: 0。**但开关
+  // 不写死成 true** —— 这两件事都在这个文件管不着的地方，任何一处退回去，写死的
+  // true 就会让全站每一页都显示本次部署的时间。让构建自己去看历史在不在：
+  // 见 hasFullGitHistory()。
+  lastUpdated: hasFullGitHistory(),
   // README.md 是写给维护者的，VitePress 默认会把它当成 / 的别名，
   // 和分流页 index.md 撞车。
   srcExclude: ["README.md"],

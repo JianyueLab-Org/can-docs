@@ -56,7 +56,8 @@
     "returnToTopLabel": "返回顶部",
     "langMenuLabel": "切换语言",
     "skipToContentLabel": "跳到主要内容",
-    "lastUpdatedText": "最后更新于",
+    "lastUpdatedText": "最后更新",
+    "editLinkText": "在 GitHub 上编辑此页",
     "footer": {
       "message": "规章制度以本站发布的版本为准。",
       "copyright": "© 2025–2026 Cerulean Aviation Network"

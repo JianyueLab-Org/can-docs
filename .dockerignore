@@ -1,6 +1,7 @@
 node_modules
 .vitepress/dist
 .vitepress/cache
-.git
+# .git 是**故意**留在构建上下文里的：页脚那行「最后更新」的时间戳来自 `git log`，
+# 排除掉它构建阶段就没有仓库可问，全站的日期会一起消失。见 Dockerfile。
 .github
 README.md
