@@ -33,6 +33,12 @@ spec:
       labels:
         app: can-docs
     spec:
+      # GHCR 上新建的包默认是私有的。组织那份 deploy-k8s.yml 在设了
+      # GHCR_PULL_TOKEN 时会往这个 namespace 里建 ghcr-pull，但 Pod 不声明就不会
+      # 用它。secret 不存在时 kubelet 只记一条警告然后按匿名拉 —— 所以包是公开的
+      # 话这一行也无害。
+      imagePullSecrets:
+        - name: ghcr-pull
       containers:
         - name: app
           # 按 sha 钉住，不用 :latest —— CI 两个标签都推，集群里跑的是 sha 那

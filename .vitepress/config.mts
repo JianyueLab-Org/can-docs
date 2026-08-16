@@ -133,7 +133,13 @@ export default defineConfig({
   titleTemplate: ":title · Cerulean Aviation Network",
   description: zhCN.docs.description,
   cleanUrls: true,
-  lastUpdated: true,
+  // lastUpdated 是关着的，两个原因，都得先解决才谈得上打开：
+  // 1. 它靠 `git log` 取每个文件的时间，而构建镜像里没有 git（装得上，但见 2）；
+  // 2. 组织那份 deploy-k8s.yml 用 actions/checkout 的默认 fetch-depth: 1，仓库
+  //    里只有一个提交，于是每一页的时间戳都会等于本次部署 —— 一条几个月没动过
+  //    的规章会写着「今天更新」。规章页上，错的日期比没有日期更糟。
+  // 打开的前提是构建时能拿到完整历史。ui.json 里的 lastUpdatedText 先留着。
+  lastUpdated: false,
   // README.md 是写给维护者的，VitePress 默认会把它当成 / 的别名，
   // 和分流页 index.md 撞车。
   srcExclude: ["README.md"],
