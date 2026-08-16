@@ -29,8 +29,22 @@ import enUS from "../en_US/ui.json";
 
 type Dict = typeof zhCN;
 
-/** 文档现在的地址。译文落地前，两种语言都指向 zh_CN/ 下的中文原文。 */
+/**
+ * 文档现在的地址。译文落地前，两种语言都指向 zh_CN/ 下的中文原文。
+ *
+ * **规章有三份，不是一份，导航指的是「现行」那一份。** `regulation`（第三版）还
+ * 在修订、尚未实行，它自己页头的警示条就是这么写的；真正约束成员的是
+ * `secondEdition`（2026-04-02 发布、2026-07-27 修补）—— 注册时点头同意的是它。
+ * 所以上面的导航与侧栏第一条都指向第二版，草案排在它下面，标签里写明未实行。
+ *
+ * 第二版原来不在这个仓库：它一直住在 can-web 的 `/docs/regulation_2nd`，草案页
+ * 的警示条也是直接链过去的。can-web 的 `/docs` 整段撤掉时它搬了过来，那条链接
+ * 也就改成了站内地址。
+ */
 const DOC = {
+  // 现行有效的规章。
+  secondEdition: "/zh_CN/regulation_2nd",
+  // 第三版修订草案，未实行。
   regulation: "/zh_CN/regulation",
   guidelines: "/zh_CN/atc",
   history: "/zh_CN/history",
@@ -126,8 +140,9 @@ function themeConfigFor(d: Dict) {
       { text: t.nav.home, link: d.link },
       {
         text: d.docs.sections.regulations.title,
-        link: DOC.regulation,
-        // 不带锚，所以归档里的旧版页面也算在这一项下面。
+        // 现行版本，不是草案 —— 见 DOC 上面那段。
+        link: DOC.secondEdition,
+        // 不带锚，所以草案和归档里的旧版页面也算在这一项下面。
         activeMatch: "/regulation",
       },
       { text: d.docs.sections.controllers.title, link: DOC.guidelines },
@@ -135,8 +150,15 @@ function themeConfigFor(d: Dict) {
       { text: t.nav.mainSite, link: "https://airwaysn.org" },
     ],
     sidebar: [
-      // 规章只有一篇，就是顶层直链，不套一层同名的分组。
-      { text: d.docs.sections.regulations.title, link: DOC.regulation },
+      // 规章现在有两篇同时挂着：现行的第二版，和还没实行的第三版草案。所以这里
+      // 是一个分组而不是顶层直链 —— 顺序就是答案，现行的在上面，标签里也写着。
+      {
+        text: d.docs.sections.regulations.title,
+        items: [
+          { text: f.editions.items.secondEdition, link: DOC.secondEdition },
+          { text: f.editions.items.draft, link: DOC.regulation },
+        ],
+      },
       {
         text: d.docs.sections.controllers.title,
         items: [

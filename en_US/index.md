@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: Regulations
-      link: /zh_CN/regulation
+      link: /zh_CN/regulation_2nd
     - theme: alt
       text: ATC Professional Guidelines
       link: /zh_CN/atc
@@ -21,7 +21,7 @@ features:
   - icon: 📖
     title: Regulations
     details: The rules every member agrees to when they connect.
-    link: /zh_CN/regulation
+    link: /zh_CN/regulation_2nd
   - icon: 🎙️
     title: ATC
     details: Professional guidelines for working a position.

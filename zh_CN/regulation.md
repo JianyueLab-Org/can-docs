@@ -1,7 +1,7 @@
 # CAN 规章制度
 
 :::warning 警告
-本规则还未实行请参考 https://airwaysn.org/docs/regulation_2nd
+本规则还未实行，现行有效的是[第二版](/zh_CN/regulation_2nd)。
 :::
 
 为规范飞行员和管制员行为，为平台提供良好的飞行环境，制定本规章

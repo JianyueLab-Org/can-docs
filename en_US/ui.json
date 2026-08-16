@@ -24,6 +24,8 @@
     "docs": {
       "editions": {
         "items": {
+          "secondEdition": "Second Edition (in force)",
+          "draft": "Revision Draft (not in force)",
           "firstEdition": "First Edition"
         }
       },
