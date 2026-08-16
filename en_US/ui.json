@@ -24,6 +24,7 @@
     "docs": {
       "editions": {
         "items": {
+          "secondEdition": "Second Edition",
           "firstEdition": "First Edition"
         }
       },

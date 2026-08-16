@@ -29,12 +29,25 @@ import enUS from "../en_US/ui.json";
 
 type Dict = typeof zhCN;
 
-/** 文档现在的地址。译文落地前，两种语言都指向 zh_CN/ 下的中文原文。 */
+/**
+ * 文档现在的地址。译文落地前，两种语言都指向 zh_CN/ 下的中文原文。
+ *
+ * **规章的现行版本永远是 `regulation`**，归档里放被它取代的旧版本 —— 现在有两
+ * 份。第二版原来不在这个仓库：它住在 can-web 的 `/docs/regulation_2nd`，是
+ * `regulation` 生效之前约束成员的那一份。can-web 的 `/docs` 整段撤掉时它搬了过
+ * 来，直接进归档。
+ *
+ * 归档不是收纳，是**接住站外引用**：`airwaysn.org/docs/regulation_2nd` 印在验证
+ * 邮件里、写在 Discord 置顶里，can-web 那边的转发页把它送到这里。所以旧版本删不
+ * 得，也不该悄悄改 —— 两份归档页都用 frontmatter 关掉了「在 GitHub 上编辑此页」。
+ */
 const DOC = {
+  // 现行有效的规章。
   regulation: "/zh_CN/regulation",
   guidelines: "/zh_CN/atc",
   history: "/zh_CN/history",
-  // 归档：被现行规章取代的旧版本，留着是因为站外引用过。
+  // 归档：被现行规章取代的旧版本，新的在前。
+  secondEdition: "/zh_CN/archive/regulation_2nd",
   firstEdition: "/zh_CN/archive/regulation",
 };
 
@@ -43,7 +56,7 @@ const DOC = {
  * 前决定去留。几条克制的规则，避免比自动跳转更烦人的东西：
  *
  * * **只在 / 和两个语言首页上判断。** 文档页一律不跳 —— 正文只有中文，把点进
- *   /zh_CN/regulation_2nd 的人送去 /en_US/ 是让他丢掉正要读的东西。
+ *   /zh_CN/archive/regulation_2nd 的人送去 /en_US/ 是让他丢掉正要读的东西。
  * * **自动检测只发生在 /。** 直接打开 /zh_CN/ 或 /en_US/ 是明确的意思，不改。
  * * **?lang=zh / ?lang=en 是显式覆盖**，会记进 localStorage，之后一直按它来；
  *   自动检测的结果则不记，免得猜出来的偏好变成甩不掉的。根目录分流页上的两条
@@ -135,7 +148,7 @@ function themeConfigFor(d: Dict) {
       { text: t.nav.mainSite, link: "https://airwaysn.org" },
     ],
     sidebar: [
-      // 规章只有一篇，就是顶层直链，不套一层同名的分组。
+      // 规章只有一篇，就是顶层直链，不套一层同名的分组。旧版本在下面的归档里。
       { text: d.docs.sections.regulations.title, link: DOC.regulation },
       {
         text: d.docs.sections.controllers.title,
@@ -149,7 +162,11 @@ function themeConfigFor(d: Dict) {
       },
       {
         text: d.docs.sections.archive.title,
-        items: [{ text: f.editions.items.firstEdition, link: DOC.firstEdition }],
+        // 新的在前。
+        items: [
+          { text: f.editions.items.secondEdition, link: DOC.secondEdition },
+          { text: f.editions.items.firstEdition, link: DOC.firstEdition },
+        ],
       },
     ],
     outline: { level: [2, 3] as [number, number], label: f.onThisPage },
@@ -227,7 +244,7 @@ export default defineConfig({
   // 这一层会并进每种语言的 themeConfig。
   themeConfig: {
     // 英文侧现在只有一个首页，正文还是中文原文。默认的 i18nRouting 会把
-    // /zh_CN/regulation_2nd 换成 /en_US/regulation_2nd —— 那是个 404。关掉之后
+    // /zh_CN/archive/regulation_2nd 换成 /en_US/archive/regulation_2nd —— 那是个 404。关掉之后
     // 切换语言回到该语言的首页。译文落地后再打开。
     i18nRouting: false,
 
