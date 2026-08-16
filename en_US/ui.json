@@ -57,6 +57,7 @@
     "langMenuLabel": "Change language",
     "skipToContentLabel": "Skip to content",
     "lastUpdatedText": "Last updated",
+    "editLinkText": "Edit this page on GitHub",
     "footer": {
       "message": "The documents are published in Chinese; the Chinese text governs.",
       "copyright": "© 2025–2026 Cerulean Aviation Network"
