@@ -7,6 +7,7 @@
     "vitepress": "^2.0.0-alpha.19"
   },
   "scripts": {
+    "lint": "bun scripts/check.ts",
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview"

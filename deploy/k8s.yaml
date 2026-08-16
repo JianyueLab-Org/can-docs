@@ -1,0 +1,118 @@
+# 文档站在 jyl-tyo 上的部署。
+#
+# 形状和 can-dev / can-exam / can-radar / llm-web 一致：一个应用一个 namespace，
+# Deployment 和 Service 都叫 app，Service 暴露 80，Ingress 走 cloudflare-tunnel
+# （控制器会把 docs.airwaysn.org 的 DNS 记录建好，TLS 在 Cloudflare 终止，所以
+# 这里没有 cert-manager 注解、也没有 tls: 段）。
+#
+# 和那几个站不同的只有一处，是它的性质决定的：**这是一堆静态文件，不是 Node
+# SSR**，所以容器里是 nginx-unprivileged，端口 8080、uid 101（不是 4321 和
+# 1000），而且因为 readOnlyRootFilesystem 打开着，得给它两个可写的 emptyDir
+# —— nginx 要往 /tmp 写 pid 和临时文件。
+#
+# 没有 Secret，也没有一个环境变量：这个站不认会话、不连数据库、不调 can-api。
+# 唯一指向外面的链接是页面里写死的 airwaysn.org。
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: can-docs
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  namespace: can-docs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: can-docs
+  template:
+    metadata:
+      labels:
+        app: can-docs
+    spec:
+      containers:
+        - name: app
+          # 按 sha 钉住，不用 :latest —— CI 两个标签都推，集群里跑的是 sha 那
+          # 个，回滚才有东西可指。:latest 只是第一次 apply 的方便标签。
+          image: ghcr.io/jianyuelab-org/can-docs:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          # 首页就是语言分流页，纯静态，200 即代表 nginx 真的在服务文件。
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          resources:
+            requests:
+              cpu: 10m
+              # 一个 nginx 加几百 KB 静态文件，比几个 SSR 站省一个数量级。
+              memory: 32Mi
+            limits:
+              memory: 128Mi
+          # 这四条是 PodSecurity 的 restricted 档要的。
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            # 必须是数字：kubelet 解析不了 USER 名字。101 是 nginx-unprivileged
+            # 镜像里 nginx 用户的 uid（别的站是 1000，那是 node 镜像的 node）。
+            runAsUser: 101
+            seccompProfile:
+              type: RuntimeDefault
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            # nginx-unprivileged 把 pid 和所有 temp path 都指到 /tmp；根文件系统
+            # 只读时这里必须可写，否则容器起不来。
+            - name: tmp
+              mountPath: /tmp
+            - name: cache
+              mountPath: /var/cache/nginx
+      volumes:
+        - name: tmp
+          emptyDir: {}
+        - name: cache
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app
+  namespace: can-docs
+spec:
+  selector:
+    app: can-docs
+  ports:
+    - port: 80
+      targetPort: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: can-docs
+  namespace: can-docs
+spec:
+  ingressClassName: cloudflare-tunnel
+  rules:
+    - host: docs.airwaysn.org
+      http:
+        paths:
+          - backend:
+              service:
+                name: app
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
