@@ -1,9 +1,5 @@
 # CAN 规章制度
 
-:::warning 警告
-本规则还未实行请参考 https://airwaysn.org/docs/regulation_2nd
-:::
-
 为规范飞行员和管制员行为，为平台提供良好的飞行环境，制定本规章
 **若您在平台上注册账号，即表示您同意遵守本规章制度**, 
 如果您失误注册了本平台账户请通过邮箱联系 [j.h.liang@jianyuelab.co](mailto:j.h.liang@jianyuelab.co) 平台主管 Jianyue Hugo Liang, a.k.a. Janyue Aosugi。
@@ -73,13 +69,13 @@ CAN希望大家可以在平台连飞中享受飞行的乐趣，结交朋友，�
 
 本平台提供的所有资料、数据、指令等信息只用于模拟飞行用途。
 
-## VII. ASN 管理组成员及联系方式
+## VII. CAN 管理组成员及联系方式
 
 | 职位 | 姓名 | 联系方式 | 职责 |
 | --- | --- | --- | --- |
-| 主管（Director） | Janyue Aosugi | [j.aosugi@airwaysn.org](mailto:j.aosugi@airwaysn.org)<br>[j.h.liang@jianyuelab.co](mailto:j.h.liang@jianyuelab.co) | 制定平台整体运营规划和发展战略、服务器资源整体维护与开发 |
-| 副主管（Deputy Director） | Huaji Cai | [h.cai@airwaysn.org](mailto:h.cai@airwaysn.org)<br>[hjdczy@foxmail.com](mailto:hjdczy@foxmail.com) | 处理平台日常事务、协助服务器运维和开发 |
-| 运营主管（Operations Director） | Kehao Jin | [k.jin@airwaysn.org](mailto:k.jin@airwaysn.org) | 进行平台宣传与活动策划、负责服务器外联工作 |
+| 主管（Director） | Janyue Aosugi | [j.aosugi@ceruleanavi.net](mailto:j.aosugi@ceruleanavi.net)<br>[j.h.liang@jianyuelab.co](mailto:j.h.liang@jianyuelab.co) | 制定平台整体运营规划和发展战略、服务器资源整体维护与开发 |
+| 副主管（Deputy Director） | Huaji Cai | [h.cai@ceruleanavi.net](mailto:h.cai@ceruleanavi.net)<br>[hjdczy@foxmail.com](mailto:hjdczy@foxmail.com) | 处理平台日常事务、协助服务器运维和开发 |
+| 运营主管（Operations Director） | Kehao Jin | [k.jin@ceruleanavi.net](mailto:k.jin@ceruleanavi.net) | 进行平台宣传与活动策划、负责服务器外联工作 |
 
 ## IX. 隐私政策及服务条款
 

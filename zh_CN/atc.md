@@ -12,8 +12,8 @@
 
 在您觉得符合申请条件后，可以邮件联系以下职员：
 
-- 中国大陆地区主管：1007（管制员训练主管 liz） [atc.training@airwaysn.org](mailto:atc.training@airwaysn.org)
-- 除大陆以外地区主管：1000（CAN主管 简约） [j.aosugi@airwaysn.com](mailto:j.aosugi@airwaysn.com)
+- 中国大陆地区主管：1007（管制员训练主管 liz） [atc.training@ceruleanavi.net](mailto:atc.training@ceruleanavi.net)
+- 除大陆以外地区主管：1000（CAN主管 简约） [j.aosugi@ceruleanavi.net](mailto:j.aosugi@ceruleanavi.net)
 
 如果上述职员的邮箱无法联系到，您可以通过QQ群联系他们，或者联系其他CAN职员进行转达
 

@@ -3,8 +3,8 @@
  *
  * 这个文件原来是 `vitepress init` 生成的脚手架，一个字没改 —— 品牌色是 VitePress
  * 的 indigo，首页大标题的渐变是 VitePress 自己的紫→青（#bd34fe → #41d1ff）。于是
- * 文档站是这个网络里唯一一个不长着 Cerulean 样子的站点：读者从 airwaysn.org 点进
- * docs.airwaysn.org，颜色、字体、圆角、阴影全换了一套。
+ * 文档站是这个网络里唯一一个不长着 Cerulean 样子的站点：读者从 ceruleanavi.net 点进
+ * docs.ceruleanavi.net，颜色、字体、圆角、阴影全换了一套。
  *
  * 下面做的只有一件事：把 VitePress 的主题变量指到 can-web `src/styles/globals.css`
  * 里那套 token 上。**取值是照抄的，不是另配的一版** —— 色阶、文字三级、表面与描边、
@@ -14,7 +14,7 @@
  * 两处刻意不照抄，都是因为 can-web 的取值在这里会不可读：
  *
  * 1. **深色下的品牌文字色。** can-web 的 `.link` 无论明暗都用固定的
- *    `--color-airwaysn-600`（#3a7ba8），在深色底 #0d1219 上只有 4.10:1，达不到
+ *    `--color-can-600`（#3a7ba8），在深色底 #0d1219 上只有 4.10:1，达不到
  *    AA。这里深色侧改用 can-web 自己在 `:root.dark` 下给品牌语义色定的那两个值
  *    （`--color-info` #6aa8cd、`--color-info-fg` #93c0db，7.24:1），所以仍然是主站
  *    的色板，只是取了主站在深色下已经承认的那一档。
@@ -33,14 +33,14 @@
 --------------------------------------------------------------------------- */
 
 :root {
-  /* 品牌色阶。can-web @theme 的 --color-airwaysn-50..900。 */
+  /* 品牌色阶。can-web @theme 的 --color-can-50..900。 */
   --can-brand-50: #f0f6fa;
   --can-brand-100: #dceaf3;
   --can-brand-200: #bdd9ea;
   --can-brand-300: #93c0db;
   --can-brand-400: #6aa8cd;
-  --can-brand-500: #4c92c1; /* --color-airwaysn */
-  --can-brand-600: #3a7ba8; /* --color-airwaysn-dark */
+  --can-brand-500: #4c92c1; /* --color-can */
+  --can-brand-600: #3a7ba8; /* --color-can-dark */
   --can-brand-700: #2f6488;
   --can-brand-800: #274f6b;
   --can-brand-900: #1e3c52;

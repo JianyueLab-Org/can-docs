@@ -20,5 +20,11 @@ jobs:
       image: ghcr.io/jianyuelab-org/can-docs
       namespace: can-docs
       manifest: deploy/k8s.yaml
-      environment_url: https://docs.airwaysn.org
+      environment_url: https://docs.ceruleanavi.net
+      # 页脚那行「最后更新」的时间戳是 VitePress 拿 `git log` 逐个文件问出来的，
+      # 所以这里要完整历史。默认的 fetch-depth: 1 不是「拿不到日期」而是**拿到错
+      # 的**：仓库里只有一个提交，每一页都会显示本次部署的时间，一条几个月没动过
+      # 的规章写着「今天更新」。这个网络里只有文档站需要它，所以那边的默认值仍是
+      # 1，由调用方按需要开。
+      fetch-depth: 0
     secrets: inherit

@@ -1,7 +1,7 @@
 # can-docs
 
 Cerulean Aviation Network 的会员文档站，VitePress。规划中的地址是
-`docs.airwaysn.org`（域名尚未解析）。
+`docs.ceruleanavi.net`（域名尚未解析）。
 
 ## 目录结构
 
@@ -76,6 +76,40 @@ minisearch 默认按空白切词，一整段中文会变成一个词，搜什么
 段），这个函数会被序列化进客户端包、在浏览器里 `new Function` 出来，所以写成了
 不带后行断言的形式，旧一点的 Safari 也能解析。
 
+## 页脚：最后更新时间和「在 GitHub 上编辑此页」
+
+每篇文档的页脚有两行：这一页最后改动的日期，和一条指回 GitHub 编辑界面的链接。
+规章是有处分效力的文本，「我看到的是不是现行版本」是读者第一个要问的问题，所以日
+期比在别处更要紧 —— 也正因如此，**错的日期比没有日期更糟**。
+
+**日期不是写在文件里的，是 VitePress 拿 `git log` 逐个文件问出来的。** 这就把一
+个页面元素变成了对构建环境的要求，而且三处都在这个文件之外，缺一样就不成立：
+
+| 在哪 | 要什么 | 缺了会怎样 |
+| --- | --- | --- |
+| `.github/workflows/deploy.yml` | 给组织那份 `deploy-k8s.yml` 传 `fetch-depth: 0` | checkout 默认只给一个提交，**每一页都显示本次部署的时间** |
+| `Dockerfile` | 构建阶段 `apt-get install git` | `oven/bun` 里没有 git，`git log` 一律失败 |
+| `.dockerignore` | **不要**排除 `.git` | 容器里没有仓库可问，同上 |
+
+`fetch-depth` 是 `JianyueLab-Org/actions` 那份复用工作流上的一个输入，默认仍是
+`1`：整个网络里只有文档站需要完整历史，别的仓库不必为它多付一次全量 fetch。
+
+三处任何一处退回去，`config.mts` 里的 `hasFullGitHistory()` 会**把 lastUpdated 整
+个关掉**，并在构建日志里写一行原因。宁可整站不显示日期，也不显示错的 —— 所以开关
+没有写死成 `true`，而是让构建自己去看历史在不在。页脚那行会整条消失，不会留下半
+句话。
+
+编辑链接指向 `main` 分支上的**源文件**（`:path` 取的是 `page.filePath`），所以两
+种语言都指着 `zh_CN/` 下的中文原文时，点过去落在真正被读的那一篇上。归档页用
+frontmatter 里的 `editLink: false` 单独关掉了：它是被现行规章取代的旧版本，是份记
+录，不该被「订正」。
+
+两行的文案都在 `ui.json` 的 `theme.lastUpdatedText` / `theme.editLinkText` 里。注
+意 **VitePress 2 删掉了 `themeConfig.lastUpdatedText`**，文案改从
+`themeConfig.lastUpdated.text` 走；旧键留着不报错也不生效，只会一直显示内置的英文
+`Last updated`。中文那句是「最后更新」而不是「最后更新于」，因为主题在文案后面硬
+编码了一个冒号。
+
 ## 语言
 
 目前两种：`zh_CN`（简体中文）和 `en_US`（English）。can-web 还有 ja-JP 和
@@ -111,7 +145,7 @@ zh-TW，要加的时候复制一份 `ja_JP/ui.json`、在 `config.mts` 的 `loca
 
 ## 还没做的收尾
 
-站点还没部署，`docs.airwaysn.org` 目前不解析。在它上线**之前**不要动 can-web 的
+站点还没部署，`docs.ceruleanavi.net` 目前不解析。在它上线**之前**不要动 can-web 的
 `/docs`，否则规章会直接 404。上线之后要做的是：
 
 1. `astro.config.mjs` 的 `redirects` 里把 `/docs/*` 301 过来：`/docs/atc` →
@@ -129,7 +163,7 @@ zh-TW，要加的时候复制一份 `ja_JP/ui.json`、在 `config.mts` 的 `loca
 
 **第 4 条会改变访问模型，而且现在就有影响。** can-web 的 `/docs` 在
 `PROTECTED_PREFIXES` 里，匿名访客会被弹去 `/signin`。`zh_CN/regulation.md` 页首
-那条「请参考 https://airwaysn.org/docs/regulation_2nd」是本站唯一一条指回主站的
+那条「请参考 https://ceruleanavi.net/docs/regulation_2nd」是本站唯一一条指回主站的
 链接，所以**没登录的人点它会落到登录页**；等第 2 步删掉那边的 `/docs`，它会直接
 404。规章第一句就是「若您在平台上注册账号，即表示您同意遵守本规章制度」，注册前
 就该读得到——公开大概率是想要的结果，但这是一个要有意识做出的决定。

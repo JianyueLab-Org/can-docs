@@ -15,7 +15,7 @@ hero:
       link: /zh_CN/atc
     - theme: alt
       text: Main site
-      link: https://airwaysn.org
+      link: https://ceruleanavi.net
 
 # 图标是 lucide，不是 emoji —— 图形和理由都在 .vitepress/theme/style.css 的
 # 「Component: Home —— 首页三张 feature 卡的图标」一节，两种语言共用同一份。
