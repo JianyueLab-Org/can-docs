@@ -15,7 +15,7 @@ hero:
       link: /zh_CN/atc
     - theme: alt
       text: Main site
-      link: https://airwaysn.org
+      link: https://ceruleanavi.net
 
 features:
   - icon: 📖

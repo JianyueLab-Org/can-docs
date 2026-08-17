@@ -5,7 +5,7 @@ import { defineConfig } from "vitepress";
 import zhCN from "../zh_CN/ui.json";
 import enUS from "../en_US/ui.json";
 
-// 会员文档站（规划中的 docs.airwaysn.org）。
+// 会员文档站（规划中的 docs.ceruleanavi.net）。
 //
 // 正文原来是 can-web 的 /docs：src/content/docs/*.mdx，导航由
 // src/lib/docsNav.ts 组织、栏目名来自 language/*.json。
@@ -37,7 +37,7 @@ type Dict = typeof zhCN;
  * `regulation` 生效之前约束成员的那一份。can-web 的 `/docs` 整段撤掉时它搬了过
  * 来，直接进归档。
  *
- * 归档不是收纳，是**接住站外引用**：`airwaysn.org/docs/regulation_2nd` 印在验证
+ * 归档不是收纳，是**接住站外引用**：`ceruleanavi.net/docs/regulation_2nd` 印在验证
  * 邮件里、写在 Discord 置顶里，can-web 那边的转发页把它送到这里。所以旧版本删不
  * 得，也不该悄悄改 —— 两份归档页都用 frontmatter 关掉了「在 GitHub 上编辑此页」。
  */
@@ -145,7 +145,7 @@ function themeConfigFor(d: Dict) {
       },
       { text: d.docs.sections.controllers.title, link: DOC.guidelines },
       { text: d.docs.sections.about.title, link: DOC.history },
-      { text: t.nav.mainSite, link: "https://airwaysn.org" },
+      { text: t.nav.mainSite, link: "https://ceruleanavi.net" },
     ],
     sidebar: [
       // 规章只有一篇，就是顶层直链，不套一层同名的分组。旧版本在下面的归档里。
