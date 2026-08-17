@@ -80,6 +80,16 @@ const AUTO_LOCALE_SCRIPT = `(function () {
     var saved = read("localStorage", KEY);
     if (saved) return go(saved);
     if (here !== "") return;
+    // 全网共享的语言选择。另外六个站把它写在父域上（can-ui 的 ThemeLangControls），
+    // 所以在主站上选过语言的人来到文档站，不该再被浏览器语言猜一次。
+    //
+    // 只在根路径上参考它，也就是上面那行守卫之后 —— 已经站在 /zh_CN/ 或 /en_US/
+    // 上的人是自己走过来的，这时候再按 cookie 把他弹走就成了一个跳转环。
+    //
+    // 那边有四种 locale，这边只有两种：zh-cn / zh-tw 都是中文；en-us 和 ja-jp
+    // 都落到英文，因为日文正文根本没有。
+    var ck = (document.cookie.match(/(?:^|;\s*)NEXT_LOCALE=([^;]+)/) || [])[1];
+    if (ck) return go(/^zh/i.test(decodeURIComponent(ck)) ? "zh" : "en");
     var langs = navigator.languages && navigator.languages.length
       ? navigator.languages
       : [navigator.language || ""];
