@@ -17,16 +17,18 @@ hero:
       text: Main site
       link: https://ceruleanavi.net
 
+# 图标是 lucide，不是 emoji —— 图形和理由都在 .vitepress/theme/style.css 的
+# 「Component: Home —— 首页三张 feature 卡的图标」一节，两种语言共用同一份。
 features:
-  - icon: 📖
+  - icon: '<span class="can-icon can-icon-regulation"></span>'
     title: Regulations
     details: The rules every member agrees to when they connect.
     link: /zh_CN/regulation
-  - icon: 🎙️
+  - icon: '<span class="can-icon can-icon-atc"></span>'
     title: ATC
     details: Professional guidelines for working a position.
     link: /zh_CN/atc
-  - icon: 🛫
+  - icon: '<span class="can-icon can-icon-about"></span>'
     title: About
     details: How the network came to be.
     link: /zh_CN/history
