@@ -274,6 +274,56 @@
 }
 
 /* ---------------------------------------------------------------------------
+   Component: Home —— 首页三张 feature 卡的图标。**用 lucide，不用 emoji。**
+
+   emoji 是由系统字体画的：同一个 🎙️ 在 macOS、Windows 和 Android 上是三张不同
+   的图，颜色、粗细、留白都不归上面那套 token 管，深色下也不会跟着变。lucide 是
+   24×24、2px 描边的线性图标，而且正是 VitePress 默认主题自己用的那一套 ——
+   `styles/icons.css` 顶上写着 "used under ISC from https://lucide.dev/"，所以这
+   里不是引入了第三套图标，是把首页也换到主题已经在用的那一套上。
+
+   **走 mask，不走 `<img>`。** VitePress 把 feature 的 `icon` 字符串按 `v-html`
+   渲染（`components/VPFeature.vue`），所以 frontmatter 里放一个
+   `<span class="can-icon can-icon-*">`：图形由下面的 mask 画，颜色来自
+   `background-color`，明暗两套主题共用一份图。写成 `<img src="…svg">` 则拿不到
+   `currentColor` —— 图片是独立文档，深色下会留一块黑。
+
+   **类名自己起，不借 VitePress 的 `vpi-*`。** 那是默认主题内部的约定，靠
+   `[class^='vpi-']` 一条规则供电，2.0 alpha 期间改掉就是静默失效 —— 与上面那段
+   说的是同一个理由。
+
+   图标是 lucide v1.31.0 的原始 SVG，只动了两处：描边属性提到 `<g>` 上，以及照
+   icons.css 的写法转义 `<` 和 `>`。换图标就去 lucide.dev 取新的 SVG 照办。
+--------------------------------------------------------------------------- */
+
+.can-icon {
+  display: block;
+  width: 1em;
+  height: 1em;
+  /* 图形来自 mask，颜色来自这里 —— 品牌色自己跟着明暗走。 */
+  background-color: var(--vp-c-brand-1);
+  -webkit-mask: var(--can-icon) no-repeat;
+  mask: var(--can-icon) no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.can-icon-regulation {
+  /* lucide book-open-text */
+  --can-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath d='M12 5v16'/%3E%3Cpath d='M16 13h2'/%3E%3Cpath d='M16 9h2'/%3E%3Cpath d='M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z'/%3E%3Cpath d='M6 13h2'/%3E%3Cpath d='M6 9h2'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.can-icon-atc {
+  /* lucide radio-tower */
+  --can-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath d='M4.9 16.1C1 12.2 1 5.8 4.9 1.9'/%3E%3Cpath d='M7.8 4.7a6.14 6.14 0 0 0-.8 7.5'/%3E%3Ccircle cx='12' cy='9' r='2'/%3E%3Cpath d='M16.2 4.8c2 2 2.26 5.11.8 7.47'/%3E%3Cpath d='M19.1 1.9a9.96 9.96 0 0 1 0 14.1'/%3E%3Cpath d='M9.5 18h5'/%3E%3Cpath d='m8 22 4-11 4 11'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.can-icon-about {
+  /* lucide plane-takeoff */
+  --can-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath d='M2 22h20'/%3E%3Cpath d='M6.36 17.4 4 17l-2-4 1.1-.55a2 2 0 0 1 1.8 0l.17.1a2 2 0 0 0 1.8 0L8 12 5 6l.9-.45a2 2 0 0 1 2.09.2l4.02 3a2 2 0 0 0 2.1.2l4.19-2.06a2.41 2.41 0 0 1 1.73-.17L21 7a1.4 1.4 0 0 1 .87 1.99l-.38.76c-.23.46-.6.84-1.07 1.08L7.58 17.2a2 2 0 0 1-1.22.18Z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ---------------------------------------------------------------------------
    Component: Custom Block —— 规章页开头那条 `:::warning` 就走这里。文字用正文色、
    底用 soft、不描边，是 VitePress 的默认形状，只是颜色换成了上面那套。
 --------------------------------------------------------------------------- */
