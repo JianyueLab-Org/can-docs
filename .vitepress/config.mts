@@ -220,7 +220,18 @@ export default defineConfig({
   // 和分流页 index.md 撞车。
   srcExclude: ["README.md"],
 
-  head: [["script", {}, AUTO_LOCALE_SCRIPT]],
+  head: [
+    ["script", {}, AUTO_LOCALE_SCRIPT],
+    // 站点图标。文档站原先一个都没有，浏览器标签上是 VitePress 的默认图标 ——
+    // 六个 Web 组件里只有这一个还在用别人的标志。
+    //
+    // svg 放在最前：支持的浏览器会优先取它，一个矢量图在任何缩放下都清楚；不
+    // 支持的（Safari 一直到 16）会往下退到 32 的 png。
+    ["link", { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
+    ["link", { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32.png" }],
+    // iOS 不认 alpha，会把透明合到黑底上，所以这张是不透明的。
+    ["link", { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" }],
+  ],
 
   locales: {
     zh_CN: {
@@ -243,6 +254,10 @@ export default defineConfig({
 
   // 这一层会并进每种语言的 themeConfig。
   themeConfig: {
+    // 标记而不是完整锁定：VitePress 会把它排在站名左边，而站名已经把话说全了。
+    // 标记是两支品牌蓝，深浅色下都成立，所以这里不需要跟着主题换图。
+    logo: "/logo.png",
+
     // 英文侧现在只有一个首页，正文还是中文原文。默认的 i18nRouting 会把
     // /zh_CN/archive/regulation_2nd 换成 /en_US/archive/regulation_2nd —— 那是个 404。关掉之后
     // 切换语言回到该语言的首页。译文落地后再打开。
