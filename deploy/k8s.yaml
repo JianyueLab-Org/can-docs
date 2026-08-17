@@ -2,7 +2,7 @@
 #
 # 形状和 can-dev / can-exam / can-radar / llm-web 一致：一个应用一个 namespace，
 # Deployment 和 Service 都叫 app，Service 暴露 80，Ingress 走 cloudflare-tunnel
-# （控制器会把 docs.airwaysn.org 的 DNS 记录建好，TLS 在 Cloudflare 终止，所以
+# （控制器会把 docs.ceruleanavi.net 的 DNS 记录建好，TLS 在 Cloudflare 终止，所以
 # 这里没有 cert-manager 注解、也没有 tls: 段）。
 #
 # 和那几个站不同的只有一处，是它的性质决定的：**这是一堆静态文件，不是 Node
@@ -11,7 +11,7 @@
 # —— nginx 要往 /tmp 写 pid 和临时文件。
 #
 # 没有 Secret，也没有一个环境变量：这个站不认会话、不连数据库、不调 can-api。
-# 唯一指向外面的链接是页面里写死的 airwaysn.org。
+# 唯一指向外面的链接是页面里写死的 ceruleanavi.net。
 ---
 apiVersion: v1
 kind: Namespace
@@ -112,7 +112,7 @@ metadata:
 spec:
   ingressClassName: cloudflare-tunnel
   rules:
-    - host: docs.airwaysn.org
+    - host: docs.ceruleanavi.net
       http:
         paths:
           - backend:

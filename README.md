@@ -1,7 +1,7 @@
 # can-docs
 
 Cerulean Aviation Network 的会员文档站，VitePress。规划中的地址是
-`docs.airwaysn.org`（域名尚未解析）。
+`docs.ceruleanavi.net`（域名尚未解析）。
 
 ## 目录结构
 
@@ -145,7 +145,7 @@ zh-TW，要加的时候复制一份 `ja_JP/ui.json`、在 `config.mts` 的 `loca
 
 ## 还没做的收尾
 
-站点还没部署，`docs.airwaysn.org` 目前不解析。在它上线**之前**不要动 can-web 的
+站点还没部署，`docs.ceruleanavi.net` 目前不解析。在它上线**之前**不要动 can-web 的
 `/docs`，否则规章会直接 404。上线之后要做的是：
 
 1. `astro.config.mjs` 的 `redirects` 里把 `/docs/*` 301 过来：`/docs/atc` →
@@ -163,7 +163,7 @@ zh-TW，要加的时候复制一份 `ja_JP/ui.json`、在 `config.mts` 的 `loca
 
 **第 4 条会改变访问模型，而且现在就有影响。** can-web 的 `/docs` 在
 `PROTECTED_PREFIXES` 里，匿名访客会被弹去 `/signin`。`zh_CN/regulation.md` 页首
-那条「请参考 https://airwaysn.org/docs/regulation_2nd」是本站唯一一条指回主站的
+那条「请参考 https://ceruleanavi.net/docs/regulation_2nd」是本站唯一一条指回主站的
 链接，所以**没登录的人点它会落到登录页**；等第 2 步删掉那边的 `/docs`，它会直接
 404。规章第一句就是「若您在平台上注册账号，即表示您同意遵守本规章制度」，注册前
 就该读得到——公开大概率是想要的结果，但这是一个要有意识做出的决定。
