@@ -41,8 +41,23 @@
   },
   "theme": {
     "nav": {
-      "home": "Home",
-      "mainSite": "Main site"
+      "home": "Home"
+    },
+    "network": {
+      "label": "Network",
+      "sections": {
+        "flight": "Flying",
+        "atc": "Controlling",
+        "network": "Network"
+      },
+      "sites": {
+        "efb": "Flight Bag",
+        "radar": "Live Radar",
+        "controller": "Controller Centre",
+        "exam": "Exam Centre",
+        "web": "Main Site",
+        "dev": "Developer Centre"
+      }
     },
     "docFooter": {
       "prev": "Previous page",

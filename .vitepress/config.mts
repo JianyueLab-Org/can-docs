@@ -104,6 +104,71 @@ const AUTO_LOCALE_SCRIPT = `(function () {
 const REPO = "https://github.com/JianyueLab-Org/can-docs";
 
 /**
+ * 网络上的其它站，分三组 —— 导航里的「全网」下拉。
+ *
+ * ## 为什么要有
+ *
+ * 这个站从前只有一条外链：「主站」。一个正在读规章的管制员要去开 ATIS，或者一个
+ * 读完飞行员须知的人要去填飞行计划，都得先回主站再找一次，或者干脆背下主机名。
+ * 全网另外六个站现在共用 can-ui 的一份站点清单，这里是同一份清单在 VitePress 上
+ * 的样子。
+ *
+ * ## 为什么是抄的，而不是 import
+ *
+ * **`@jianyuelab-org/can-ui/sites` 才是这份清单的来源之记录。** 这里没有 import
+ * 它，是因为这个站是全网唯一一个**零依赖**的：它不是 Astro + Vue，用的是
+ * VitePress 自带的主题，一个 can-ui 组件都渲染不了，只会用到那个纯数据模块。而
+ * can-ui 装在 GitHub Packages 上，即使公开包也要带令牌 —— 为一张六行的表给一个
+ * 静态站接上 `.npmrc`、Docker 构建密钥和 CI 令牌，代价大于收益。
+ *
+ * 代价是这是一份**副本**，而副本会漂。所以两件事写在这里：改 `sites.ts` 的人要
+ * 顺手看一眼这里（`can-web/src/lib/atcRules.ts` 是同一种「索引副本」，理由也一
+ * 样），而 `scripts/check.ts` 会验这份表本身立不立得住 —— 每个键在两本词典里都
+ * 有名字、每个 origin 都是 https 且不含空格。**最后那一条不是多余的**：主站和
+ * can-dev 的页脚里都躺过 `https://github.com/Cerulean Aviation Network/`，URL 里
+ * 带两个空格，改名时全局替换的残骸，因为没有任何东西会检查一个长得像 URL 的字
+ * 符串。
+ *
+ * ## 少了三个站
+ *
+ * 教员与管理门户和航行资料库按评级才出现，而这是个**静态站**：会话 cookie 是
+ * HttpOnly 的，构建时和浏览器里都问不出读者是谁。给所有人画两条大多数人点下去
+ * 会被拒的链接，不如不画 —— can-ui 的 `minRating` 就是为这件事存在的。文档站自
+ * 己是当前站，也不列。
+ *
+ * 剩下六条里有三条要登录（EFB、管制员中心、考试中心）。那不是死链：未登录点过去
+ * 会被送到主站的登录页并带上回跳地址，登录完就到了。
+ */
+const NETWORK_SECTIONS: ReadonlyArray<{
+  section: "flight" | "atc" | "network";
+  sites: ReadonlyArray<{ key: string; origin: string }>;
+}> = [
+  {
+    section: "flight",
+    sites: [
+      { key: "efb", origin: "https://efb.ceruleanavi.net" },
+      { key: "radar", origin: "https://radar.ceruleanavi.net" },
+    ],
+  },
+  {
+    section: "atc",
+    sites: [
+      { key: "controller", origin: "https://controller.ceruleanavi.net" },
+      { key: "exam", origin: "https://exam.ceruleanavi.net" },
+    ],
+  },
+  {
+    section: "network",
+    sites: [
+      { key: "web", origin: "https://ceruleanavi.net" },
+      // 开发者中心的落点是 /docs（接口文档），不是它的首页 —— can-ui 的
+      // `NETWORK_SITES` 里这一条也带着这个路径。
+      { key: "dev", origin: "https://platform.ceruleanavi.net/docs" },
+    ],
+  },
+];
+
+/**
  * 构建时能不能拿到**完整的** git 历史。
  *
  * `lastUpdated` 的时间戳是 VitePress 拿 `git log` 逐个文件问出来的，所以它只在
@@ -155,7 +220,19 @@ function themeConfigFor(d: Dict) {
       },
       { text: d.docs.sections.controllers.title, link: DOC.guidelines },
       { text: d.docs.sections.about.title, link: DOC.history },
-      { text: t.nav.mainSite, link: "https://ceruleanavi.net" },
+      // 全网。从前这里是一条孤零零的「主站」—— 也是走出文档站的唯一一条路。换
+      // 成一个下拉之后，分组和另外六个站的页脚栏目是同一套（飞行 / 管制 /
+      // 网络），一个人在主站上认得的形状，到这里还认得。
+      {
+        text: t.network.label,
+        items: NETWORK_SECTIONS.map((group) => ({
+          text: t.network.sections[group.section],
+          items: group.sites.map((site) => ({
+            text: t.network.sites[site.key as keyof typeof t.network.sites],
+            link: site.origin,
+          })),
+        })),
+      },
     ],
     sidebar: [
       // 规章只有一篇，就是顶层直链，不套一层同名的分组。旧版本在下面的归档里。

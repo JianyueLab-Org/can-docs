@@ -41,8 +41,23 @@
   },
   "theme": {
     "nav": {
-      "home": "首页",
-      "mainSite": "主站"
+      "home": "首页"
+    },
+    "network": {
+      "label": "全网",
+      "sections": {
+        "flight": "飞行",
+        "atc": "管制",
+        "network": "网络"
+      },
+      "sites": {
+        "efb": "电子飞行包",
+        "radar": "在线雷达",
+        "controller": "管制员中心",
+        "exam": "考试中心",
+        "web": "主站",
+        "dev": "开发者中心"
+      }
     },
     "docFooter": {
       "prev": "上一页",
