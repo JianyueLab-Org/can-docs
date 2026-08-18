@@ -77,6 +77,35 @@ for (const locale of Object.keys(config.locales ?? {})) {
 // ------------------------------------------------------------------ 分流页在
 if (!existsSync("index.md")) problems.push("根目录缺 index.md（语言分流页）");
 
+// ------------------------------------------------------- 「全网」那几条地址成立
+//
+// 这份清单是 can-ui 的 `sites.ts` 的**副本** —— 那边是来源之记录，理由写在
+// config.mts 的 NETWORK_SECTIONS 上面。副本会漂，所以这里验它自己立不立得住。
+//
+// 空格那一条不是凑数的：主站和 can-dev 的页脚里都躺过
+// `https://github.com/Cerulean Aviation Network/`，URL 里带两个空格，改名时全局
+// 替换的残骸，在每一个页面底部发了几个月 —— 因为没有任何东西会去检查一个恰好长
+// 得像 URL 的字符串。现在有了。
+let networkLinks = 0;
+for (const [locale, entry] of Object.entries(config.locales ?? {})) {
+  const theme = (entry as { themeConfig?: Record<string, unknown> }).themeConfig ?? {};
+  for (const link of links(theme.nav)) {
+    if (link.startsWith("/")) continue; // 站内的上面已经查过
+    networkLinks++;
+    let url: URL | undefined;
+    try {
+      url = new URL(link);
+    } catch {
+      problems.push(`${locale} 的导航里有一条不是合法 URL：${link}`);
+      continue;
+    }
+    if (url.protocol !== "https:") problems.push(`${locale} 的站外链接不是 https：${link}`);
+    if (/\s/.test(link)) problems.push(`${locale} 的站外链接里有空格：${link}`);
+    if (!url.hostname.endsWith("ceruleanavi.net") && url.hostname !== "ceruleanavi.net")
+      problems.push(`${locale} 的「全网」清单里混进了网络之外的地址：${link}`);
+  }
+}
+
 const unique = [...new Set(problems)]; // 同一个链接会在 nav 和 sidebar 各出现一次
 if (unique.length) {
   console.error("门禁没过：");
@@ -84,5 +113,6 @@ if (unique.length) {
   process.exit(1);
 }
 console.log(
-  `✓ 两份词典键一致（${zhKeys.size} 个）；导航里 ${referenced.size} 个页面全部存在；没有孤立页面`,
+  `✓ 两份词典键一致（${zhKeys.size} 个）；导航里 ${referenced.size} 个页面全部存在；` +
+    `没有孤立页面；「全网」${networkLinks} 条跨站地址成立`,
 );
