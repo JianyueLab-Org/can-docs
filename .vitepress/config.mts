@@ -161,9 +161,12 @@ const NETWORK_SECTIONS: ReadonlyArray<{
     section: "network",
     sites: [
       { key: "web", origin: "https://ceruleanavi.net" },
-      // 开发者中心的落点是 /docs（接口文档），不是它的首页 —— can-ui 的
-      // `NETWORK_SITES` 里这一条也带着这个路径。
-      { key: "dev", origin: "https://platform.ceruleanavi.net/docs" },
+      // 开发者中心落在**首页**。它从前落在 `/docs`（接口文档），而那一页现在要
+      // 登录 —— 继续指过去，就是在这个**公开**文档站的导航里给每一个未登录读者
+      // 画一条通往登录墙的链接。can-ui 的 `NETWORK_SITES` 同时改了，那边是来源
+      // 之记录；下面的门禁只验地址本身立不立得住，验不出落点对不对，所以这条注
+      // 释就是那道人工检查。
+      { key: "dev", origin: "https://platform.ceruleanavi.net" },
     ],
   },
 ];
