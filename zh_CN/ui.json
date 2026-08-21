@@ -24,13 +24,14 @@
     "docs": {
       "editions": {
         "items": {
+          "thirdEdition": "第三版",
           "secondEdition": "第二版",
           "firstEdition": "第一版"
         }
       },
       "atc": {
         "items": {
-          "professionalGuidelines": "职业准则"
+          "professionalGuidelines": "管制员准则"
         }
       },
       "history": {

@@ -13,11 +13,13 @@ index.md               语言分流页（/，不属于任何语言）
 zh_CN/
   ui.json              该语言的壳文案（导航、侧栏、搜索、页脚、404…）
   index.md             /zh_CN/
-  regulation.md        /zh_CN/regulation          规章制度
-  atc.md               /zh_CN/atc                 管制员职业准则
-  history.md           /zh_CN/history             平台的历史
+  regulation.md        /zh_CN/regulation              平台总则（现行，第四版）
+  atc.md               /zh_CN/atc                     管制员准则
+  history.md           /zh_CN/history                 平台的历史
   archive/
-    regulation.md      /zh_CN/archive/regulation  规章制度 第一版（已归档）
+    regulation_3rd.md  /zh_CN/archive/regulation_3rd  规章制度 第三版（已归档）
+    regulation_2nd.md  /zh_CN/archive/regulation_2nd  规章制度 第二版（已归档）
+    regulation.md      /zh_CN/archive/regulation      规章制度 第一版（已归档）
 en_US/
   ui.json
   index.md             /en_US/
@@ -48,9 +50,23 @@ en_US/
 2. 名单里有两格把两个邮箱塞进了同一个 `mailto:` 链接（`href` 只指向第一个，第二
    个是纯文本却看着像链接）。拆成了两个各自正确的 `mailto:`。
 
-`zh_CN/regulation.md` 不是迁移来的，是管理组新修订的版本，页首自带「本规则还未实
-行」的提示。**原来的第二版没有留在本站**，只在 can-web 的
-`/docs/regulation_2nd`（也还在本仓库的 git 历史里）。
+`zh_CN/regulation.md` 不是迁移来的，是管理组自己修订的文本。它现在是**第四版**，
+标题《Cerulean Aviation Network 平台总则》，按章—条—款—项写成法条体：九章五十二
+条，其中第四章「管制员准则」和第三章里的飞行细则（RVSM 高度层、SID／STAR、管制空
+域、倍速、30 秒起飞、40 秒脱离跑道、50 米滑行间隔、单一有效连接）是这一版补进来
+的。
+
+**换版换的是文本，不是地址。** 现行文本永远写在 `zh_CN/regulation.md`，被它取代的
+那一版移进 `archive/`：第四版发布时，第三版从这里移到了
+`archive/regulation_3rd.md`。`/zh_CN/regulation` 这个地址被验证邮件和 Discord 置顶
+引用着，删不掉也通知不到，所以新版本不能另开一个 `zh_CN/regulation/` 目录了事 ——
+那样地址会变成 `/zh_CN/regulation/`（多一条斜杠），而 `deploy/nginx.conf` 的
+`try_files $uri $uri.html $uri/index.html` 会先命中 `regulation.html`，结果是新文本
+躺在一个没人走得到的地址上，所有入口仍然指着旧文本，而且构建和 `bun run lint` 都
+不会有任何抱怨（门禁不检查 `index.md` 是否孤立）。
+
+第二版原本也不在本站，只在 can-web 的 `/docs/regulation_2nd`；那一段撤掉时它搬了过
+来，现在是 `archive/regulation_2nd.md`。
 
 ## 没有迁过来的
 
@@ -150,8 +166,9 @@ zh-TW，要加的时候复制一份 `ja_JP/ui.json`、在 `config.mts` 的 `loca
 
 1. `astro.config.mjs` 的 `redirects` 里把 `/docs/*` 301 过来：`/docs/atc` →
    `/zh_CN/atc`、`/docs/history` → `/zh_CN/history`、`/docs/regulation_1st` →
-   `/zh_CN/archive/regulation`。**`/docs/regulation_2nd` 需要单独决定** —— 本站
-   没有第二版，而现行规章还是它。
+   `/zh_CN/archive/regulation`、`/docs/regulation_2nd` →
+   `/zh_CN/archive/regulation_2nd`。**第二版指向归档而不是现行文本**：那个地址
+   点的是一个特定版本，把来查某一条的人送到另一份文本上，比多点一次更糟。
 2. 删掉 `src/pages/docs/`、`src/content/docs/`、`src/content.config.ts` 里的
    `docs` collection、`src/lib/docsNav.ts`，以及 `language/*.json` 里的
    `docs.*` / `frame.docs.*`（`DocsLayout.astro` 还被分部规则和培训材料用着，
@@ -161,9 +178,7 @@ zh-TW，要加的时候复制一份 `ja_JP/ui.json`、在 `config.mts` 的 `loca
    `pages/index.astro`、`pages/404.astro`、`Exams.vue`。
 4. `src/middleware.ts` 的 `PROTECTED_PREFIXES` 去掉 `/docs`。
 
-**第 4 条会改变访问模型，而且现在就有影响。** can-web 的 `/docs` 在
-`PROTECTED_PREFIXES` 里，匿名访客会被弹去 `/signin`。`zh_CN/regulation.md` 页首
-那条「请参考 https://ceruleanavi.net/docs/regulation_2nd」是本站唯一一条指回主站的
-链接，所以**没登录的人点它会落到登录页**；等第 2 步删掉那边的 `/docs`，它会直接
-404。规章第一句就是「若您在平台上注册账号，即表示您同意遵守本规章制度」，注册前
-就该读得到——公开大概率是想要的结果，但这是一个要有意识做出的决定。
+**第 4 条会改变访问模型。** can-web 的 `/docs` 在 `PROTECTED_PREFIXES` 里，匿名访
+客会被弹去 `/signin`。本站不该继承这件事：总则第四条写的是「用户注册账号，即视为
+同意遵守本总则」，一份注册前就该读得到的文本，放在登录墙后面是自相矛盾的。公开大
+概率是想要的结果，但这是一个要有意识做出的决定。

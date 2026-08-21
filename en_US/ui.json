@@ -24,13 +24,14 @@
     "docs": {
       "editions": {
         "items": {
+          "thirdEdition": "Third Edition",
           "secondEdition": "Second Edition",
           "firstEdition": "First Edition"
         }
       },
       "atc": {
         "items": {
-          "professionalGuidelines": "Professional Guidelines"
+          "professionalGuidelines": "Controller Regulations"
         }
       },
       "history": {
