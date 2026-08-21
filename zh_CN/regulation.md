@@ -132,15 +132,15 @@ CAN 由 JIANYUELAB LTD（“JianyueLab”、“JYL”）的 JianyueLab Org.（�
 
 **第二十九条（通话语言）**　陆空通话须使用英语或者指定语言。
 
-**第三十条（紧急频率）**　121.50 MHz 为紧急频率，非紧急情况请勿占用。
+**第三十条（紧急频率）**　121.500 MHz 为紧急频率，非紧急情况请勿占用。
 
 **第三十一条（指令优先）**　管制员的指令具有最终执行优先权。
 
 **第三十二条（频率争议）**　飞行员与管制员发生矛盾时，请勿占用频率争论，应当依照第三十八条的规定提交反馈。
 
-**第三十三条（无管制频率）**　无管制空域内，122.8 MHz 为标准协调频率，航空器应当自主协商避让。
+**第三十三条（无管制频率）**　无管制空域内，122.800 MHz 为标准协调频率，航空器应当自主协商避让。
 
-**第三十四条（频率闲聊）**　机组之间需要在频率上闲聊的，请使用 123.45 MHz。
+**第三十四条（频率闲聊）**　机组之间需要在频率上闲聊的，请使用 123.450 MHz。
 
 机组流量不大时，允许机组与管制员在频率上闲聊，但指令优先；管制员发布指令及机组复诵指令时，不得被闲聊内容打断。
 
@@ -229,11 +229,11 @@ CAN 由 JIANYUELAB LTD（“JianyueLab”、“JYL”）的 JianyueLab Org.（�
 | 职位 | 姓名 | 联系方式 | 职责 |
 | --- | --- | --- | --- |
 | 主管（Director） | Jianyue Hugo Liang<br>a.k.a. Janyue Aosugi | [j.aosugi@ceruleanavi.net](mailto:j.aosugi@ceruleanavi.net)<br>[j.h.liang@jianyuelab.co](mailto:j.h.liang@jianyuelab.co) | 制定平台整体运营规划和发展战略、服务器资源整体维护与开发 |
-| 副主管（Deputy Director） | Huaji Cai | [h.cai@ceruleanavi.net](mailto:h.cai@ceruleanavi.net)<br>[hjdczy@foxmail.com](mailto:hjdczy@foxmail.com) | 处理平台日常事务、协助服务器运维和开发 |
-| 运营主管（Operations Director） | Kehao Jin | [k.jin@ceruleanavi.net](mailto:k.jin@ceruleanavi.net) | 进行平台宣传与活动策划、负责服务器外联工作 |
-| 成员（Staff） | Siwei Ma | 经上列任一管理员转交 | 协助平台日常运营与社区管理 |
-| 成员（Staff） | Peixi Li | 经上列任一管理员转交 | 协助平台日常运营与社区管理 |
-| 成员（Staff） | Xiaosuda | 经上列任一管理员转交 | 协助平台日常运营与社区管理 |
+| 副主管（Deputy Director） | Huaji Cai | 经主管转交 | 处理平台日常事务、协助服务器运维和开发 |
+| 运营主管（Operations Director） | Kehao Jin | 经主管转交 | 进行平台宣传与活动策划、负责服务器外联工作 |
+| 成员（Staff） | Siwei Ma | 经主管转交 | 协助平台日常运营与社区管理 |
+| 成员（Staff） | Peixi Li | 经主管转交 | 协助平台日常运营与社区管理 |
+| 成员（Staff） | Xiaosuda | 经主管转交 | 协助平台日常运营与社区管理 |
 
 表中的邮箱用于日常联络，不受理反馈；反馈一律依照第三十八条提交。
 
