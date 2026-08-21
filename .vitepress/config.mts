@@ -32,10 +32,18 @@ type Dict = typeof zhCN;
 /**
  * 文档现在的地址。译文落地前，两种语言都指向 zh_CN/ 下的中文原文。
  *
- * **规章的现行版本永远是 `regulation`**，归档里放被它取代的旧版本 —— 现在有两
- * 份。第二版原来不在这个仓库：它住在 can-web 的 `/docs/regulation_2nd`，是
- * `regulation` 生效之前约束成员的那一份。can-web 的 `/docs` 整段撤掉时它搬了过
- * 来，直接进归档。
+ * **规章的现行版本永远是 `regulation`**，归档里放被它取代的旧版本 —— 现在有三
+ * 份。第二版原来不在这个仓库：它住在 can-web 的 `/docs/regulation_2nd`，是第三版
+ * 生效之前约束成员的那一份。can-web 的 `/docs` 整段撤掉时它搬了过来，直接进归档。
+ *
+ * 第三版是最近一次换版进来的：《平台总则》（第四版）发布时，它从 `regulation.md`
+ * 移到了 `archive/regulation_3rd.md`。**换版换的是文本，不是地址** —— 现行文本始终
+ * 落在 `/zh_CN/regulation`，因为这个地址印在验证邮件里、写在 Discord 置顶里，而那
+ * 些链接我们既删不掉也通知不到。所以新版本要写进 `zh_CN/regulation.md` 本身，而不
+ * 是新开一个 `zh_CN/regulation/index.md` —— 后者的地址是 `/zh_CN/regulation/`，多
+ * 一条斜杠，nginx 的 `try_files $uri $uri.html $uri/index.html` 会先命中
+ * `regulation.html`，于是新版本静静地躺在一个没人会走到的地址上，而所有入口仍然指
+ * 着旧文本。
  *
  * 归档不是收纳，是**接住站外引用**：`ceruleanavi.net/docs/regulation_2nd` 印在验证
  * 邮件里、写在 Discord 置顶里，can-web 那边的转发页把它送到这里。所以旧版本删不
@@ -47,6 +55,7 @@ const DOC = {
   guidelines: "/zh_CN/atc",
   history: "/zh_CN/history",
   // 归档：被现行规章取代的旧版本，新的在前。
+  thirdEdition: "/zh_CN/archive/regulation_3rd",
   secondEdition: "/zh_CN/archive/regulation_2nd",
   firstEdition: "/zh_CN/archive/regulation",
 };
@@ -254,6 +263,7 @@ function themeConfigFor(d: Dict) {
         text: d.docs.sections.archive.title,
         // 新的在前。
         items: [
+          { text: f.editions.items.thirdEdition, link: DOC.thirdEdition },
           { text: f.editions.items.secondEdition, link: DOC.secondEdition },
           { text: f.editions.items.firstEdition, link: DOC.firstEdition },
         ],
