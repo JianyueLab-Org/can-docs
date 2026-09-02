@@ -217,6 +217,28 @@ function hasFullGitHistory(): boolean {
   return false;
 }
 
+/**
+ * 中国大陆 ICP 备案号，两种语言共用一份。
+ *
+ * **不放进 ui.json。** 那会变成 zh_CN 一份、en_US 一份，而备案号不随语言变 ——
+ * 它是站点的法定标识，不是文案。两份意味着改的时候要记得改两处，而漏掉的那一
+ * 处不报错、不变红、构建照常通过，只是不再是一个能核验的号。
+ *
+ * 全网权威的那一份在 can-ui 的 `sites.ts`（`ICP_FILING`），其余八个站都从那里
+ * 读。这里抄一份，是因为这个站是 VitePress 而不是 Astro + Vue：为了一个字符串
+ * 把整个设计系统装进来不划算。**改的时候两处一起改。**
+ *
+ * VitePress 的 footer.copyright 收 HTML，所以链接直接写在里面。
+ */
+const ICP_FILING = {
+  number: "浙ICP备2026064687号-3",
+  href: "https://beian.miit.gov.cn/",
+};
+
+const ICP_HTML =
+  ` · <a href="${ICP_FILING.href}" target="_blank" rel="noopener noreferrer">` +
+  `${ICP_FILING.number}</a>`;
+
 /** 两种语言的导航结构完全一样，只有文案不同 —— 写成一份，免得各自漂移。 */
 function themeConfigFor(d: Dict) {
   const t = d.theme;
@@ -297,7 +319,9 @@ function themeConfigFor(d: Dict) {
     returnToTopLabel: t.returnToTopLabel,
     langMenuLabel: t.langMenuLabel,
     skipToContentLabel: t.skipToContentLabel,
-    footer: t.footer,
+    // 备案号跟在版权后面：两者是同一类东西（法定标识），而 VitePress 的页脚
+    // 只有这一栏，另起一行会把它推到一个没人看的位置。
+    footer: { ...t.footer, copyright: t.footer.copyright + ICP_HTML },
     notFound: t.notFound,
   };
 }
