@@ -228,7 +228,7 @@ CAN 由 JIANYUELAB LTD（“JianyueLab”、“JYL”）的 JianyueLab Org.（�
 
 | 职位 | 姓名 | 联系方式 | 职责 |
 | --- | --- | --- | --- |
-| 主管（Director） | Jianyue Hugo Liang<br>a.k.a. Janyue Aosugi | [j.aosugi@ceruleanavi.net](mailto:j.aosugi@ceruleanavi.net)<br>[j.h.liang@jianyuelab.co](mailto:j.h.liang@jianyuelab.co) | 制定平台整体运营规划和发展战略、服务器资源整体维护与开发 |
+| 主管（Director） | Jianyue Hugo Liang<br>a.k.a. Janyue Aosugi | [j.h.liang@jianyuelab.co](mailto:j.h.liang@jianyuelab.co) | 制定平台整体运营规划和发展战略、服务器资源整体维护与开发 |
 | 副主管（Deputy Director） | Huaji Cai | 经主管转交 | 处理平台日常事务、协助服务器运维和开发 |
 | 运营主管（Operations Director） | Kehao Jin | 经主管转交 | 进行平台宣传与活动策划、负责服务器外联工作 |
 | 成员（Staff） | Siwei Ma | 经主管转交 | 协助平台日常运营与社区管理 |
