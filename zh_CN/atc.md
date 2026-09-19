@@ -142,6 +142,16 @@
 
 <span class="regulation-status regulation-status-pending">`Extending` 信息应当明确标注所延展的席位或者管制范围，并在实际开始提供延展范围内的管制服务前完成发布。延展范围不得超出管制员的权限；如有其他管制员在线，管制员应当事先完成协调。停止延展时，应当及时移除或者更新 `Extending` 信息，并完成必要的管制移交。</span>
 
+<span class="regulation-status regulation-status-pending">管制员延展管制范围时，还应当遵守下列规定：</span>
+
+<span class="regulation-status regulation-status-pending">（一）管制范围内同时接受管制服务的机组达到 5 架时，管制员应当根据自身精力、工作负荷及运行情况，考虑缩小管制范围；管制员同时具有教员身份的，前述数量为 10 架；</span>
+
+<span class="regulation-status regulation-status-pending">（二）处于实习期的管制员不得延展管制范围；</span>
+
+<span class="regulation-status regulation-status-pending">（三）活动期间需要延展管制范围的，应当事先与管理组协商并取得同意；</span>
+
+<span class="regulation-status regulation-status-pending">（四）管制范围的延展不得跨越国界；事先取得对应分部主管或者管制组许可的除外。</span>
+
 **第二十二条（降级）**　有机组反馈管制员在管制中缺乏专业性或者必要能力的，平台核实后可以将其暂时降级为低一级权限，并要求其进行针对性训练；经平台认可达标后，重新授予相应权限。
 
 <span class="regulation-status regulation-status-pending">训练的期限由该管制员主分部的主管或者责任教员确定，并告知本人。</span>
