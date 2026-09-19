@@ -22,6 +22,12 @@
   },
   "frame": {
     "docs": {
+      "regulations": {
+        "items": {
+          "current": "Current Regulations",
+          "revisions": "Revision History and Notices"
+        }
+      },
       "editions": {
         "items": {
           "thirdEdition": "Third Edition",
@@ -36,6 +42,9 @@
       },
       "history": {
         "title": "History"
+      },
+      "privacy": {
+        "title": "Privacy notice"
       },
       "onThisPage": "On this page"
     }

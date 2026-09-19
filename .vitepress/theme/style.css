@@ -386,6 +386,38 @@ h3 {
   background: color-mix(in srgb, var(--can-brand-500) 26%, transparent);
 }
 
+/* 规章状态标记：直接使用文字颜色，不添加背景、边框或徽章样式。
+   - pending：尚未施行（绿）
+   - notice：修改公示期内、尚未施行（红）
+   - effective：已施行、仍在施行后公示期（黄） */
+.regulation-status {
+  font-weight: 650;
+}
+
+.regulation-status-pending {
+  color: #15803d;
+}
+
+.regulation-status-notice {
+  color: #b91c1c;
+}
+
+.regulation-status-effective {
+  color: #a16207;
+}
+
+.dark .regulation-status-pending {
+  color: #86efac;
+}
+
+.dark .regulation-status-notice {
+  color: #fca5a5;
+}
+
+.dark .regulation-status-effective {
+  color: #fde047;
+}
+
 /* 键盘焦点一套写法，和主站同一条规则。 */
 :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
   outline: 2px solid var(--can-brand-500);

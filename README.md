@@ -14,8 +14,10 @@ zh_CN/
   ui.json              该语言的壳文案（导航、侧栏、搜索、页脚、404…）
   index.md             /zh_CN/
   regulation.md        /zh_CN/regulation              平台总则（现行，第四版）
+  revisions.md         /zh_CN/revisions               修订历史与公示信息
   atc.md               /zh_CN/atc                     管制员准则
   history.md           /zh_CN/history                 平台的历史
+  privacy.md           /zh_CN/privacy                 隐私说明
   archive/
     regulation_3rd.md  /zh_CN/archive/regulation_3rd  规章制度 第三版（已归档）
     regulation_2nd.md  /zh_CN/archive/regulation_2nd  规章制度 第二版（已归档）

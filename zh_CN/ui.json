@@ -22,6 +22,12 @@
   },
   "frame": {
     "docs": {
+      "regulations": {
+        "items": {
+          "current": "平台总则",
+          "revisions": "修订历史与公示信息"
+        }
+      },
       "editions": {
         "items": {
           "thirdEdition": "第三版",
@@ -36,6 +42,9 @@
       },
       "history": {
         "title": "平台的历史"
+      },
+      "privacy": {
+        "title": "隐私说明"
       },
       "onThisPage": "本页目录"
     }

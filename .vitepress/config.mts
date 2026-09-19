@@ -52,8 +52,10 @@ type Dict = typeof zhCN;
 const DOC = {
   // 现行有效的规章。
   regulation: "/zh_CN/regulation",
+  revisions: "/zh_CN/revisions",
   guidelines: "/zh_CN/atc",
   history: "/zh_CN/history",
+  privacy: "/zh_CN/privacy",
   // 归档：被现行规章取代的旧版本，新的在前。
   thirdEdition: "/zh_CN/archive/regulation_3rd",
   secondEdition: "/zh_CN/archive/regulation_2nd",
@@ -269,8 +271,13 @@ function themeConfigFor(d: Dict) {
       },
     ],
     sidebar: [
-      // 规章只有一篇，就是顶层直链，不套一层同名的分组。旧版本在下面的归档里。
-      { text: d.docs.sections.regulations.title, link: DOC.regulation },
+      {
+        text: d.docs.sections.regulations.title,
+        items: [
+          { text: f.regulations.items.current, link: DOC.regulation },
+          { text: f.regulations.items.revisions, link: DOC.revisions },
+        ],
+      },
       {
         text: d.docs.sections.controllers.title,
         items: [
@@ -279,7 +286,10 @@ function themeConfigFor(d: Dict) {
       },
       {
         text: d.docs.sections.about.title,
-        items: [{ text: f.history.title, link: DOC.history }],
+        items: [
+          { text: f.history.title, link: DOC.history },
+          { text: f.privacy.title, link: DOC.privacy },
+        ],
       },
       {
         text: d.docs.sections.archive.title,
@@ -305,7 +315,7 @@ function themeConfigFor(d: Dict) {
       // formatOptions 是**整体替换**默认值（`{ dateStyle, timeStyle }`）而不是合
       // 并，所以不写 timeStyle 就只剩日期 —— 规章页上「几点几分」是噪声。
       formatOptions: {
-        dateStyle: "long",
+        dateStyle: "long" as const,
         // 按**页面**语言格式化，不按访客浏览器的。正文只有中文、两种语言都指向
         // 它，日期跟着页面走才不会一页之内两种写法。
         forceLocale: true,
