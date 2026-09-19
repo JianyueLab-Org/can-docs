@@ -150,7 +150,7 @@
 
 <span class="regulation-status regulation-status-pending">（三）活动期间需要延展管制范围的，应当事先与管理组协商并取得同意；</span>
 
-<span class="regulation-status regulation-status-pending">（四）管制范围的延展不得跨越国界；事先取得对应分部主管或者管制组许可的除外。</span>
+<span class="regulation-status regulation-status-pending">（四）管制范围的延展不得跨越国界；事先取得对应分部主管或者管理组许可的除外。</span>
 
 **第二十二条（降级）**　有机组反馈管制员在管制中缺乏专业性或者必要能力的，平台核实后可以将其暂时降级为低一级权限，并要求其进行针对性训练；经平台认可达标后，重新授予相应权限。
 
