@@ -237,7 +237,7 @@ CAN 由 JIANYUELAB LTD（“JianyueLab”、“JYL”）的 JianyueLab Org.（�
 
 表中的邮箱用于日常联络，不受理反馈；反馈一律依照第三十八条提交。
 
-误注册本平台账号的，可以通过邮件联系平台主管处理。
+关闭账号在网站「个人面板 → 账号」自行办理：导出个人数据后关闭账号。关闭后立即无法登录，账号行保留一年，期间同一邮箱与 CAN ID 不得再注册。无法登录时，可以通过邮件联系平台主管处理。
 
 **第四十八条（隐私政策及服务条款）**　本平台由 JianyueLab Ltd 旗下社区项目开源部门 JianyueLab Org. 负责运营和管理。除特殊声明以外，适用 JianyueLab Ltd 的[隐私政策](https://jianyuelab.co/legal/privacy/)与[服务条款](https://jianyuelab.co/legal/tos/)。
 
