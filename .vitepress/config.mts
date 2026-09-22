@@ -275,13 +275,8 @@ function themeConfigFor(d: Dict) {
         text: d.docs.sections.regulations.title,
         items: [
           { text: f.regulations.items.current, link: DOC.regulation },
-          { text: f.regulations.items.revisions, link: DOC.revisions },
-        ],
-      },
-      {
-        text: d.docs.sections.controllers.title,
-        items: [
           { text: f.atc.items.professionalGuidelines, link: DOC.guidelines },
+          { text: f.regulations.items.revisions, link: DOC.revisions },
         ],
       },
       {

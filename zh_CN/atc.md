@@ -50,9 +50,13 @@
 
 <span class="regulation-status regulation-status-pending">申请人有两人以上的，应当在申请中共同指定一人担任第一届分部主管；未能共同指定的，由管理组在申请人中确定。</span>
 
-<span class="regulation-status regulation-status-pending">**第九条（主管选举）**　第一届之后的分部主管，由对应分部成员选举产生。分部主管选举应当遵循公开、公平和可核验的原则，具体选举程序由分部制定并事先向全体分部成员公布。</span>
+<span class="regulation-status regulation-status-pending">**第九条（主管选举与管理人员罢免）**　第一届之后的分部主管，由对应分部成员选举产生。分部主管选举应当遵循公开、公平和可核验的原则，具体选举程序由分部制定并事先向全体分部成员公布。</span>
 
 <span class="regulation-status regulation-status-pending">选举结果应当及时向管理组报备，由管理组据此更新管制员名册。分部主管依照已公布的选举结果就任，管理组的报备与名册更新不改变分部成员的选举结果。管制员不得仅以访问分部成员身份参与分部主管选举，但该管制员同时以该分部为主分部的除外。</span>
+
+<span class="regulation-status regulation-status-pending">管理组收到六名以上不同人员针对同一分部管理人员提交的投诉，经调查确认投诉属实的，应当考虑启动对该管理人员的罢免程序。该分部的访问分部成员提交的投诉，计入前述投诉人数。本款所称分部管理人员，包括分部主管及分部内部其他管理人员。</span>
+
+<span class="regulation-status regulation-status-pending">罢免应当由以该分部为主分部的全体成员投票决定。参与投票的成员达到前述成员总数三分之二以上的，该次投票有效；在有效投票中，超过半数的票数支持罢免的，管理组应当罢免该管理人员。仅以访问分部成员身份加入该分部的管制员不得参与罢免投票，也不计入本款所称成员总数；该管制员同时以该分部为主分部的除外。</span>
 
 <span class="regulation-status regulation-status-pending">**第十条（主管职责）**　分部主管负责分部内部的管理与基础运行，其职责包括：</span>
 
@@ -115,6 +119,14 @@
 分部的划分及各分部的主管，以平台公布的[管制员名册](https://ceruleanavi.net/roster)为准。申请者应当依照名册确定对应分部的主管，并向其提交申请。
 
 名册中未列明主管的分部，或者无法确定对应分部的，向平台主管 简约（CID 1000）提交申请，[j.h.liang@jianyuelab.co](mailto:j.h.liang@jianyuelab.co)。
+
+<span class="regulation-status regulation-status-pending">本准则规定由分部主管受理的申请，包括管制员申请、访问分部申请及其他申请，均适用下列处理时限：</span>
+
+<span class="regulation-status regulation-status-pending">（一）分部主管收到申请后，应当在 72 小时内回复申请人并确认已经收到申请；</span>
+
+<span class="regulation-status regulation-status-pending">（二）分部主管应当自收到申请之日起 7 日内，向申请人告知处理结果及下一步安排；</span>
+
+<span class="regulation-status regulation-status-pending">（三）申请提交后超过 72 小时，分部主管仍未作任何回应的，申请人可以向管理组成员提交该申请，请求管理组介入或者代为处理。</span>
 
 ## 第四章　席位与权限
 

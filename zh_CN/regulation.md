@@ -162,7 +162,9 @@ CAN 由 JIANYUELAB LTD（“JianyueLab”、“JYL”）的 JianyueLab Org.（�
 
 **第三十八条（提交方式）**　反馈应当使用用户注册时所用的邮箱，以电子邮件的形式发送至 [feedback@ceruleanavi.net](mailto:feedback@ceruleanavi.net)。
 
-就本总则或者平台事务提出疑问、建议的，同样依照前款提交。
+<span class="regulation-status regulation-status-pending">对平台内任何人员，包括但不限于飞行员、管制员、分部管理人员和管理组人员的不当行为提出投诉的，同样应当依照前款以电子邮件提交。</span>
+
+就本总则或者平台事务提出疑问、建议的，同样依照第一款提交。
 
 **电子邮件是与平台管理组沟通的唯一途径。** 通过管理员的个人邮箱、平台社区、Discord 群组、QQ 群、其他即时通讯软件、连线中的 `.wallop` 或者任何其他方式送达的疑问、建议与反馈，平台不予受理，也不进入本章的受理、复审与公开程序。
 
