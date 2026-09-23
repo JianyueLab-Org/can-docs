@@ -110,7 +110,7 @@ CAN 由 JIANYUELAB LTD（“JianyueLab”、“JYL”）的 JianyueLab Org.（�
 
 考核的具体内容与附加要求，由各分部主管结合本分部的实际运行情况规定并公布。
 
-<span class="regulation-status regulation-status-pending">管制员的分部管理、资格申请、训练、考核、授权、降级与取消，依照[《CAN 管制员准则》](/zh_CN/atc)第二章至第五章执行。</span>
+<span class="regulation-status regulation-status-notice">管制员的分部管理、资格申请、训练、考核、授权、降级与取消，依照[《CAN 管制员准则》](/zh_CN/atc)第二章至第五章执行。</span>
 
 **第二十四条（基本职责）**　管制员在提供管制服务时应当遵守本总则，冷静应对冲突，平和面对机组并解答机组疑惑。
 
@@ -162,7 +162,7 @@ CAN 由 JIANYUELAB LTD（“JianyueLab”、“JYL”）的 JianyueLab Org.（�
 
 **第三十八条（提交方式）**　反馈应当使用用户注册时所用的邮箱，以电子邮件的形式发送至 [feedback@ceruleanavi.net](mailto:feedback@ceruleanavi.net)。
 
-<span class="regulation-status regulation-status-pending">对平台内任何人员，包括但不限于飞行员、管制员、分部管理人员和管理组人员的不当行为提出投诉的，同样应当依照前款以电子邮件提交。</span>
+<span class="regulation-status regulation-status-notice">对平台内任何人员，包括但不限于飞行员、管制员、分部管理人员和管理组人员的不当行为提出投诉的，同样应当依照前款以电子邮件提交。</span>
 
 就本总则或者平台事务提出疑问、建议的，同样依照第一款提交。
 
