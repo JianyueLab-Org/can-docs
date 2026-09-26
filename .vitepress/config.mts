@@ -126,7 +126,9 @@ const REPO = "https://github.com/JianyueLab-Org/can-docs";
  *
  * ## 为什么是抄的，而不是 import
  *
- * **`@jianyuelab-org/can-ui/sites` 才是这份清单的来源之记录。** 这里没有 import
+ * **`@jianyuelab-org/can-ui/sites` 才是这份清单的来源之记录** —— 文件是 can-ui
+ * 仓库的 `src/sites.ts`，表是 `NETWORK_SITES`，分组是 `sitesBySection`。改那边
+ * 的人要顺手改这里。这里没有 import
  * 它，是因为这个站是全网唯一一个**零依赖**的：它不是 Astro + Vue，用的是
  * VitePress 自带的主题，一个 can-ui 组件都渲染不了，只会用到那个纯数据模块。而
  * can-ui 装在 GitHub Packages 上，即使公开包也要带令牌 —— 为一张六行的表给一个
@@ -204,10 +206,14 @@ function hasFullGitHistory(): boolean {
   try {
     // 这一条命令同时验掉三件事：git 装了、当前目录是个能读的仓库、而且不是浅
     // 克隆。前两件失败会抛，第三件返回 "true"。
-    const shallow = execFileSync("git", ["rev-parse", "--is-shallow-repository"], {
-      stdio: ["ignore", "pipe", "ignore"],
-      encoding: "utf8",
-    });
+    const shallow = execFileSync(
+      "git",
+      ["rev-parse", "--is-shallow-repository"],
+      {
+        stdio: ["ignore", "pipe", "ignore"],
+        encoding: "utf8",
+      },
+    );
     if (shallow.trim() === "false") return true;
     why = "仓库是浅克隆（checkout 的 fetch-depth 不是 0）";
   } catch {
@@ -357,9 +363,24 @@ export default defineConfig({
     // svg 放在最前：支持的浏览器会优先取它，一个矢量图在任何缩放下都清楚；不
     // 支持的（Safari 一直到 16）会往下退到 32 的 png。
     ["link", { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
-    ["link", { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32.png" }],
+    [
+      "link",
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32",
+        href: "/favicon-32.png",
+      },
+    ],
     // iOS 不认 alpha，会把透明合到黑底上，所以这张是不透明的。
-    ["link", { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" }],
+    [
+      "link",
+      {
+        rel: "apple-touch-icon",
+        sizes: "180x180",
+        href: "/apple-touch-icon.png",
+      },
+    ],
   ],
 
   locales: {
