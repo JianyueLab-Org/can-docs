@@ -34,6 +34,6 @@ features:
     link: /zh_CN/history
 ---
 
-The four documents are published in Chinese, and the Chinese text is the one
-that governs. English translations are not available yet — the links above lead
-to the Chinese originals.
+The Chinese text governs the platform regulations. An English translation of the
+General Regulations is available here; the ATC guidelines, training observation
+rules, revision history and other documents remain available in Chinese only.

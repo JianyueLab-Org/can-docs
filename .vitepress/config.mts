@@ -20,17 +20,16 @@ import enUS from "../en_US/ui.json";
 // 根目录 index.md 是语言分流页：没有哪种语言占着 /，进来的人由下面的脚本按浏览
 // 器语言送去 /zh_CN/ 或 /en_US/。
 //
-// **这只是语言骨架。** 四篇文档还只有中文原文：规章是有处分效力的文本，译本要
-// 管理组认过才能发。所以英文侧只有首页，导航指向 zh_CN/ 下的中文页面，/en_US/
-// 首页也写明了这件事。译文落地时要做三件事：把 DOC 换成 /<locale>/<slug>、删掉
-// 首页的说明、把 i18nRouting 打开。
+// 中文是平台规章的正式文本。英文侧已经提供《平台总则》的英文译本；其他文档
+// 尚无正式英文译本，因此英文导航继续指向 zh_CN/ 下的中文原文，并由英文首页说明。
 //
 // https://vitepress.dev/reference/site-config
 
 type Dict = typeof zhCN;
 
 /**
- * 文档现在的地址。译文落地前，两种语言都指向 zh_CN/ 下的中文原文。
+ * 文档现在的地址。中文使用 zh_CN/ 下的正式文本；英文侧仅已完成正式译文的
+ * 《平台总则》使用 en_US/ 页面，其余页面继续指向中文原文。
  *
  * **规章的现行版本永远是 `regulation`**，归档里放被它取代的旧版本 —— 现在有三
  * 份。第二版原来不在这个仓库：它住在 can-web 的 `/docs/regulation_2nd`，是第三版
@@ -50,7 +49,7 @@ type Dict = typeof zhCN;
  * 得，也不该悄悄改 —— 两份归档页都用 frontmatter 关掉了「在 GitHub 上编辑此页」。
  */
 const DOC = {
-  // 现行有效的规章。
+  // 中文正式文本及尚无英文译本的页面。
   regulation: "/zh_CN/regulation",
   revisions: "/zh_CN/revisions",
   guidelines: "/zh_CN/atc",
@@ -62,6 +61,14 @@ const DOC = {
   secondEdition: "/zh_CN/archive/regulation_2nd",
   firstEdition: "/zh_CN/archive/regulation",
 };
+
+function docsFor(locale: "zh_CN" | "en_US") {
+  return {
+    ...DOC,
+    // 英文侧目前只有《平台总则》的正式译本。
+    regulation: locale === "en_US" ? "/en_US/regulation" : DOC.regulation,
+  };
+}
 
 /**
  * 按浏览器语言自动选语言。静态站没有服务端，所以放在 <head> 里同步跑，在首屏之
@@ -249,15 +256,16 @@ const ICP_HTML =
   `${ICP_FILING.number}</a>`;
 
 /** 两种语言的导航结构完全一样，只有文案不同 —— 写成一份，免得各自漂移。 */
-function themeConfigFor(d: Dict) {
+function themeConfigFor(d: Dict, locale: "zh_CN" | "en_US") {
   const t = d.theme;
   const f = d.frame.docs;
+  const doc = docsFor(locale);
   return {
     nav: [
       { text: t.nav.home, link: d.link },
       {
         text: d.docs.sections.regulations.title,
-        link: DOC.regulation,
+        link: doc.regulation,
         // 不带锚，所以归档里的旧版页面也算在这一项下面。
         activeMatch: "/regulation",
       },
@@ -281,26 +289,26 @@ function themeConfigFor(d: Dict) {
       {
         text: d.docs.sections.regulations.title,
         items: [
-          { text: f.regulations.items.current, link: DOC.regulation },
-          { text: f.atc.items.professionalGuidelines, link: DOC.guidelines },
-          { text: f.atc.items.trainingObserver, link: DOC.trainingObserver },
-          { text: f.regulations.items.revisions, link: DOC.revisions },
+          { text: f.regulations.items.current, link: doc.regulation },
+          { text: f.atc.items.professionalGuidelines, link: doc.guidelines },
+          { text: f.atc.items.trainingObserver, link: doc.trainingObserver },
+          { text: f.regulations.items.revisions, link: doc.revisions },
         ],
       },
       {
         text: d.docs.sections.about.title,
         items: [
-          { text: f.history.title, link: DOC.history },
-          { text: f.privacy.title, link: DOC.privacy },
+          { text: f.history.title, link: doc.history },
+          { text: f.privacy.title, link: doc.privacy },
         ],
       },
       {
         text: d.docs.sections.archive.title,
         // 新的在前。
         items: [
-          { text: f.editions.items.thirdEdition, link: DOC.thirdEdition },
-          { text: f.editions.items.secondEdition, link: DOC.secondEdition },
-          { text: f.editions.items.firstEdition, link: DOC.firstEdition },
+          { text: f.editions.items.thirdEdition, link: doc.thirdEdition },
+          { text: f.editions.items.secondEdition, link: doc.secondEdition },
+          { text: f.editions.items.firstEdition, link: doc.firstEdition },
         ],
       },
     ],
@@ -392,7 +400,7 @@ export default defineConfig({
       link: zhCN.link,
       title: zhCN.docs.title,
       description: zhCN.docs.description,
-      themeConfig: themeConfigFor(zhCN),
+      themeConfig: themeConfigFor(zhCN, "zh_CN"),
     },
     en_US: {
       label: enUS.label,
@@ -400,7 +408,7 @@ export default defineConfig({
       link: enUS.link,
       title: enUS.docs.title,
       description: enUS.docs.description,
-      themeConfig: themeConfigFor(enUS),
+      themeConfig: themeConfigFor(enUS, "en_US"),
     },
   },
 
