@@ -418,6 +418,177 @@ h3 {
   color: #fde047;
 }
 
+/* 组织架构图：使用原生 HTML，避免依赖 Mermaid 插件。 */
+.organization-chart {
+  --org-line: var(--can-brand-500);
+  --org-stub: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.organization-chart__node {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--can-brand-500);
+  border-radius: var(--can-radius-card);
+  background: var(--can-surface-raised);
+  color: var(--can-ink);
+  font-weight: 650;
+  line-height: 1.4;
+  text-align: center;
+  overflow-wrap: anywhere;
+  box-shadow: var(--can-shadow-card);
+}
+
+.organization-chart__node--director {
+  min-width: 14rem;
+  background: color-mix(in srgb, var(--can-brand-500) 14%, var(--can-surface-raised));
+}
+
+.organization-chart__node--child {
+  border-color: var(--can-border-strong);
+  background: var(--can-surface-sunken);
+}
+
+.organization-chart__node--division {
+  padding: 0.6rem 0.4rem;
+  border-color: var(--can-brand-300);
+  font-size: 0.8rem;
+}
+
+.organization-chart__connector {
+  position: relative;
+  flex: none;
+  width: 2px;
+  height: 1.75rem;
+  background: var(--org-line);
+}
+
+.organization-chart__connector::after {
+  position: absolute;
+  right: 50%;
+  bottom: -1px;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 2px solid var(--org-line);
+  border-bottom: 2px solid var(--org-line);
+  content: "";
+  transform: translateX(50%) rotate(45deg);
+}
+
+.organization-chart__connector--division {
+  height: 1.25rem;
+}
+
+/* 每一层：横线只连接首尾子项的中心，每个子项向上一段短竖线。
+   伪元素以内边距盒定位，所以偏移量要算上 1px 边框。 */
+.organization-chart__level {
+  --org-gap: 1rem;
+  display: grid;
+  gap: var(--org-gap);
+  width: 100%;
+  padding-top: var(--org-stub);
+}
+
+.organization-chart__level > * {
+  position: relative;
+}
+
+.organization-chart__level > *::before,
+.organization-chart__level > *::after {
+  position: absolute;
+  background: var(--org-line);
+  content: "";
+}
+
+.organization-chart__level > *::before {
+  top: calc(-1 * var(--org-stub) - 1px);
+  left: calc(50% - 1px);
+  width: 2px;
+  height: var(--org-stub);
+}
+
+.organization-chart__level > *::after {
+  top: calc(-1 * var(--org-stub) - 1px);
+  right: calc(-1 * var(--org-gap) / 2 - 1px);
+  left: calc(-1 * var(--org-gap) / 2 - 1px);
+  height: 2px;
+}
+
+.organization-chart__level > :first-child::after {
+  left: 50%;
+}
+
+.organization-chart__level > :last-child::after {
+  right: 50%;
+}
+
+.organization-chart__level--deputies {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: min(100%, 32rem);
+  padding-bottom: var(--org-stub);
+  position: relative;
+}
+
+/* 两位副主管向下汇合，再接到下一层。 */
+.organization-chart__level--deputies::after {
+  position: absolute;
+  bottom: 0;
+  left: calc((100% - var(--org-gap)) / 4 - 1px);
+  right: calc((100% - var(--org-gap)) / 4 - 1px);
+  height: var(--org-stub);
+  border: 2px solid var(--org-line);
+  border-top: 0;
+  content: "";
+}
+
+.organization-chart__level--management {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+  align-items: start;
+}
+
+.organization-chart__division-group {
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.organization-chart__division-group > .organization-chart__node {
+  width: 100%;
+}
+
+.organization-chart__level--divisions {
+  --org-gap: 0.5rem;
+  --org-line: var(--can-brand-300);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* 窄屏：管理层改为纵向排列，横线去掉，竖线贯穿行间距。 */
+@media (max-width: 640px) {
+  .organization-chart__level--management {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .organization-chart__level--management > *::after {
+    display: none;
+  }
+
+  .organization-chart__level--management > :not(:first-child)::before {
+    top: calc(-1 * var(--org-gap) - 1px);
+    height: var(--org-gap);
+  }
+
+  /* 分部挂在训练主管下面，放到最后，免得竖线穿过分部。 */
+  .organization-chart__level--management > .organization-chart__division-group {
+    order: 1;
+  }
+}
+
 /* 键盘焦点一套写法，和主站同一条规则。 */
 :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
   outline: 2px solid var(--can-brand-500);

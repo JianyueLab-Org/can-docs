@@ -228,6 +228,30 @@ CAN 由 JIANYUELAB LTD（“JianyueLab”、“JYL”）的 JianyueLab Org.（�
 
 **第四十七条（管理组）**　CAN 管理组成员及联系方式如下：
 
+<div class="organization-chart" role="img" aria-label="平台主管，下设平台副主管（管理）和平台副主管（运营）；其下设运营主管、管制员训练及分部管理主管和其他管理组成员；管制员训练及分部管理主管下设大陆、香港、日本和美国分部">
+  <div class="organization-chart__node organization-chart__node--director">平台主管</div>
+  <div class="organization-chart__connector" aria-hidden="true"></div>
+  <div class="organization-chart__level organization-chart__level--deputies">
+    <div class="organization-chart__node organization-chart__node--child">平台副主管（管理）</div>
+    <div class="organization-chart__node organization-chart__node--child">平台副主管（运营）</div>
+  </div>
+  <div class="organization-chart__connector" aria-hidden="true"></div>
+  <div class="organization-chart__level organization-chart__level--management">
+    <div class="organization-chart__node organization-chart__node--child">运营主管</div>
+    <div class="organization-chart__division-group">
+      <div class="organization-chart__node organization-chart__node--child">管制员训练及分部管理主管</div>
+      <div class="organization-chart__connector organization-chart__connector--division" aria-hidden="true"></div>
+      <div class="organization-chart__level organization-chart__level--divisions">
+        <div class="organization-chart__node organization-chart__node--division">大陆分部</div>
+        <div class="organization-chart__node organization-chart__node--division">香港分部</div>
+        <div class="organization-chart__node organization-chart__node--division">日本分部</div>
+        <div class="organization-chart__node organization-chart__node--division">美国分部</div>
+      </div>
+    </div>
+    <div class="organization-chart__node organization-chart__node--child">其他管理组成员</div>
+  </div>
+</div>
+
 | 职位 | 姓名 / CID| 联系方式 | 职责 |
 | --- | --- | --- | --- |
 | 主管 | Jianyue Hugo Liang<br>（Janyue Aosugi） | [j.h.liang@jianyuelab.co](mailto:j.h.liang@jianyuelab.co) | 统筹平台整体运营与发展，负责服务器资源维护、技术开发及重大事项决策 |
@@ -244,7 +268,7 @@ CAN 由 JIANYUELAB LTD（“JianyueLab”、“JYL”）的 JianyueLab Org.（�
 
 关闭账号在网站「个人面板 → 账号」自行办理：导出个人数据后关闭账号。关闭后立即无法登录，账号行保留一年，期间同一邮箱与 CAN ID 不得再注册。无法登录时，可以通过邮件联系平台主管处理。
 
-**第四十八条（隐私政策及服务条款）**　本平台由 JianyueLab Ltd 旗下社区项目开源部门 JianyueLab Org. 负责运营和管理。成员账号由本平台自行掌握，不迁往 JianyueLab 其它产品，也不交由第三方账号体系处理。个人数据存放在 JianyueLab 的服务器和基础设施上。个人信息的处理适用本站[隐私说明](/zh_CN/privacy)。服务条款适用 JianyueLab Ltd 的[服务条款](https://jianyuelab.co/legal/tos/)。
+  **第四十八条（隐私政策及服务条款）**　本平台由 JianyueLab Ltd 旗下社区项目开源部门 JianyueLab Org. 负责运营和管理。成员账号由本平台自行掌握，不迁往 JianyueLab 其它产品，也不交由第三方账号体系处理。个人数据存放在 JianyueLab 的服务器和基础设施上。个人信息的处理适用本站[隐私说明](/zh_CN/privacy)。服务条款适用 JianyueLab Ltd 的[服务条款](https://jianyuelab.co/legal/tos/)。
 
 <span class="regulation-status regulation-status-effective">**第四十九条（修改、公示与状态标记）**　修改本总则应当提前 15 天进行公示。公示期结束并施行后，应当将修改部分标记 30 天。各次修改的摘要、状态、公示日期、施行日期及相关信息，统一记载于[《修订历史与公示信息》](/zh_CN/revisions)。</span>
 

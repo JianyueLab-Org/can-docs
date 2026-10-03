@@ -228,6 +228,30 @@ Disclosure is subject to the anonymity protection in Article 40 and the provisio
 
 **Article 47 (Management Group)**　The members and contact information of the CAN Management Group are as follows:
 
+<div class="organization-chart" role="img" aria-label="The Platform Director oversees the Deputy Directors for Administration and Operations; below them are the Director of Operations, the Director of Controller Training and Division Administration, and other Management Group members; the Director of Controller Training and Division Administration oversees the Mainland China, Hong Kong, Japan and United States divisions">
+  <div class="organization-chart__node organization-chart__node--director">Platform Director</div>
+  <div class="organization-chart__connector" aria-hidden="true"></div>
+  <div class="organization-chart__level organization-chart__level--deputies">
+    <div class="organization-chart__node organization-chart__node--child">Deputy Director<br>Administration</div>
+    <div class="organization-chart__node organization-chart__node--child">Deputy Director<br>Operations</div>
+  </div>
+  <div class="organization-chart__connector" aria-hidden="true"></div>
+  <div class="organization-chart__level organization-chart__level--management">
+    <div class="organization-chart__node organization-chart__node--child">Director of Operations</div>
+    <div class="organization-chart__division-group">
+      <div class="organization-chart__node organization-chart__node--child">Director of Controller Training<br>and Division Administration</div>
+      <div class="organization-chart__connector organization-chart__connector--division" aria-hidden="true"></div>
+      <div class="organization-chart__level organization-chart__level--divisions">
+        <div class="organization-chart__node organization-chart__node--division">Mainland China Division</div>
+        <div class="organization-chart__node organization-chart__node--division">Hong Kong Division</div>
+        <div class="organization-chart__node organization-chart__node--division">Japan Division</div>
+        <div class="organization-chart__node organization-chart__node--division">United States Division</div>
+      </div>
+    </div>
+    <div class="organization-chart__node organization-chart__node--child">Other Management Group Members</div>
+  </div>
+</div>
+
 | Position | Name / CID | Contact | Duties |
 | --- | --- | --- | --- |
 | Director | Jianyue Hugo Liang<br>(Janyue Aosugi) | [j.h.liang@jianyuelab.co](mailto:j.h.liang@jianyuelab.co) | Oversees the platform's overall operation and development; responsible for server resources, technical development and major decisions |
