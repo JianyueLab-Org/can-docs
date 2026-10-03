@@ -54,6 +54,7 @@ const DOC = {
   regulation: "/zh_CN/regulation",
   revisions: "/zh_CN/revisions",
   guidelines: "/zh_CN/atc",
+  trainingObserver: "/zh_CN/training-observer",
   history: "/zh_CN/history",
   privacy: "/zh_CN/privacy",
   // 归档：被现行规章取代的旧版本，新的在前。
@@ -282,6 +283,7 @@ function themeConfigFor(d: Dict) {
         items: [
           { text: f.regulations.items.current, link: DOC.regulation },
           { text: f.atc.items.professionalGuidelines, link: DOC.guidelines },
+          { text: f.atc.items.trainingObserver, link: DOC.trainingObserver },
           { text: f.regulations.items.revisions, link: DOC.revisions },
         ],
       },

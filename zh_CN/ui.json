@@ -37,7 +37,8 @@
       },
       "atc": {
         "items": {
-          "professionalGuidelines": "管制员准则"
+          "professionalGuidelines": "管制员准则",
+          "trainingObserver": "培训旁听守则"
         }
       },
       "history": {
