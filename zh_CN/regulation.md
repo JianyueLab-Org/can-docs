@@ -256,12 +256,12 @@ CAN 由 JIANYUELAB LTD（“JianyueLab”、“JYL”）的 JianyueLab Org.（�
 | --- | --- | --- | --- |
 | 主管 | Jianyue Hugo Liang<br>（Janyue Aosugi） | [j.h.liang@jianyuelab.co](mailto:j.h.liang@jianyuelab.co) | 统筹平台整体运营与发展，负责服务器资源维护、技术开发及重大事项决策 |
 | 副主管（运营） | Huaji Cai | [hjdczy@ceruleanavi.net](mailto:hjdczy@ceruleanavi.net) | 协助主管处理日常事务，负责运营协调、服务器运维与技术开发 |
-| 副主管（管理） | Kehao Jin | 经主管转交 | 协助主管开展平台宣传、活动策划与外部联络，负责社区管理事务 |
-| 管制员训练及分部管理主管 | Siwei Ma | 经主管转交 | 负责管制员训练、考核与分部管理，协助制定相关运行规范 |
-| 运营主管 | Peixi Li | 经主管转交 | 负责平台日常运营、社区活动组织与用户服务 |
+| 副主管（管理） | Kehao Jin | [k.jin@jianyuelab.co](mailto:k.jin@jianyuelab.co) | 协助主管开展平台宣传、活动策划与外部联络，负责社区管理事务 |
+| 管制员训练及分部管理主管 | Siwei Ma | [s.ma@ceruleanavi.net](mailto:s.ma@ceruleanavi.net) | 负责管制员训练、考核与分部管理，协助制定相关运行规范 |
+| 运营主管 | Peixi Li | [peixi@ceruleanavi.net](mailto:peixi@ceruleanavi.net) | 负责平台日常运营、社区活动组织与用户服务 |
 | “摸鱼”主管 | Xiaosuda | 经主管转交 | 协助平台日常运营、社区维护与资料整理 |
 | 成员 | 1009 | 经主管转交 | 协助平台日常运营、社区维护与资料整理 |
-| 成员 | 10010 | 经主管转交 | 协助平台日常运营、社区维护与资料整理 |
+| 成员 | 10010 | [sukinya@ceruleanavi.net](mailto:sukinya@ceruleanavi.net) | 协助平台日常运营、社区维护与资料整理 |
 | 成员 | 10047 | 经主管转交 | 负责平台宣传及新手引导 |
 
 表中的邮箱用于日常联络，不受理反馈；反馈一律依照第三十八条提交。
