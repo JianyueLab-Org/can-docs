@@ -16,6 +16,7 @@ zh_CN/
   regulation.md        /zh_CN/regulation              平台总则（现行，第四版）
   revisions.md         /zh_CN/revisions               修订历史与公示信息
   atc.md               /zh_CN/atc                     管制员准则
+  ATIS_prompt.md        /zh_CN/ATIS_prompt             ATIS 生成提示词
   history.md           /zh_CN/history                 平台的历史
   privacy.md           /zh_CN/privacy                 隐私说明
   archive/
@@ -37,11 +38,11 @@ en_US/
 `atc.md`、`history.md` 和归档的 `archive/regulation.md` 来自 can-web 的 `/docs`
 版块（`src/content/docs/*.mdx`），**正文一字未改**：
 
-| 本站路径                       | 原路径                 | 原文件                                |
-| ------------------------------ | ---------------------- | ------------------------------------- |
-| `/zh_CN/atc`                   | `/docs/atc`            | `src/content/docs/atc.mdx`            |
-| `/zh_CN/history`               | `/docs/history`        | `src/content/docs/history.mdx`        |
-| `/zh_CN/archive/regulation`    | `/docs/regulation_1st` | `src/content/docs/regulation_1st.mdx` |
+| 本站路径                      | 原路径                   | 原文件                                  |
+| ----------------------------- | ------------------------ | --------------------------------------- |
+| `/zh_CN/atc`                | `/docs/atc`            | `src/content/docs/atc.mdx`            |
+| `/zh_CN/history`            | `/docs/history`        | `src/content/docs/history.mdx`        |
+| `/zh_CN/archive/regulation` | `/docs/regulation_1st` | `src/content/docs/regulation_1st.mdx` |
 
 迁移时只改了两处**呈现**，没有改任何规章文字：
 
@@ -103,11 +104,11 @@ minisearch 默认按空白切词，一整段中文会变成一个词，搜什么
 **日期不是写在文件里的，是 VitePress 拿 `git log` 逐个文件问出来的。** 这就把一
 个页面元素变成了对构建环境的要求，而且三处都在这个文件之外，缺一样就不成立：
 
-| 在哪 | 要什么 | 缺了会怎样 |
-| --- | --- | --- |
+| 在哪                             | 要什么                                              | 缺了会怎样                                                      |
+| -------------------------------- | --------------------------------------------------- | --------------------------------------------------------------- |
 | `.github/workflows/deploy.yml` | 给组织那份 `deploy-k8s.yml` 传 `fetch-depth: 0` | checkout 默认只给一个提交，**每一页都显示本次部署的时间** |
-| `Dockerfile` | 构建阶段 `apt-get install git` | `oven/bun` 里没有 git，`git log` 一律失败 |
-| `.dockerignore` | **不要**排除 `.git` | 容器里没有仓库可问，同上 |
+| `Dockerfile`                   | 构建阶段 `apt-get install git`                    | `oven/bun` 里没有 git，`git log` 一律失败                   |
+| `.dockerignore`                | **不要**排除 `.git`                         | 容器里没有仓库可问，同上                                        |
 
 `fetch-depth` 是 `JianyueLab-Org/actions` 那份复用工作流上的一个输入，默认仍是
 `1`：整个网络里只有文档站需要完整历史，别的仓库不必为它多付一次全量 fetch。

@@ -38,7 +38,8 @@
       "atc": {
         "items": {
           "professionalGuidelines": "ATC Professional Guidelines",
-          "trainingObserver": "Training Observation Rules"
+          "trainingObserver": "Training Observation Rules",
+          "atisPrompt": "ATIS Generation Prompt"
         }
       },
       "history": {

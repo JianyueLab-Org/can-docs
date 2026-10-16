@@ -38,7 +38,8 @@
       "atc": {
         "items": {
           "professionalGuidelines": "管制员准则",
-          "trainingObserver": "培训旁听守则"
+          "trainingObserver": "培训旁听守则",
+          "atisPrompt": "ATIS 生成提示词"
         }
       },
       "history": {
