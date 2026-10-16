@@ -14,8 +14,15 @@ permissions:
   deployments: write
 
 jobs:
+  check:
+    uses: ./.github/workflows/check.yml
+    permissions:
+      contents: read
+      packages: read
+
   deploy:
-    uses: JianyueLab-Org/actions/.github/workflows/deploy-k8s.yml@main
+    needs: check
+    uses: JianyueLab-Org/actions/.github/workflows/deploy-k8s.yml@615b32a26cc306ee63eefc3ae2cbee41bd5519e # main
     with:
       image: ghcr.io/jianyuelab-org/can-docs
       namespace: can-docs
@@ -27,4 +34,6 @@ jobs:
       # 的规章写着「今天更新」。这个网络里只有文档站需要它，所以那边的默认值仍是
       # 1，由调用方按需要开。
       fetch-depth: 0
-    secrets: inherit
+    secrets:
+      KUBECONFIG_B64: ${{ secrets.KUBECONFIG_B64 }}
+      GHCR_PULL_TOKEN: ${{ secrets.GHCR_PULL_TOKEN }}
