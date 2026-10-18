@@ -14,9 +14,8 @@ import enUS from "../en_US/ui.json";
 // 目录按标准 locale 代码分：zh_CN/ 和 en_US/，每种语言的正文和壳文案
 // （ui.json）都在自己的文件夹里，URL 就是 /zh_CN/... 和 /en_US/...。ui.json 的
 // 键名沿用 can-web 词典里 docs.sections.* 和 frame.docs.* 的路径，两边可以直接
-// 对着搬，读者看到的也是同一套名字。can-web 还有 ja-JP 和 zh-TW，要加的时候复
-// 制一份 ja_JP/ui.json、在 locales 里登记、补一个 ja_JP/index.md 就行 —— 文案
-// 在 can-web 的 language/ja-jp.json、language/zh-tw.json 里有现成的。
+// 对着搬，读者看到的也是同一套名字。只有这两种语言；全网的站点清单不在这里，
+// 来自 can-ui 的 sites.ts。
 //
 // 根目录 index.md 是语言分流页：没有哪种语言占着 /，进来的人由下面的脚本按浏览
 // 器语言送去 /zh_CN/ 或 /en_US/。
@@ -125,76 +124,6 @@ const AUTO_LOCALE_SCRIPT = `(function () {
 const REPO = "https://github.com/JianyueLab-Org/can-docs";
 
 /**
- * 网络上的其它站，分三组 —— 导航里的「全网」下拉。
- *
- * ## 为什么要有
- *
- * 这个站从前只有一条外链：「主站」。一个正在读规章的管制员要去开 ATIS，或者一个
- * 读完飞行员须知的人要去填飞行计划，都得先回主站再找一次，或者干脆背下主机名。
- * 全网另外六个站现在共用 can-ui 的一份站点清单，这里是同一份清单在 VitePress 上
- * 的样子。
- *
- * ## 为什么是抄的，而不是 import
- *
- * **`@jianyuelab-org/can-ui/sites` 才是这份清单的来源之记录** —— 文件是 can-ui
- * 仓库的 `src/sites.ts`，表是 `NETWORK_SITES`，分组是 `sitesBySection`。改那边
- * 的人要顺手改这里。这里没有 import
- * 它，是因为这个站是全网唯一一个**零依赖**的：它不是 Astro + Vue，用的是
- * VitePress 自带的主题，一个 can-ui 组件都渲染不了，只会用到那个纯数据模块。而
- * can-ui 装在 GitHub Packages 上，即使公开包也要带令牌 —— 为一张六行的表给一个
- * 静态站接上 `.npmrc`、Docker 构建密钥和 CI 令牌，代价大于收益。
- *
- * 代价是这是一份**副本**，而副本会漂。所以两件事写在这里：改 `sites.ts` 的人要
- * 顺手看一眼这里（`can-web/src/lib/atcRules.ts` 是同一种「索引副本」，理由也一
- * 样），而 `scripts/check.ts` 会验这份表本身立不立得住 —— 每个键在两本词典里都
- * 有名字、每个 origin 都是 https 且不含空格。**最后那一条不是多余的**：主站和
- * can-dev 的页脚里都躺过 `https://github.com/Cerulean Aviation Network/`，URL 里
- * 带两个空格，改名时全局替换的残骸，因为没有任何东西会检查一个长得像 URL 的字
- * 符串。
- *
- * ## 少了三个站
- *
- * 教员与管理门户和航行资料库按评级才出现，而这是个**静态站**：会话 cookie 是
- * HttpOnly 的，构建时和浏览器里都问不出读者是谁。给所有人画两条大多数人点下去
- * 会被拒的链接，不如不画 —— can-ui 的 `minRating` 就是为这件事存在的。文档站自
- * 己是当前站，也不列。
- *
- * 剩下六条里有三条要登录（EFB、管制员中心、考试中心）。那不是死链：未登录点过去
- * 会被送到主站的登录页并带上回跳地址，登录完就到了。
- */
-const NETWORK_SECTIONS: ReadonlyArray<{
-  section: "flight" | "atc" | "network";
-  sites: ReadonlyArray<{ key: string; origin: string }>;
-}> = [
-  {
-    section: "flight",
-    sites: [
-      { key: "efb", origin: "https://efb.ceruleanavi.net" },
-      { key: "radar", origin: "https://radar.ceruleanavi.net" },
-    ],
-  },
-  {
-    section: "atc",
-    sites: [
-      { key: "controller", origin: "https://controller.ceruleanavi.net" },
-      { key: "exam", origin: "https://exam.ceruleanavi.net" },
-    ],
-  },
-  {
-    section: "network",
-    sites: [
-      { key: "web", origin: "https://ceruleanavi.net" },
-      // 开发者中心落在**首页**。它从前落在 `/docs`（接口文档），而那一页现在要
-      // 登录 —— 继续指过去，就是在这个**公开**文档站的导航里给每一个未登录读者
-      // 画一条通往登录墙的链接。can-ui 的 `NETWORK_SITES` 同时改了，那边是来源
-      // 之记录；下面的门禁只验地址本身立不立得住，验不出落点对不对，所以这条注
-      // 释就是那道人工检查。
-      { key: "dev", origin: "https://platform.ceruleanavi.net" },
-    ],
-  },
-];
-
-/**
  * 构建时能不能拿到**完整的** git 历史。
  *
  * `lastUpdated` 的时间戳是 VitePress 拿 `git log` 逐个文件问出来的，所以它只在
@@ -235,28 +164,6 @@ function hasFullGitHistory(): boolean {
   return false;
 }
 
-/**
- * 中国大陆 ICP 备案号，两种语言共用一份。
- *
- * **不放进 ui.json。** 那会变成 zh_CN 一份、en_US 一份，而备案号不随语言变 ——
- * 它是站点的法定标识，不是文案。两份意味着改的时候要记得改两处，而漏掉的那一
- * 处不报错、不变红、构建照常通过，只是不再是一个能核验的号。
- *
- * 全网权威的那一份在 can-ui 的 `sites.ts`（`ICP_FILING`），其余八个站都从那里
- * 读。这里抄一份，是因为这个站是 VitePress 而不是 Astro + Vue：为了一个字符串
- * 把整个设计系统装进来不划算。**改的时候两处一起改。**
- *
- * VitePress 的 footer.copyright 收 HTML，所以链接直接写在里面。
- */
-const ICP_FILING = {
-  number: "浙ICP备2026064687号-3",
-  href: "https://beian.miit.gov.cn/",
-};
-
-const ICP_HTML =
-  ` · <a href="${ICP_FILING.href}" target="_blank" rel="noopener noreferrer">` +
-  `${ICP_FILING.number}</a>`;
-
 /** 两种语言的导航结构完全一样，只有文案不同 —— 写成一份，免得各自漂移。 */
 function themeConfigFor(d: Dict, locale: "zh_CN" | "en_US") {
   const t = d.theme;
@@ -265,27 +172,9 @@ function themeConfigFor(d: Dict, locale: "zh_CN" | "en_US") {
   return {
     nav: [
       { text: t.nav.home, link: d.link },
-      {
-        text: d.docs.sections.regulations.title,
-        link: doc.regulation,
-        // 不带锚，所以归档里的旧版页面也算在这一项下面。
-        activeMatch: "/regulation",
-      },
-      { text: d.docs.sections.controllers.title, link: DOC.guidelines },
-      { text: d.docs.sections.about.title, link: DOC.history },
-      // 全网。从前这里是一条孤零零的「主站」—— 也是走出文档站的唯一一条路。换
-      // 成一个下拉之后，分组和另外六个站的页脚栏目是同一套（飞行 / 管制 /
-      // 网络），一个人在主站上认得的形状，到这里还认得。
-      {
-        text: t.network.label,
-        items: NETWORK_SECTIONS.map((group) => ({
-          text: t.network.sections[group.section],
-          items: group.sites.map((site) => ({
-            text: t.network.sites[site.key as keyof typeof t.network.sites],
-            link: site.origin,
-          })),
-        })),
-      },
+      { text: t.nav.regulations, link: doc.regulation, activeMatch: "/regulation" },
+      { text: t.nav.atcGuidelines, link: DOC.guidelines },
+      { text: t.nav.about, link: DOC.history },
     ],
     sidebar: [
       {
@@ -336,16 +225,9 @@ function themeConfigFor(d: Dict, locale: "zh_CN" | "en_US") {
       },
     },
     docFooter: t.docFooter,
-    darkModeSwitchLabel: t.appearance.label,
-    lightModeSwitchTitle: t.appearance.lightTitle,
-    darkModeSwitchTitle: t.appearance.darkTitle,
     sidebarMenuLabel: t.sidebarMenuLabel,
     returnToTopLabel: t.returnToTopLabel,
-    langMenuLabel: t.langMenuLabel,
     skipToContentLabel: t.skipToContentLabel,
-    // 备案号跟在版权后面：两者是同一类东西（法定标识），而 VitePress 的页脚
-    // 只有这一栏，另起一行会把它推到一个没人看的位置。
-    footer: { ...t.footer, copyright: t.footer.copyright + ICP_HTML },
     notFound: t.notFound,
   };
 }
@@ -354,8 +236,9 @@ export default defineConfig({
   // 分流页 / 不属于任何一种语言，用的是这一层的 lang / title。
   lang: zhCN.lang,
   title: zhCN.docs.title,
-  // 与主站 /docs 时期一致的标题格式：「<文档名> · Cerulean Aviation Network」
-  titleTemplate: ":title · Cerulean Aviation Network",
+  // 标题格式「<页面> · <站名>」按语言写在 locales 里；根目录分流页自己关掉后缀。
+  // 明暗由 can-ui 管（见 head 里的脚本），VitePress 自带的外观开关不用。
+  appearance: false,
   description: zhCN.docs.description,
   cleanUrls: true,
   // 当初关掉它的两个前提条件现在都补上了：Dockerfile 装了 git 并且 .git 进了构
@@ -374,6 +257,11 @@ export default defineConfig({
   },
 
   head: [
+    // can-ui ThemeScript 的同一段逻辑：cookie theme → localStorage theme → 系统。
+    // VitePress 的 appearance 关掉了，明暗由 can-ui 管，class 都是 html.dark。
+    ["script", {}, `(()=>{try{var m=document.cookie.match(/(?:^|;\\s*)theme=([^;]*)/);var s=m?decodeURIComponent(m[1]):localStorage.getItem("theme");var d=s==="dark"||(s!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d);document.documentElement.style.colorScheme=d?"dark":"light"}catch(e){}})();`],
+    ["meta", { name: "theme-color", media: "(prefers-color-scheme: light)", content: "#ffffff" }],
+    ["meta", { name: "theme-color", media: "(prefers-color-scheme: dark)", content: "#0b0f14" }],
     ["script", {}, AUTO_LOCALE_SCRIPT],
     // 站点图标。文档站原先一个都没有，浏览器标签上是 VitePress 的默认图标 ——
     // 六个 Web 组件里只有这一个还在用别人的标志。
@@ -399,6 +287,7 @@ export default defineConfig({
         href: "/apple-touch-icon.png",
       },
     ],
+    ["link", { rel: "icon", type: "image/png", sizes: "512x512", href: "/icon-512.png" }],
   ],
 
   locales: {
@@ -407,6 +296,7 @@ export default defineConfig({
       lang: zhCN.lang,
       link: zhCN.link,
       title: zhCN.docs.title,
+      titleTemplate: `:title · ${zhCN.docs.title}`,
       description: zhCN.docs.description,
       themeConfig: themeConfigFor(zhCN, "zh_CN"),
     },
@@ -415,6 +305,7 @@ export default defineConfig({
       lang: enUS.lang,
       link: enUS.link,
       title: enUS.docs.title,
+      titleTemplate: `:title · ${enUS.docs.title}`,
       description: enUS.docs.description,
       themeConfig: themeConfigFor(enUS, "en_US"),
     },

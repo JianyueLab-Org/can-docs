@@ -1,6 +1,7 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
+titleTemplate: false
 
 hero:
   name: "文档中心"

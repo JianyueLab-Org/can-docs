@@ -49,47 +49,46 @@
         "title": "Privacy notice"
       },
       "onThisPage": "On this page"
-    }
+    },
+    "skipToContent": "Skip to main content",
+    "openMenu": "Open menu",
+    "siteNavigation": "Site navigation",
+    "close": "Close",
+    "dismiss": "Dismiss",
+    "sidebar": "Sidebar",
+    "search": {
+      "label": "Search pages",
+      "placeholder": "Jump to a page…",
+      "noResults": "No matching page"
+    },
+    "theme": {
+      "label": "Appearance",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "Follow system"
+    },
+    "language": {
+      "label": "Select language"
+    },
+    "switchLocale": "简体中文",
+    "governingText": "The documents are published in Chinese; the Chinese text governs."
   },
   "theme": {
     "nav": {
-      "home": "Home"
-    },
-    "network": {
-      "label": "Network",
-      "sections": {
-        "flight": "Flying",
-        "atc": "Controlling",
-        "network": "Network"
-      },
-      "sites": {
-        "efb": "Flight Bag",
-        "radar": "Live Radar",
-        "controller": "Controller Centre",
-        "exam": "Exam Centre",
-        "web": "Main Site",
-        "dev": "Developer Centre"
-      }
+      "home": "Home",
+      "regulations": "Regulations",
+      "atcGuidelines": "ATC guidelines",
+      "about": "About"
     },
     "docFooter": {
       "prev": "Previous page",
       "next": "Next page"
     },
-    "appearance": {
-      "label": "Appearance",
-      "lightTitle": "Switch to light theme",
-      "darkTitle": "Switch to dark theme"
-    },
     "sidebarMenuLabel": "Menu",
     "returnToTopLabel": "Return to top",
-    "langMenuLabel": "Change language",
     "skipToContentLabel": "Skip to content",
     "lastUpdatedText": "Last updated",
     "editLinkText": "Edit this page on GitHub",
-    "footer": {
-      "message": "The documents are published in Chinese; the Chinese text governs.",
-      "copyright": "© 2025–2026 Cerulean Aviation Network"
-    },
     "notFound": {
       "title": "Page not found",
       "quote": "There is no document at this address — the link may be out of date.",

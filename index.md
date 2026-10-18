@@ -6,12 +6,13 @@ navbar: false
 sidebar: false
 aside: false
 footer: false
-title: 文档中心 / Documentation
+title: 会员文档 / Documentation
+titleTemplate: false
 ---
 
 <div style="max-width: 34rem; margin: 0 auto; padding: 6rem 1.5rem; text-align: center">
 
-# 文档中心 / Documentation
+# 会员文档 / Documentation
 
 Cerulean Aviation Network
 
