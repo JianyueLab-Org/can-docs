@@ -1,7 +1,7 @@
 # can-docs
 
-Cerulean Aviation Network 的会员文档站，VitePress。规划中的地址是
-`docs.ceruleanavi.net`（域名尚未解析）。
+Cerulean Aviation Network 的会员文档站，VitePress。地址是
+`docs.ceruleanavi.net`。
 
 ## 目录结构
 
@@ -11,7 +11,7 @@ Cerulean Aviation Network 的会员文档站，VitePress。规划中的地址是
 ```
 index.md               语言分流页（/，不属于任何语言）
 zh_CN/
-  ui.json              该语言的壳文案（导航、侧栏、搜索、页脚、404…）
+  ui.json              该语言的壳文案（导航、侧栏、搜索、404、frame 外壳文案…）
   index.md             /zh_CN/
   regulation.md        /zh_CN/regulation              平台总则（现行，第四版）
   revisions.md         /zh_CN/revisions               修订历史与公示信息
@@ -29,7 +29,9 @@ en_US/
 ```
 
 `ui.json` 的键名沿用 can-web 词典里 `docs.sections.*` 和 `frame.docs.*` 的路径，
-两边可以直接对着搬；`.vitepress/config.mts` 只从这两份文件里取字，导航结构本身
+两边可以直接对着搬。`frame` 块是外壳（`CanFrame`）用的文案：跳转到主内容、菜单、
+快速跳转、外观、语言切换、规章以本站为准的声明。没有 `theme.network`：网络站点
+列表不在这里。`.vitepress/config.mts` 只从这两份文件里取字，导航结构本身
 写成一份共用的 `themeConfigFor()`，免得各语言各自漂移。两份词典的键必须一一对
 应，链接地址集中在 `config.mts` 顶部的 `DOC` 里。
 
@@ -79,6 +81,31 @@ en_US/
 - **`src/content/rules/`（分部管制规则）和 `src/content/training/`（分部培训材
   料）**留在 can-web。它们挂在 `/controllers/rules` 和 `/exams/training` 下，靠
   can-api 的会话和分部权限决定谁能看，不是公开文档。
+
+## 外壳与 can-ui
+
+主题把 VitePress 包在 can-ui 的 `CanFrame` 里（`.vitepress/theme/Layout.vue`）。
+
+- VitePress 自带导航条隐藏，顶栏是 `CanFrame` 的。
+- 导航来自 `themeConfig.nav`。
+- 站点列表、网络切换、页脚和 ICP 备案来自 can-ui 的 `sites.ts`，本仓库不留副本。
+- ⌘K 是 can-ui 的快速跳转。全文搜索是 VitePress 的搜索按钮，或按 `/`。
+- 外观由 can-ui 管，存在 `theme` cookie 里；`<head>` 里内联同一段判断，避免闪烁。
+- 语言切换是 `LocaleLink.vue`，直接跳到另一种语言的首页。
+- 不放登录按钮和账号菜单：这是静态站，读不到会话。
+- 颜色、圆角、阴影、字体在 `style.css` 里全部指向 can-ui 的变量，没有本地取值。
+
+## 安装
+
+can-ui 在 GitHub Packages 上，公开包也要令牌。`.npmrc` 只写 registry，令牌从
+`GITHUB_TOKEN` 读。
+
+```bash
+GITHUB_TOKEN=$(gh auth token) bun install   # 令牌需要 read:packages
+```
+
+- CI：工作流的 `secrets.GITHUB_TOKEN`。
+- Docker：BuildKit secret `github_token`，见 `Dockerfile`。
 
 ## 命令
 
@@ -131,10 +158,8 @@ frontmatter 里的 `editLink: false` 单独关掉了：它是被现行规章取�
 
 ## 语言
 
-目前两种：`zh_CN`（简体中文）和 `en_US`（English）。can-web 还有 ja-JP 和
-zh-TW，要加的时候复制一份 `ja_JP/ui.json`、在 `config.mts` 的 `locales` 里登
-记、补一个 `ja_JP/index.md` 就行 —— 文案在 can-web 的 `language/ja-jp.json`、
-`language/zh-tw.json` 里都有现成的。
+只有两种：`zh_CN`（简体中文）和 `en_US`（English）。
+`/zh_TW/*` 在 `deploy/nginx.conf` 里 301 到 `/zh_CN/*`。
 
 **壳翻译了，正文没有。** 文档只有中文原文：规章是有处分效力的文本，非官方译本不
 该由这里直接发布。所以英文侧只有一个首页，导航和侧栏指向 `zh_CN/` 下的中文页
@@ -161,27 +186,3 @@ zh-TW，要加的时候复制一份 `ja_JP/ui.json`、在 `config.mts` 的 `loca
 - `navigator.languages` 里有任何 `zh*` 就去中文；一个语言都没报（少见）落回中
   文，因为这个网络的默认语言是中文。
 - 脚本没跑起来时，分流页上那两条链接就是退路。
-
-## 还没做的收尾
-
-站点还没部署，`docs.ceruleanavi.net` 目前不解析。在它上线**之前**不要动 can-web 的
-`/docs`，否则规章会直接 404。上线之后要做的是：
-
-1. `astro.config.mjs` 的 `redirects` 里把 `/docs/*` 301 过来：`/docs/atc` →
-   `/zh_CN/atc`、`/docs/history` → `/zh_CN/history`、`/docs/regulation_1st` →
-   `/zh_CN/archive/regulation`、`/docs/regulation_2nd` →
-   `/zh_CN/archive/regulation_2nd`。**第二版指向归档而不是现行文本**：那个地址
-   点的是一个特定版本，把来查某一条的人送到另一份文本上，比多点一次更糟。
-2. 删掉 `src/pages/docs/`、`src/content/docs/`、`src/content.config.ts` 里的
-   `docs` collection、`src/lib/docsNav.ts`，以及 `language/*.json` 里的
-   `docs.*` / `frame.docs.*`（`DocsLayout.astro` 还被分部规则和培训材料用着，
-   不能一起删）。
-3. 站内指向 `/docs` 的链接改成新域名：`Header.vue`、`Footer.astro`、
-   `PilotsShell.vue`、`ControllersShell.vue`、`ExamsShell.vue`、
-   `pages/index.astro`、`pages/404.astro`、`Exams.vue`。
-4. `src/middleware.ts` 的 `PROTECTED_PREFIXES` 去掉 `/docs`。
-
-**第 4 条会改变访问模型。** can-web 的 `/docs` 在 `PROTECTED_PREFIXES` 里，匿名访
-客会被弹去 `/signin`。本站不该继承这件事：总则第四条写的是「用户注册账号，即视为
-同意遵守本总则」，一份注册前就该读得到的文本，放在登录墙后面是自相矛盾的。公开大
-概率是想要的结果，但这是一个要有意识做出的决定。
