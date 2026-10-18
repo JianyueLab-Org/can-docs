@@ -17,3 +17,14 @@ export function navItems(nav: { text: string; link: string }[]): NavItem[] {
 export function otherLocale(lang: string): { href: "/en_US/" | "/zh_CN/" } {
   return { href: canLocale(lang) === "zh-cn" ? "/en_US/" : "/zh_CN/" };
 }
+
+/**
+ * 交给 CanFrame 的 pathname。CanFrame 按前缀判断当前项，不认 VitePress 的
+ * activeMatch，所以归档页 /zh_CN/archive/regulation_2nd 原本不会点亮「规章」。
+ * 某项的 activeMatch（正则，和 VitePress 一样对 route.path 测）命中时，就把这
+ * 一项的 link 当成当前地址交出去；都不命中就原样返回。
+ */
+export function framePath(nav: { link: string; activeMatch?: string }[], path: string): string {
+  const hit = nav.find((item) => item.activeMatch && new RegExp(item.activeMatch).test(path));
+  return hit ? hit.link : path;
+}

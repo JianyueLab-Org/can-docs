@@ -427,13 +427,19 @@ h3 {
 }
 
 /* ---------------------------------------------------------------------------
-   顶栏是 CanFrame 的（h-16 = 64px，sticky，在文档流里）。VitePress 自己的导航
-   条藏掉；--vp-nav-height 仍然是 64px，给固定定位的侧栏、目录和本地导航让位。
+   顶栏是 CanFrame 的（h-16 = 64px，sticky，在文档流里）。VitePress 自己的 VPNav
+   由 config.mts 的 navbar: false 整个不渲染；VitePress 因此给 <html> 加上
+   hide-nav，把 --vp-nav-height 改成 0（侧栏里是 22px）。这里两处都改回 64px，
+   固定定位的侧栏、目录和本地导航照旧给 CanFrame 的顶栏让位。hide-nav 只在浏览
+   器里加，SSR 输出里没有，所以 :root 那条也要留着，两边算出来一样。
    VPContent 的 padding-top 原本是给固定的 VPNav 让位的，这里文档流里已经有了
    CanFrame 的顶栏，所以清零。
 --------------------------------------------------------------------------- */
-.VPNav { display: none !important; }
-:root { --vp-nav-height: 64px; }
+:root,
+html.hide-nav,
+html.hide-nav .VPSidebar { --vp-nav-height: 64px; }
+/* VitePress 自己的「跳到正文」。CanFrame 已经有一条，两条连着出现是重复。 */
+.VPSkipLink { display: none !important; }
 /* VitePress 窄屏下 top: 0（scoped，特异性更高），会滑到 CanFrame 顶栏底下。 */
 .VPLocalNav.VPLocalNav { top: var(--vp-nav-height); }
 @media (min-width: 960px) {

@@ -1,13 +1,18 @@
 /**
  * can-docs 的门禁。CI（组织的 deploy-k8s.yml）在 docker build 之前跑
- * `bun run lint`，而这个仓库没有代码可以类型检查。能坏的是另外三件事，三件都
- * **静默**，构建不会报错：
+ * `bun run lint`。下面每一条坏了都是**静默**的，`docs:build` 照样通过：
  *
  * 1. 两份 ui.json 的键漂了 —— 缺的那个键会在页面上渲染成 undefined。
  * 2. 导航或侧栏指向一个不存在的页面。VitePress 的死链检查只看 markdown 里的链
  *    接，`config.mts` 里的 `link` 一个都不查，所以删掉一篇文档之后侧栏照样构建
  *    通过，点进去才是 404。
  * 3. 新加了一篇文档却没挂进侧栏 —— 页面在，但没有入口。
+ * 4. 根目录的语言分流页 index.md 不见了。
+ * 5. 多出 zh_CN、en_US 以外的语言（配置里或目录里）。
+ * 6. 顶栏不是四项，或者里面混进了下拉、站外链接 —— 全网切换归 can-ui。
+ * 7. 标题后缀不是「<页面> · <站名>」，站名取 can-ui 的 siteLabel。
+ * 8. 外壳的纯函数（.vitepress/theme/frame.ts）算错：locale 换算、另一种语言的
+ *    首页、顶栏图标、按 activeMatch 换算交给 CanFrame 的当前地址。
  */
 import { existsSync, readdirSync } from "node:fs";
 import { join, relative } from "node:path";
@@ -15,7 +20,7 @@ import { join, relative } from "node:path";
 import { siteLabel } from "@jianyuelab-org/can-ui/sites";
 
 import config from "../.vitepress/config.mts";
-import { canLocale, navItems, otherLocale } from "../.vitepress/theme/frame";
+import { canLocale, framePath, navItems, otherLocale } from "../.vitepress/theme/frame";
 import zhCN from "../zh_CN/ui.json";
 import enUS from "../en_US/ui.json";
 
@@ -120,6 +125,16 @@ const sample = navItems([
 ]);
 if (sample.map((i) => i.icon).join() !== "home,scale,signal,bookOpen" || sample[1].href !== "/zh_CN/regulation")
   problems.push("navItems 的图标或地址不对");
+const activeNav = [
+  { link: "/zh_CN/", activeMatch: undefined },
+  { link: "/zh_CN/regulation", activeMatch: "/regulation" },
+];
+if (
+  framePath(activeNav, "/zh_CN/archive/regulation_2nd") !== "/zh_CN/regulation" ||
+  framePath(activeNav, "/zh_CN/atc") !== "/zh_CN/atc" ||
+  framePath(activeNav, "/zh_CN/") !== "/zh_CN/"
+)
+  problems.push("framePath 没按 activeMatch 把归档页算到「规章」上");
 
 const unique = [...new Set(problems)]; // 同一个链接会在 nav 和 sidebar 各出现一次
 if (unique.length) {

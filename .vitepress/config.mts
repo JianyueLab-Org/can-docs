@@ -250,6 +250,14 @@ export default defineConfig({
   // README.md 是写给维护者的，VitePress 默认会把它当成 / 的别名，
   // 和分流页 index.md 撞车。
   srcExclude: ["README.md"],
+  // 顶栏是 can-ui CanFrame 的。VitePress 自己的 VPNav 必须**不渲染**，而不是用
+  // CSS 藏起来：藏起来的 VPNav 里还挂着第二个搜索按钮，它和 DocsSearch 各在
+  // window 上注册一次 "/"，按一下就开两个搜索框；另外还留着一份语言切换和
+  // VPNavScreen。navbar: false 让 VPNav 整个不挂载，代价是 VitePress 会给 <html>
+  // 加上 hide-nav，把 --vp-nav-height 改成 0 —— style.css 里把它改回 64px。
+  transformPageData(pageData) {
+    pageData.frontmatter.navbar = false;
+  },
   vite: {
     plugins: [tailwindcss()],
     // can-ui 发的是源码（.vue / .ts），SSR 时 Node 不能直接 import，必须打进包里。
