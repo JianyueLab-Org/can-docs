@@ -612,3 +612,29 @@ h3 {
   background-color: var(--can-border-strong);
   border-radius: 9999px;
 }
+
+/* ---------------------------------------------------------------------------
+   顶栏是 CanFrame 的（h-16 = 64px，sticky，在文档流里）。VitePress 自己的导航
+   条藏掉；--vp-nav-height 仍然是 64px，给固定定位的侧栏、目录和本地导航让位。
+   VPContent 的 padding-top 原本是给固定的 VPNav 让位的，这里文档流里已经有了
+   CanFrame 的顶栏，所以清零。
+--------------------------------------------------------------------------- */
+.VPNav { display: none !important; }
+:root { --vp-nav-height: 64px; }
+/* VitePress 窄屏下 top: 0（scoped，特异性更高），会滑到 CanFrame 顶栏底下。 */
+.VPLocalNav.VPLocalNav { top: var(--vp-nav-height); }
+@media (min-width: 960px) {
+  .VPContent { padding-top: 0 !important; }
+  .VPDoc .aside-container { padding-top: calc(var(--vp-nav-height) + 48px); }
+}
+.VPHero { margin-top: 0 !important; padding-top: 48px !important; }
+@media (min-width: 640px) { .VPHero { padding-top: 80px !important; } }
+/* 桌面上侧栏和目录底部的遮罩是 fixed 的，会盖住文档流末尾 can-ui 的页脚。页脚
+   抬到侧栏（25）之上、顶栏（40）之下。窄屏侧栏是抽屉，不用抬，抬了反而压住本地导航。 */
+@media (min-width: 960px) {
+  #main-content ~ footer { position: relative; z-index: 30; }
+}
+
+/* VitePress 搜索按钮上的「⌘ K」提示去掉：⌘K 打开的是 can-ui 的快速跳转，这个
+   按钮自己由点击和 "/" 打开。 */
+.docs-search .VPNavBarSearchButton .keys { display: none; }

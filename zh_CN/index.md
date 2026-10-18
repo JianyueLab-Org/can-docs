@@ -4,7 +4,7 @@ layout: home
 titleTemplate: false
 
 hero:
-  name: "文档中心"
+  name: "会员文档"
   text: "规章制度、管制员指南以及网络的发展历史"
   tagline: Cerulean Aviation Network
   actions:

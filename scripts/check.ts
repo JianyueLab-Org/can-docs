@@ -15,6 +15,7 @@ import { join, relative } from "node:path";
 import { siteLabel } from "@jianyuelab-org/can-ui/sites";
 
 import config from "../.vitepress/config.mts";
+import { canLocale, navItems, otherLocale } from "../.vitepress/theme/frame";
 import zhCN from "../zh_CN/ui.json";
 import enUS from "../en_US/ui.json";
 
@@ -108,6 +109,18 @@ for (const [locale, entry] of Object.entries(config.locales ?? {})) {
   if (e.titleTemplate !== `:title · ${name}`) problems.push(`${locale} 的 titleTemplate 应该是「:title · ${name}」`);
 }
 
+// ------------------------------------------------------------ 外壳的纯函数
+if (canLocale("zh-CN") !== "zh-cn" || canLocale("en-US") !== "en-us")
+  problems.push("canLocale 没把 VitePress 的 lang 换成 can-ui 的 locale");
+if (otherLocale("zh-CN").href !== "/en_US/" || otherLocale("en-US").href !== "/zh_CN/")
+  problems.push("otherLocale 指错了语言首页");
+const sample = navItems([
+  { text: "a", link: "/zh_CN/" }, { text: "b", link: "/zh_CN/regulation" },
+  { text: "c", link: "/zh_CN/atc" }, { text: "d", link: "/zh_CN/history" },
+]);
+if (sample.map((i) => i.icon).join() !== "home,scale,signal,bookOpen" || sample[1].href !== "/zh_CN/regulation")
+  problems.push("navItems 的图标或地址不对");
+
 const unique = [...new Set(problems)]; // 同一个链接会在 nav 和 sidebar 各出现一次
 if (unique.length) {
   console.error("门禁没过：");
@@ -116,5 +129,5 @@ if (unique.length) {
 }
 console.log(
   `✓ 两份词典键一致（${zhKeys.size} 个）；导航里 ${referenced.size} 个页面全部存在；` +
-    `没有孤立页面；只有两种语言；顶栏四项；标题后缀成立`,
+    `没有孤立页面；只有两种语言；顶栏四项；标题后缀成立；外壳函数成立`,
 );

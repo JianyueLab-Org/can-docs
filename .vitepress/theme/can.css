@@ -1,0 +1,2 @@
+/* can-ui 的整套样式（Tailwind v4 + token + 组件）。必须在 style.css 之前。 */
+@import "@jianyuelab-org/can-ui/styles";
