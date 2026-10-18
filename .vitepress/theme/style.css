@@ -499,3 +499,42 @@ html.hide-nav .VPSidebar { --vp-nav-height: 64px; }
   .VPFeatures.VPFeatures,
   .VPHome .vp-doc.container.container { padding-left: 2rem; padding-right: 2rem; }
 }
+
+/* ---------------------------------------------------------------------------
+   右侧「本页目录」。标题缩成小号的浅色标签，竖线只沿条目走，当前章节用品牌色
+   和竖线上的标记标出。
+   VitePress 在 `outline.js` 里把标记的 top 写死为 `offsetTop + 39px`，即
+   「标题块高 + 条目行高 / 2 − 标记高 / 2」恒为 39：标题块 34px（28 + 6）、
+   行高 28px、标记 18px，正好凑上。改这三个数之一，要一起改。
+--------------------------------------------------------------------------- */
+.VPDocAsideOutline .content.content {
+  border-left: 0;
+  padding-left: 0;
+}
+.VPDocAsideOutline .outline-title.outline-title {
+  margin-bottom: 6px;
+  line-height: 28px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--vp-c-text-3);
+}
+.VPDocAsideOutline .content > .root {
+  border-left: 1px solid var(--vp-c-divider);
+  padding-left: 14px;
+}
+.VPDocAsideOutline .outline-marker.outline-marker {
+  left: 0;
+}
+.VPDocAsideOutline .outline-link.outline-link {
+  line-height: 28px;
+  font-size: 13px;
+  color: var(--vp-c-text-2);
+}
+.VPDocAsideOutline .outline-link.outline-link:hover {
+  color: var(--vp-c-text-1);
+}
+.VPDocAsideOutline .outline-link.outline-link.active {
+  color: var(--vp-c-brand-1);
+  font-weight: 500;
+}
