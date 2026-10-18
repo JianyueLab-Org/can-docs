@@ -1,19 +1,26 @@
 /**
  * can-docs 的门禁。CI（组织的 deploy-k8s.yml）在 docker build 之前跑
- * `bun run lint`，而这个仓库没有代码可以类型检查。能坏的是另外三件事，三件都
- * **静默**，构建不会报错：
+ * `bun run lint`。下面每一条坏了都是**静默**的，`docs:build` 照样通过：
  *
  * 1. 两份 ui.json 的键漂了 —— 缺的那个键会在页面上渲染成 undefined。
  * 2. 导航或侧栏指向一个不存在的页面。VitePress 的死链检查只看 markdown 里的链
  *    接，`config.mts` 里的 `link` 一个都不查，所以删掉一篇文档之后侧栏照样构建
  *    通过，点进去才是 404。
  * 3. 新加了一篇文档却没挂进侧栏 —— 页面在，但没有入口。
+ * 4. 根目录的语言分流页 index.md 不见了。
+ * 5. 多出 zh_CN、en_US 以外的语言（配置里或目录里）。
+ * 6. 顶栏不是四项，或者里面混进了下拉、站外链接 —— 全网切换归 can-ui。
+ * 7. 标题后缀不是「<页面> · <站名>」，站名取 can-ui 的 siteLabel。
+ * 8. 外壳的纯函数（.vitepress/theme/frame.ts）算错：locale 换算、另一种语言的
+ *    首页、顶栏图标、按 activeMatch 换算交给 CanFrame 的当前地址。
  */
-import { existsSync } from "node:fs";
-import { readdirSync } from "node:fs";
+import { existsSync, readdirSync } from "node:fs";
 import { join, relative } from "node:path";
 
+import { siteLabel } from "@jianyuelab-org/can-ui/sites";
+
 import config from "../.vitepress/config.mts";
+import { canLocale, framePath, navItems, otherLocale } from "../.vitepress/theme/frame";
 import zhCN from "../zh_CN/ui.json";
 import enUS from "../en_US/ui.json";
 
@@ -77,34 +84,57 @@ for (const locale of Object.keys(config.locales ?? {})) {
 // ------------------------------------------------------------------ 分流页在
 if (!existsSync("index.md")) problems.push("根目录缺 index.md（语言分流页）");
 
-// ------------------------------------------------------- 「全网」那几条地址成立
-//
-// 这份清单是 can-ui 的 `sites.ts` 的**副本** —— 那边是来源之记录，理由写在
-// config.mts 的 NETWORK_SECTIONS 上面。副本会漂，所以这里验它自己立不立得住。
-//
-// 空格那一条不是凑数的：主站和 can-dev 的页脚里都躺过
-// `https://github.com/Cerulean Aviation Network/`，URL 里带两个空格，改名时全局
-// 替换的残骸，在每一个页面底部发了几个月 —— 因为没有任何东西会去检查一个恰好长
-// 得像 URL 的字符串。现在有了。
-let networkLinks = 0;
+// ------------------------------------------------------------ 只有两种语言
+const LOCALES = ["zh_CN", "en_US"];
+const configured = Object.keys(config.locales ?? {}).sort();
+if (configured.join() !== [...LOCALES].sort().join())
+  problems.push(`locales 应该只有 ${LOCALES.join("、")}，现在是 ${configured.join("、")}`);
+for (const dir of readdirSync(".", { withFileTypes: true })) {
+  if (dir.isDirectory() && /^[a-z]{2}_[A-Z]{2}$/.test(dir.name) && !LOCALES.includes(dir.name))
+    problems.push(`多出一个语言目录：${dir.name}/`);
+}
+
+// ------------------------------------------------------------ 顶栏四项
 for (const [locale, entry] of Object.entries(config.locales ?? {})) {
-  const theme = (entry as { themeConfig?: Record<string, unknown> }).themeConfig ?? {};
-  for (const link of links(theme.nav)) {
-    if (link.startsWith("/")) continue; // 站内的上面已经查过
-    networkLinks++;
-    let url: URL | undefined;
-    try {
-      url = new URL(link);
-    } catch {
-      problems.push(`${locale} 的导航里有一条不是合法 URL：${link}`);
-      continue;
-    }
-    if (url.protocol !== "https:") problems.push(`${locale} 的站外链接不是 https：${link}`);
-    if (/\s/.test(link)) problems.push(`${locale} 的站外链接里有空格：${link}`);
-    if (!url.hostname.endsWith("ceruleanavi.net") && url.hostname !== "ceruleanavi.net")
-      problems.push(`${locale} 的「全网」清单里混进了网络之外的地址：${link}`);
+  const nav = ((entry as { themeConfig?: { nav?: { link?: string; items?: unknown }[] } }).themeConfig?.nav) ?? [];
+  if (nav.length !== 4) problems.push(`${locale} 的顶栏应该是四项（首页、规章、管制员准则、关于），现在是 ${nav.length} 项`);
+  for (const item of nav) {
+    if (item.items) problems.push(`${locale} 的顶栏里不该有下拉：全网切换在 can-ui 的 NetworkMenu 里`);
+    if (item.link && !item.link.startsWith("/")) problems.push(`${locale} 的顶栏里有站外链接：${item.link}`);
   }
 }
+
+// ------------------------------------------------------------ 标题后缀
+// <页面> · <站名>，站名取 can-ui 的 siteLabel(locale, "docs").name。
+const SITE_LOCALE: Record<string, string> = { zh_CN: "zh-cn", en_US: "en-us" };
+for (const [locale, entry] of Object.entries(config.locales ?? {})) {
+  const e = entry as { title?: string; titleTemplate?: string };
+  const name = siteLabel(SITE_LOCALE[locale], "docs").name;
+  if (e.title !== name) problems.push(`${locale} 的 title 应该是「${name}」，现在是「${e.title}」`);
+  if (e.titleTemplate !== `:title · ${name}`) problems.push(`${locale} 的 titleTemplate 应该是「:title · ${name}」`);
+}
+
+// ------------------------------------------------------------ 外壳的纯函数
+if (canLocale("zh-CN") !== "zh-cn" || canLocale("en-US") !== "en-us")
+  problems.push("canLocale 没把 VitePress 的 lang 换成 can-ui 的 locale");
+if (otherLocale("zh-CN").href !== "/en_US/" || otherLocale("en-US").href !== "/zh_CN/")
+  problems.push("otherLocale 指错了语言首页");
+const sample = navItems([
+  { text: "a", link: "/zh_CN/" }, { text: "b", link: "/zh_CN/regulation" },
+  { text: "c", link: "/zh_CN/atc" }, { text: "d", link: "/zh_CN/history" },
+]);
+if (sample.map((i) => i.icon).join() !== "home,scale,signal,bookOpen" || sample[1].href !== "/zh_CN/regulation")
+  problems.push("navItems 的图标或地址不对");
+const activeNav = [
+  { link: "/zh_CN/", activeMatch: undefined },
+  { link: "/zh_CN/regulation", activeMatch: "/regulation" },
+];
+if (
+  framePath(activeNav, "/zh_CN/archive/regulation_2nd") !== "/zh_CN/regulation" ||
+  framePath(activeNav, "/zh_CN/atc") !== "/zh_CN/atc" ||
+  framePath(activeNav, "/zh_CN/") !== "/zh_CN/"
+)
+  problems.push("framePath 没按 activeMatch 把归档页算到「规章」上");
 
 const unique = [...new Set(problems)]; // 同一个链接会在 nav 和 sidebar 各出现一次
 if (unique.length) {
@@ -114,5 +144,5 @@ if (unique.length) {
 }
 console.log(
   `✓ 两份词典键一致（${zhKeys.size} 个）；导航里 ${referenced.size} 个页面全部存在；` +
-    `没有孤立页面；「全网」${networkLinks} 条跨站地址成立`,
+    `没有孤立页面；只有两种语言；顶栏四项；标题后缀成立；外壳函数成立`,
 );

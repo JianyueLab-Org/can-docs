@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1
 # 静态站：前一段构建，后一段只有产物和一个 nginx。
 FROM oven/bun:1 AS build
 WORKDIR /app
@@ -15,8 +16,12 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 # 先只拷 manifest，让依赖层在内容变动时仍然命中缓存。
-COPY package.json bun.lock ./
-RUN bun install --frozen-lockfile
+# .npmrc 一起拷：can-ui 在 GitHub Packages 上，即使公开包也要令牌。
+COPY package.json bun.lock .npmrc ./
+# 令牌走 BuildKit secret 挂载，不进镜像层；组织的 deploy-k8s.yml 以 github_token 传入。
+RUN --mount=type=secret,id=github_token \
+    GITHUB_TOKEN="$(cat /run/secrets/github_token)" \
+    bun install --frozen-lockfile
 
 # 这里连 .git 一起进来。RUN 是以 root 跑的（oven/bun 镜像没有设 USER），和 COPY
 # 进来的文件属主一致，所以 git 不会因为 dubious ownership 拒绝读它。

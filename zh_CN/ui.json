@@ -3,7 +3,7 @@
   "lang": "zh-CN",
   "link": "/zh_CN/",
   "docs": {
-    "title": "文档中心",
+    "title": "会员文档",
     "description": "规章制度、管制员指南以及网络的发展历史。",
     "sections": {
       "regulations": {
@@ -49,47 +49,46 @@
         "title": "隐私说明"
       },
       "onThisPage": "本页目录"
-    }
+    },
+    "skipToContent": "跳到主要内容",
+    "openMenu": "打开菜单",
+    "siteNavigation": "本站导航",
+    "close": "关闭",
+    "dismiss": "关闭提示",
+    "sidebar": "侧边栏",
+    "search": {
+      "label": "搜索页面",
+      "placeholder": "跳转到页面…",
+      "noResults": "没有匹配的页面"
+    },
+    "theme": {
+      "label": "外观",
+      "light": "浅色",
+      "dark": "深色",
+      "system": "跟随系统"
+    },
+    "language": {
+      "label": "选择语言"
+    },
+    "switchLocale": "English",
+    "governingText": "规章制度以本站发布的版本为准。"
   },
   "theme": {
     "nav": {
-      "home": "首页"
-    },
-    "network": {
-      "label": "全网",
-      "sections": {
-        "flight": "飞行",
-        "atc": "管制",
-        "network": "网络"
-      },
-      "sites": {
-        "efb": "电子飞行包",
-        "radar": "在线雷达",
-        "controller": "管制员中心",
-        "exam": "考试中心",
-        "web": "主站",
-        "dev": "开发者中心"
-      }
+      "home": "首页",
+      "regulations": "规章制度",
+      "atcGuidelines": "管制员准则",
+      "about": "关于"
     },
     "docFooter": {
       "prev": "上一页",
       "next": "下一页"
     },
-    "appearance": {
-      "label": "外观",
-      "lightTitle": "切换到浅色模式",
-      "darkTitle": "切换到深色模式"
-    },
     "sidebarMenuLabel": "菜单",
     "returnToTopLabel": "返回顶部",
-    "langMenuLabel": "切换语言",
     "skipToContentLabel": "跳到主要内容",
     "lastUpdatedText": "最后更新",
     "editLinkText": "在 GitHub 上编辑此页",
-    "footer": {
-      "message": "规章制度以本站发布的版本为准。",
-      "copyright": "© 2025–2026 Cerulean Aviation Network"
-    },
     "notFound": {
       "title": "页面不存在",
       "quote": "这个地址下没有文档，可能是链接过期了。",
