@@ -78,9 +78,9 @@ en_US/
 - **`can-web/docs/*.md`**（`apis.md`、`database.md`、`oauth.md`、
   `roster-promotion-api.md`）是写给开发者的跨仓契约文档，链接直接指向
   `../src/`，属于代码的一部分，留在 can-web。
-- **`src/content/rules/`（分部管制规则）和 `src/content/training/`（分部培训材
-  料）**留在 can-web。它们挂在 `/controllers/rules` 和 `/exams/training` 下，靠
-  can-api 的会话和分部权限决定谁能看，不是公开文档。
+- **分部管制规则和分部培训材料**不在这里，也不在 can-web。规则在 can-controller
+  的 `/rules`（`controller.ceruleanavi.net`，要登录）；培训材料在 can-exam 的
+  `/training`（`exam.ceruleanavi.net`，公开）。
 
 ## 外壳与 can-ui
 
