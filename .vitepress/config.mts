@@ -1,6 +1,7 @@
 import { execFileSync } from "node:child_process";
 
 import { defineConfig } from "vitepress";
+import tailwindcss from "@tailwindcss/vite";
 
 import zhCN from "../zh_CN/ui.json";
 import enUS from "../en_US/ui.json";
@@ -366,6 +367,11 @@ export default defineConfig({
   // README.md 是写给维护者的，VitePress 默认会把它当成 / 的别名，
   // 和分流页 index.md 撞车。
   srcExclude: ["README.md"],
+  vite: {
+    plugins: [tailwindcss()],
+    // can-ui 发的是源码（.vue / .ts），SSR 时 Node 不能直接 import，必须打进包里。
+    ssr: { noExternal: ["@jianyuelab-org/can-ui"] },
+  },
 
   head: [
     ["script", {}, AUTO_LOCALE_SCRIPT],
