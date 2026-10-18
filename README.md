@@ -94,6 +94,8 @@ en_US/
 - 语言切换是 `LocaleLink.vue`，直接跳到另一种语言的首页。
 - 不放登录按钮和账号菜单：这是静态站，读不到会话。
 - 颜色、圆角、阴影、字体在 `style.css` 里全部指向 can-ui 的变量，没有本地取值。
+- 页面满宽，边距和顶栏、页脚相同；`style.css` 末尾放开 VitePress 的 1440px 等上限。只有文章正文保留 `.content-container` 的行宽。
+- 404 是 can-ui 的 `NotFound`，经 `Layout.vue` 的 `not-found` 插槽。
 
 ## 安装
 

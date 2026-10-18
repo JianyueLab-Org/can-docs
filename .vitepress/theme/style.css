@@ -457,3 +457,34 @@ html.hide-nav .VPSidebar { --vp-nav-height: 64px; }
 /* VitePress 搜索按钮上的「⌘ K」提示去掉：⌘K 打开的是 can-ui 的快速跳转，这个
    按钮自己由点击和 "/" 打开。 */
 .docs-search .VPNavBarSearchButton .keys { display: none; }
+
+/* ---------------------------------------------------------------------------
+   整页满宽，两侧是和顶栏、页脚相同的边距（px-4 sm:px-6 lg:px-8）。
+   VitePress 默认主题给布局设了 1440px 的上限，首页各区块和无侧栏的文档页另有
+   992 / 1152 / 1280px 的上限；这里全部放开。
+   只留正文的行宽：.content-container（688px）是文章段落的可读行宽，不是版面。
+   选择器叠两遍类名，是为了压过 VitePress 带 scoped 属性的同名规则。
+--------------------------------------------------------------------------- */
+:root { --vp-layout-max-width: 100%; }
+@media (min-width: 960px) {
+  .VPDoc.VPDoc:not(.has-sidebar) .container.container { max-width: none; }
+}
+.VPHero.VPHero .container.container,
+.VPFeatures.VPFeatures .container.container,
+.VPHome .vp-doc.container.container { max-width: none; }
+.VPHero.VPHero,
+.VPFeatures.VPFeatures,
+.VPHome .vp-doc.container.container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .VPHero.VPHero,
+  .VPFeatures.VPFeatures,
+  .VPHome .vp-doc.container.container { padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+@media (min-width: 1024px) {
+  .VPHero.VPHero,
+  .VPFeatures.VPFeatures,
+  .VPHome .vp-doc.container.container { padding-left: 2rem; padding-right: 2rem; }
+}

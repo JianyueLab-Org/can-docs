@@ -7,7 +7,7 @@
 import { computed, nextTick, onBeforeUnmount, onMounted, watch } from "vue";
 import { useData, useRoute } from "vitepress";
 import DefaultTheme from "vitepress/theme";
-import { CanFrame } from "@jianyuelab-org/can-ui";
+import { CanFrame, NotFound } from "@jianyuelab-org/can-ui";
 import zhCN from "../../zh_CN/ui.json";
 import enUS from "../../en_US/ui.json";
 import DocsSearch from "./DocsSearch.vue";
@@ -65,6 +65,10 @@ onBeforeUnmount(() => document.removeEventListener("keydown", stopVitepressHotke
     <template #footer>
       <p class="max-w-xs text-sm text-muted">{{ dict.frame.governingText }}</p>
     </template>
-    <DefaultTheme.Layout />
+    <DefaultTheme.Layout>
+      <template #not-found>
+        <NotFound current="docs" :locale="locale" :home-href="home" />
+      </template>
+    </DefaultTheme.Layout>
   </CanFrame>
 </template>
