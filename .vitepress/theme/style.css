@@ -89,40 +89,7 @@
     var(--color-can) 30%,
     var(--color-can-400)
   );
-  --vp-home-hero-image-background-image: linear-gradient(
-    -45deg,
-    var(--color-can) 50%,
-    var(--color-can-400) 50%
-  );
-  --vp-home-hero-image-filter: blur(44px);
-
-  /* 自定义容器：文字用正文色，底用 can-ui 的状态底色，不描边。 */
-  --vp-custom-block-tip-border: transparent;
-  --vp-custom-block-tip-text: var(--vp-c-text-1);
-  --vp-custom-block-tip-bg: var(--color-info-bg);
-  --vp-custom-block-tip-code-bg: var(--color-info-bg);
-
-  --vp-custom-block-warning-border: transparent;
-  --vp-custom-block-warning-text: var(--vp-c-text-1);
-  --vp-custom-block-warning-bg: var(--color-warning-bg);
-  --vp-custom-block-warning-code-bg: var(--color-warning-bg);
-
-  --vp-custom-block-danger-border: transparent;
-  --vp-custom-block-danger-text: var(--vp-c-text-1);
-  --vp-custom-block-danger-bg: var(--color-danger-bg);
-  --vp-custom-block-danger-code-bg: var(--color-danger-bg);
-}
-
-@media (min-width: 640px) {
-  :root {
-    --vp-home-hero-image-filter: blur(56px);
-  }
-}
-
-@media (min-width: 960px) {
-  :root {
-    --vp-home-hero-image-filter: blur(68px);
-  }
+  --vp-home-hero-image-filter: none;
 }
 
 /* ---------------------------------------------------------------------------
@@ -183,18 +150,18 @@
 :root {
   --vp-custom-block-tip-border: transparent;
   --vp-custom-block-tip-text: var(--vp-c-text-1);
-  --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
-  --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
+  --vp-custom-block-tip-bg: var(--color-info-bg);
+  --vp-custom-block-tip-code-bg: var(--color-info-bg);
 
   --vp-custom-block-warning-border: transparent;
   --vp-custom-block-warning-text: var(--vp-c-text-1);
-  --vp-custom-block-warning-bg: var(--vp-c-warning-soft);
-  --vp-custom-block-warning-code-bg: var(--vp-c-warning-soft);
+  --vp-custom-block-warning-bg: var(--color-warning-bg);
+  --vp-custom-block-warning-code-bg: var(--color-warning-bg);
 
   --vp-custom-block-danger-border: transparent;
   --vp-custom-block-danger-text: var(--vp-c-text-1);
-  --vp-custom-block-danger-bg: var(--vp-c-danger-soft);
-  --vp-custom-block-danger-code-bg: var(--vp-c-danger-soft);
+  --vp-custom-block-danger-bg: var(--color-danger-bg);
+  --vp-custom-block-danger-code-bg: var(--color-danger-bg);
 }
 
 /* ---------------------------------------------------------------------------
