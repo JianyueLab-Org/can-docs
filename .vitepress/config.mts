@@ -268,8 +268,10 @@ export default defineConfig({
     // can-ui ThemeScript 的同一段逻辑：cookie theme → localStorage theme → 系统。
     // VitePress 的 appearance 关掉了，明暗由 can-ui 管，class 都是 html.dark。
     ["script", {}, `(()=>{try{var m=document.cookie.match(/(?:^|;\\s*)theme=([^;]*)/);var s=m?decodeURIComponent(m[1]):localStorage.getItem("theme");var d=s==="dark"||(s!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d);document.documentElement.style.colorScheme=d?"dark":"light"}catch(e){}})();`],
-    ["meta", { name: "theme-color", media: "(prefers-color-scheme: light)", content: "#ffffff" }],
-    ["meta", { name: "theme-color", media: "(prefers-color-scheme: dark)", content: "#0b0f14" }],
+    // media 写在第一个：VitePress 的 mergeHead 按 meta 的第一个属性去重，name 在
+    // 前的话两条 theme-color 只剩最后一条。
+    ["meta", { media: "(prefers-color-scheme: light)", name: "theme-color", content: "#ffffff" }],
+    ["meta", { media: "(prefers-color-scheme: dark)", name: "theme-color", content: "#0b0f14" }],
     ["script", {}, AUTO_LOCALE_SCRIPT],
     // 站点图标。文档站原先一个都没有，浏览器标签上是 VitePress 的默认图标 ——
     // 六个 Web 组件里只有这一个还在用别人的标志。
