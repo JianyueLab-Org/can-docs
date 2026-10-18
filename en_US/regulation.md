@@ -228,7 +228,7 @@ Disclosure is subject to the anonymity protection in Article 40 and the provisio
 
 **Article 47 (Management Group)**　The members and contact information of the CAN Management Group are as follows:
 
-<div class="organization-chart" role="img" aria-label="The Platform Director oversees the Deputy Directors for Administration and Operations; below them are the Director of Operations, the Director of Controller Training and Division Administration, and other Management Group members; the Director of Controller Training and Division Administration oversees the Mainland China, Hong Kong, Japan and United States divisions">
+<div class="organization-chart" role="img" aria-label="The Platform Director oversees the Deputy Directors for Administration and Operations; below them are the Director of Operations, the Director of Controller Training and Division Administration, and other Management Group members; the Director of Controller Training and Division Administration oversees the Mainland China, Hong Kong, Japan, United States and ROC divisions">
   <div class="organization-chart__node organization-chart__node--director">Platform Director</div>
   <div class="organization-chart__connector" aria-hidden="true"></div>
   <div class="organization-chart__level organization-chart__level--deputies">
@@ -246,6 +246,7 @@ Disclosure is subject to the anonymity protection in Article 40 and the provisio
         <div class="organization-chart__node organization-chart__node--division">Hong Kong Division</div>
         <div class="organization-chart__node organization-chart__node--division">Japan Division</div>
         <div class="organization-chart__node organization-chart__node--division">United States Division</div>
+        <div class="organization-chart__node organization-chart__node--division">ROC Division</div>
       </div>
     </div>
     <div class="organization-chart__node organization-chart__node--child">Other Management Group Members</div>

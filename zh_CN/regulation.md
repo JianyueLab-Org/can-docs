@@ -228,7 +228,7 @@ CAN 由 JIANYUELAB LTD（“JianyueLab”、“JYL”）的 JianyueLab Org.（�
 
 **第四十七条（管理组）**　CAN 管理组成员及联系方式如下：
 
-<div class="organization-chart" role="img" aria-label="平台主管，下设平台副主管（管理）和平台副主管（运营）；其下设运营主管、管制员训练及分部管理主管和其他管理组成员；管制员训练及分部管理主管下设大陆、香港、日本和美国分部">
+<div class="organization-chart" role="img" aria-label="平台主管，下设平台副主管（管理）和平台副主管（运营）；其下设运营主管、管制员训练及分部管理主管和其他管理组成员；管制员训练及分部管理主管下设大陆、香港、日本、美国和台湾分部">
   <div class="organization-chart__node organization-chart__node--director">平台主管</div>
   <div class="organization-chart__connector" aria-hidden="true"></div>
   <div class="organization-chart__level organization-chart__level--deputies">
@@ -246,6 +246,7 @@ CAN 由 JIANYUELAB LTD（“JianyueLab”、“JYL”）的 JianyueLab Org.（�
         <div class="organization-chart__node organization-chart__node--division">香港分部</div>
         <div class="organization-chart__node organization-chart__node--division">日本分部</div>
         <div class="organization-chart__node organization-chart__node--division">美国分部</div>
+        <div class="organization-chart__node organization-chart__node--division">台湾分部</div>
       </div>
     </div>
     <div class="organization-chart__node organization-chart__node--child">其他管理组成员</div>
