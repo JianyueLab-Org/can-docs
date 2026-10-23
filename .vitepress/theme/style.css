@@ -274,23 +274,10 @@ h3 {
 }
 
 .organization-chart__connector {
-  position: relative;
   flex: none;
   width: 2px;
   height: 1.75rem;
   background: var(--org-line);
-}
-
-.organization-chart__connector::after {
-  position: absolute;
-  right: 50%;
-  bottom: -1px;
-  width: 0.55rem;
-  height: 0.55rem;
-  border-right: 2px solid var(--org-line);
-  border-bottom: 2px solid var(--org-line);
-  content: "";
-  transform: translateX(50%) rotate(45deg);
 }
 
 .organization-chart__connector--division {
