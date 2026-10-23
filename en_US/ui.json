@@ -12,6 +12,9 @@
       "controllers": {
         "title": "ATC"
       },
+      "development": {
+        "title": "Developer Documentation"
+      },
       "about": {
         "title": "About"
       },
@@ -37,6 +40,7 @@
       },
       "atc": {
         "items": {
+          "howToBecome": "How to Become a Controller",
           "professionalGuidelines": "ATC Professional Guidelines",
           "trainingObserver": "Training Observation Rules",
           "atisPrompt": "ATIS Generation Prompt"

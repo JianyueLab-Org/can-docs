@@ -53,6 +53,7 @@ const DOC = {
   regulation: "/zh_CN/regulation",
   revisions: "/zh_CN/revisions",
   guidelines: "/zh_CN/atc",
+  howToBecome: "/zh_CN/how-to-become-a-atc",
   trainingObserver: "/zh_CN/training-observer",
   atisPrompt: "/zh_CN/ATIS_prompt",
   history: "/zh_CN/history",
@@ -183,9 +184,18 @@ function themeConfigFor(d: Dict, locale: "zh_CN" | "en_US") {
           { text: f.regulations.items.current, link: doc.regulation },
           { text: f.atc.items.professionalGuidelines, link: doc.guidelines },
           { text: f.atc.items.trainingObserver, link: doc.trainingObserver },
-          { text: f.atc.items.atisPrompt, link: doc.atisPrompt },
           { text: f.regulations.items.revisions, link: doc.revisions },
         ],
+      },
+      {
+        text: d.docs.sections.controllers.title,
+        items: [
+          { text: f.atc.items.howToBecome, link: doc.howToBecome },
+        ],
+      },
+      {
+        text: d.docs.sections.development.title,
+        items: [{ text: f.atc.items.atisPrompt, link: doc.atisPrompt }],
       },
       {
         text: d.docs.sections.about.title,

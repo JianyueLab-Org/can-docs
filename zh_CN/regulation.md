@@ -272,25 +272,25 @@ CAN 由 JIANYUELAB LTD（“JianyueLab”、“JYL”）的 JianyueLab Org.（�
 
   **第四十八条（隐私政策及服务条款）**　本平台由 JianyueLab Ltd 旗下社区项目开源部门 JianyueLab Org. 负责运营和管理。成员账号由本平台自行掌握，不迁往 JianyueLab 其它产品，也不交由第三方账号体系处理。个人数据存放在 JianyueLab 的服务器和基础设施上。个人信息的处理适用本站[隐私说明](/zh_CN/privacy)。服务条款适用 JianyueLab Ltd 的[服务条款](https://jianyuelab.co/legal/tos/)。
 
-<span class="regulation-status regulation-status-effective">**第四十九条（修改、公示与状态标记）**　修改本总则应当提前 15 天进行公示。公示期结束并施行后，应当将修改部分标记 30 天。各次修改的摘要、状态、公示日期、施行日期及相关信息，统一记载于[《修订历史与公示信息》](/zh_CN/revisions)。</span>
+**第四十九条（修改、公示与状态标记）**　修改本总则应当提前 15 天进行公示。公示期结束并施行后，应当将修改部分标记 30 天。各次修改的摘要、状态、公示日期、施行日期及相关信息，统一记载于[《修订历史与公示信息》](/zh_CN/revisions)。
 
-<span class="regulation-status regulation-status-effective">本总则使用下列颜色标记条文状态：</span>
+本总则使用下列颜色标记条文状态：
 
-<span class="regulation-status regulation-status-effective">（一）</span><span class="regulation-status regulation-status-pending">绿色标记</span><span class="regulation-status regulation-status-effective">表示尚未施行、暂缓施行或者施行日期尚未确定的条文；</span>
+（一）<span class="regulation-status regulation-status-pending">绿色标记</span>表示尚未施行、暂缓施行或者施行日期尚未确定的条文；
 
-<span class="regulation-status regulation-status-effective">（二）</span><span class="regulation-status regulation-status-effective">红色标记</span><span class="regulation-status regulation-status-effective">表示正在修改公示期内、尚未施行的条文；</span>
+（二）<span class="regulation-status regulation-status-notice">红色标记</span>表示正在修改公示期内、尚未施行的条文；
 
-<span class="regulation-status regulation-status-effective">（三）黄色标记表示已经施行但仍处于施行后 30 天公示期内的条文。</span>
+（三）<span class="regulation-status regulation-status-effective">黄色标记</span>表示已经施行但仍处于施行后 30 天公示期内的条文。
 
-<span class="regulation-status regulation-status-effective">颜色标记仅用于辅助识别条文状态。条文另行载明的公示日期、施行日期或者状态说明与颜色标记不一致的，以文字说明为准。</span>
+颜色标记仅用于辅助识别条文状态。条文另行载明的公示日期、施行日期或者状态说明与颜色标记不一致的，以文字说明为准。
 
-<span class="regulation-status regulation-status-effective">修改经管理组全票通过的，自管理组公布之日起立即施行，不受前款 15 天公示期的限制；修改部分仍应当以黄色标记 30 天。</span>
+修改经管理组全票通过的，自管理组公布之日起立即施行，不受前款 15 天公示期的限制；修改部分仍应当以黄色标记 30 天。
 
 前款所称全票通过，指第四十七条列明的全体管理组成员均明确表示同意；弃权、缺席或者未在表决期限内答复的，视为未通过。
 
-<span class="regulation-status regulation-status-effective">补充和完善漏洞等信息即时生效，同样将修改内容以黄色标记 30 天。</span>
+补充和完善漏洞等信息即时生效，同样将修改内容以黄色标记 30 天。
 
-<span class="regulation-status regulation-status-effective">下列事项属于信息更新，不属于本条所称的修改，自更新之日起生效，不适用公示、状态标记及第五十条：</span>
+下列事项属于信息更新，不属于本条所称的修改，自更新之日起生效，不适用公示、状态标记及第五十条：
 
 （一）第四十七条管理组名单中成员、职位及联系方式的变动；
 
@@ -302,9 +302,9 @@ CAN 由 JIANYUELAB LTD（“JianyueLab”、“JYL”）的 JianyueLab Org.（�
 
 依照第二款、第四款立即施行的修改，仍适用第五十条。
 
-<span class="regulation-status regulation-status-effective">**第五十条（用户异议）**　用户对本总则的内容或者对某项修改有异议的，管理组成员除外，异议人数超过平台总用户数三分之一的，该项修改暂缓施行，由管理组与用户再次协调；超过三分之二的，撤销该项修改。</span>
+**第五十条（用户异议）**　用户对本总则的内容或者对某项修改有异议的，管理组成员除外，异议人数超过平台总用户数三分之一的，该项修改暂缓施行，由管理组与用户再次协调；超过三分之二的，撤销该项修改。
 
-<span class="regulation-status regulation-status-effective">用户提出异议的，应当依照第三十八条提交，由管理组核实异议人数并按照前款规定处理。</span>
+用户提出异议的，应当依照第三十八条提交，由管理组核实异议人数并按照前款规定处理。
 
 **第五十一条（解释与反馈）**　本总则由 Cerulean Aviation Network 管理组负责解释。
 

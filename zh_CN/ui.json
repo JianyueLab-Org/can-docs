@@ -12,6 +12,9 @@
       "controllers": {
         "title": "管制员"
       },
+      "development": {
+        "title": "开发文档"
+      },
       "about": {
         "title": "关于"
       },
@@ -37,6 +40,7 @@
       },
       "atc": {
         "items": {
+          "howToBecome": "如何成为管制员",
           "professionalGuidelines": "管制员准则",
           "trainingObserver": "培训旁听守则",
           "atisPrompt": "ATIS 生成提示词"

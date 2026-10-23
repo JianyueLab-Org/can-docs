@@ -110,7 +110,7 @@ Users within a controlled area must request and comply with controller instructi
 
 The specific assessment content and additional requirements are prescribed and published by each division's director according to the division's operating circumstances.
 
-<span class="regulation-status regulation-status-notice">Division management, applications for controller privileges, training, assessment, authorization, downgrading and cancellation are governed by Chapters II to V of the [CAN Controller Regulations](/zh_CN/atc).</span>
+<span class="regulation-status regulation-status-effective">Division management, applications for controller privileges, training, assessment, authorization, downgrading and cancellation are governed by Chapters II to V of the [CAN Controller Regulations](/zh_CN/atc).</span>
 
 **Article 24 (Basic Duties)**　When providing control services, a controller must comply with these General Regulations, respond calmly to conflicts, treat crews courteously and answer their questions.
 
@@ -162,7 +162,7 @@ The retention period for credit records is governed by the second paragraph of A
 
 **Article 38 (Method of Submission)**　Feedback must be sent by email from the email address used to register the user's account to [feedback@ceruleanavi.net](mailto:feedback@ceruleanavi.net).
 
-<span class="regulation-status regulation-status-notice">Complaints concerning improper conduct by any person on the platform, including but not limited to pilots, controllers, division administrators and members of the Management Group, must likewise be submitted by email in accordance with the preceding paragraph.</span>
+<span class="regulation-status regulation-status-effective">Complaints concerning improper conduct by any person on the platform, including but not limited to pilots, controllers, division administrators and members of the Management Group, must likewise be submitted by email in accordance with the preceding paragraph.</span>
 
 Questions or suggestions concerning these General Regulations or platform matters must likewise be submitted in accordance with the first paragraph.
 
@@ -270,25 +270,25 @@ Account closure may be completed independently on the website under “Personal 
 
 **Article 48 (Privacy Policy and Terms of Service)**　The platform is operated and administered by JianyueLab Org., the open-source community department of JianyueLab Ltd. Member accounts are controlled by the platform, are not migrated to other JianyueLab products and are not handled through a third-party account system. Personal data is stored on JianyueLab's servers and infrastructure. The [Privacy Notice](/zh_CN/privacy) applies to the processing of personal information. The [JianyueLab Terms of Service](https://jianyuelab.co/legal/tos/) apply to the service.
 
-<span class="regulation-status regulation-status-effective">**Article 49 (Amendments, Publication and Status Markers)**　An amendment to these General Regulations must be published for 15 days in advance. After the publication period ends and the amendment takes effect, the amended provisions must be marked for 30 days. A summary, status, publication date, effective date and related information for each amendment must be recorded in the [Revision History and Notices](/zh_CN/revisions).</span>
+**Article 49 (Amendments, Publication and Status Markers)**　An amendment to these General Regulations must be published for 15 days in advance. After the publication period ends and the amendment takes effect, the amended provisions must be marked for 30 days. A summary, status, publication date, effective date and related information for each amendment must be recorded in the [Revision History and Notices](/zh_CN/revisions).
 
-<span class="regulation-status regulation-status-effective">The following status markers are used in these General Regulations:</span>
+The following status markers are used in these General Regulations:
 
-<span class="regulation-status regulation-status-effective">(1) </span><span class="regulation-status regulation-status-pending">Green marking</span><span class="regulation-status regulation-status-effective"> indicates a provision that has not yet taken effect, has been suspended, or has no confirmed effective date;</span>
+(1) <span class="regulation-status regulation-status-pending">Green marking</span> indicates a provision that has not yet taken effect, has been suspended, or has no confirmed effective date;
 
-<span class="regulation-status regulation-status-effective">(2) </span><span class="regulation-status regulation-status-notice">Red marking</span><span class="regulation-status regulation-status-effective"> indicates a provision that is within its amendment publication period and has not yet taken effect;</span>
+(2) <span class="regulation-status regulation-status-notice">Red marking</span> indicates a provision that is within its amendment publication period and has not yet taken effect;
 
-<span class="regulation-status regulation-status-effective">(3) Yellow marking indicates a provision that has taken effect but remains within the 30-day publication period after taking effect.</span>
+(3) <span class="regulation-status regulation-status-effective">Yellow marking</span> indicates a provision that has taken effect but remains within the 30-day publication period after taking effect.
 
-<span class="regulation-status regulation-status-effective">Status markers are provided only as an aid to identification. If a provision's stated publication date, effective date or status differs from its color marker, the written statement prevails.</span>
+Status markers are provided only as an aid to identification. If a provision's stated publication date, effective date or status differs from its color marker, the written statement prevails.
 
-<span class="regulation-status regulation-status-effective">An amendment approved unanimously by the Management Group takes effect immediately upon publication by the Management Group and is exempt from the 15-day publication period in the preceding paragraph. The amended provisions must still be marked yellow for 30 days.</span>
+An amendment approved unanimously by the Management Group takes effect immediately upon publication by the Management Group and is exempt from the 15-day publication period in the preceding paragraph. The amended provisions must still be marked yellow for 30 days.
 
 For the purposes of the preceding paragraph, unanimous approval means that every member of the Management Group listed in Article 47 has expressly indicated consent. Abstention, absence or failure to respond within the voting period is deemed not to constitute approval.
 
-<span class="regulation-status regulation-status-effective">Information that supplements the regulations or remedies defects takes effect immediately; the amended content must likewise be marked yellow for 30 days.</span>
+Information that supplements the regulations or remedies defects takes effect immediately; the amended content must likewise be marked yellow for 30 days.
 
-<span class="regulation-status regulation-status-effective">The following matters are information updates rather than amendments under this Article. They take effect on the date of update and are not subject to publication, status marking or Article 50:</span>
+The following matters are information updates rather than amendments under this Article. They take effect on the date of update and are not subject to publication, status marking or Article 50:
 
 (1) Changes to the members, positions or contact information in the Management Group list in Article 47;
 
@@ -300,9 +300,9 @@ The updates in the preceding paragraph must not change the meaning or scope of a
 
 An amendment taking effect immediately under the second or fourth paragraph remains subject to Article 50.
 
-<span class="regulation-status regulation-status-effective">**Article 50 (User Objections)**　A user other than a member of the Management Group who objects to these General Regulations or an amendment may submit the objection. If the number of objecting users exceeds one third of the platform's total users, the amendment is suspended and the Management Group must coordinate with users again. If the number exceeds two thirds, the amendment is repealed.</span>
+**Article 50 (User Objections)**　A user other than a member of the Management Group who objects to these General Regulations or an amendment may submit the objection. If the number of objecting users exceeds one third of the platform's total users, the amendment is suspended and the Management Group must coordinate with users again. If the number exceeds two thirds, the amendment is repealed.
 
-<span class="regulation-status regulation-status-effective">An objection must be submitted in accordance with Article 38. The Management Group will verify the number of objections and handle them under the preceding paragraph.</span>
+An objection must be submitted in accordance with Article 38. The Management Group will verify the number of objections and handle them under the preceding paragraph.
 
 **Article 51 (Interpretation and Feedback)**　These General Regulations are interpreted by the Cerulean Aviation Network Management Group.
 
