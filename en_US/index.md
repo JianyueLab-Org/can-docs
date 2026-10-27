@@ -10,12 +10,12 @@ hero:
   actions:
     - theme: brand
       text: Regulations
-      link: /zh_CN/regulation
+      link: /en_US/regulation
     - theme: alt
       text: ATC Professional Guidelines
       link: /zh_CN/atc
     - theme: alt
-      text: Main site
+      text: Main Site
       link: https://ceruleanavi.net
 
 # 图标是 lucide，不是 emoji —— 图形和理由都在 .vitepress/theme/style.css 的
@@ -24,7 +24,7 @@ features:
   - icon: '<span class="can-icon can-icon-regulation"></span>'
     title: Regulations
     details: The rules every member agrees to when they connect.
-    link: /zh_CN/regulation
+    link: /en_US/regulation
   - icon: '<span class="can-icon can-icon-atc"></span>'
     title: ATC
     details: Professional guidelines for working a position.

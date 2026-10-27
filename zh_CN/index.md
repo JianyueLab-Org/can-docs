@@ -12,7 +12,7 @@ hero:
       text: 规章制度
       link: /zh_CN/regulation
     - theme: alt
-      text: 管制员职业准则
+      text: 管制员准则
       link: /zh_CN/atc
     - theme: alt
       text: 返回主站

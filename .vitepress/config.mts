@@ -260,6 +260,16 @@ export default defineConfig({
   // README.md 是写给维护者的，VitePress 默认会把它当成 / 的别名，
   // 和分流页 index.md 撞车。
   srcExclude: ["README.md"],
+  // `:::warning` 不写标题时的默认标题，按语言给。VitePress 内置的是英文大写
+  // （WARNING），中文页上要换成中文。写在这里而不是 locales.<index>.markdown：
+  // 本地搜索的插件先建好 markdown 渲染器并被后面复用，它只读这一层，不合并
+  // locales 里的那份，写在那里构建出来仍是 WARNING。
+  markdown: {
+    locales: {
+      zh_CN: { container: zhCN.theme.container },
+      en_US: { container: enUS.theme.container },
+    },
+  },
   // 顶栏是 can-ui CanFrame 的。VitePress 自己的 VPNav 必须**不渲染**，而不是用
   // CSS 藏起来：藏起来的 VPNav 里还挂着第二个搜索按钮，它和 DocsSearch 各在
   // window 上注册一次 "/"，按一下就开两个搜索框；另外还留着一份语言切换和

@@ -50,7 +50,7 @@
         "title": "History"
       },
       "privacy": {
-        "title": "Privacy notice"
+        "title": "Privacy Notice"
       },
       "onThisPage": "On this page"
     },
@@ -81,7 +81,7 @@
     "nav": {
       "home": "Home",
       "regulations": "Regulations",
-      "atcGuidelines": "ATC guidelines",
+      "atcGuidelines": "ATC Guidelines",
       "about": "About"
     },
     "docFooter": {
@@ -98,6 +98,13 @@
       "quote": "There is no document at this address — the link may be out of date.",
       "linkText": "Back to the documentation",
       "linkLabel": "Back to the documentation"
+    },
+    "container": {
+      "tipLabel": "TIP",
+      "infoLabel": "INFO",
+      "warningLabel": "WARNING",
+      "dangerLabel": "DANGER",
+      "detailsLabel": "Details"
     },
     "search": {
       "button": {
