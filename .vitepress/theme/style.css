@@ -441,9 +441,72 @@ html.hide-nav .VPSidebar { --vp-nav-height: 64px; }
   #main-content ~ footer { position: relative; z-index: 30; }
 }
 
-/* VitePress 搜索按钮上的「⌘ K」提示去掉：⌘K 打开的是 can-ui 的快速跳转，这个
-   按钮自己由点击和 "/" 打开。 */
-.docs-search .VPNavBarSearchButton .keys { display: none; }
+/* ---------------------------------------------------------------------------
+   顶栏里的全文搜索（VitePress 的按钮，放在 CanFrame 的 actions 槽里）。形状照
+   旁边 can-ui 的快速跳转：窄屏是 40px 的图标按钮，≥640px 是 36px 高、细描边、
+   sunken 底的框，两者在同一个断点换形。图标换成 lucide 的 text-search（1.5px
+   描边，和 can-ui 的 heroicons 同粗），窄屏下两个放大镜并排时分得出哪个是全文
+   搜索。「⌘ K」提示去掉：⌘K 打开的是 can-ui 的快速跳转，这个按钮自己由点击和
+   "/" 打开。
+--------------------------------------------------------------------------- */
+.docs-search .VPNavBarSearch.VPNavBarSearch {
+  flex-grow: 0;
+  padding-left: 0;
+}
+.docs-search .VPNavBarSearchButton.VPNavBarSearchButton {
+  justify-content: center;
+  gap: 8px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  background-color: transparent;
+  color: var(--color-muted);
+  font-size: 20px;
+  line-height: 1;
+  transition:
+    color var(--duration-fast) var(--ease-out-quint),
+    background-color var(--duration-fast) var(--ease-out-quint),
+    border-color var(--duration-fast) var(--ease-out-quint);
+}
+.docs-search .VPNavBarSearchButton.VPNavBarSearchButton:hover {
+  background-color: var(--surface-sunken);
+  color: var(--color-ink);
+}
+.docs-search .VPNavBarSearchButton .vpi-search {
+  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'%3E%3Cpath d='M21 6H3'/%3E%3Cpath d='M10 12H3'/%3E%3Cpath d='M10 18H3'/%3E%3Ccircle cx='17' cy='15' r='3'/%3E%3Cpath d='m21 19-1.9-1.9'/%3E%3C/g%3E%3C/svg%3E");
+  flex-shrink: 0;
+}
+.docs-search .VPNavBarSearchButton .keys.keys { display: none; }
+.docs-search .VPNavBarSearchButton .text.text { display: none; }
+@media (min-width: 640px) {
+  .docs-search .VPNavBarSearchButton.VPNavBarSearchButton {
+    justify-content: flex-start;
+    width: auto;
+    height: 36px;
+    padding: 0 12px;
+    border-color: var(--border-subtle);
+    background-color: var(--surface-sunken);
+    font-size: 16px;
+  }
+  .docs-search .VPNavBarSearchButton.VPNavBarSearchButton:hover {
+    border-color: var(--border-strong);
+  }
+  .docs-search .VPNavBarSearchButton .text.text {
+    display: inline;
+    font-size: 14px;
+  }
+}
+
+/* can-ui 的 `.link`（正文链接：品牌色、虚线下划线）和 VitePress 的 `VPLink link`
+   撞了类名，侧栏条目、首页 feature 卡、上一页/下一页和编辑链接都被画成了正文链
+   接。can-ui 那条在 `@layer components` 里，这里不分层就能盖过；`:where` 把特异
+   性压到 0，VitePress 组件自己写的颜色照样生效。 */
+:where(.VPLink.link) {
+  color: inherit;
+  text-decoration: none;
+}
 
 /* ---------------------------------------------------------------------------
    整页满宽，两侧是和顶栏、页脚相同的边距（px-4 sm:px-6 lg:px-8）。
@@ -463,6 +526,27 @@ html.hide-nav .VPSidebar { --vp-nav-height: 64px; }
 .VPDoc.VPDoc .content.content { padding-left: 0; padding-right: 0; }
 @media (min-width: 960px) {
   .VPDoc.VPDoc.VPDoc { padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+/* 窄屏下 VitePress 让代码块向两侧各出血 24px、代码再缩进 24px，按的是它自己的
+   24px 边距；这里边距是 16px，照原样会多出 8px，整页横向滚动，代码也和正文错开。
+   出血和缩进都跟着边距改成 16px（高亮行的出血同理）。 */
+@media (max-width: 639px) {
+  .VPDoc .vp-doc div[class*="language-"],
+  .VPDoc .vp-doc .vp-block,
+  .VPDoc .vp-doc .vp-code-group .tabs {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+  .VPDoc .vp-doc [class*="language-"] code {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .VPDoc .vp-doc [class*="language-"] code .highlighted,
+  .VPDoc .vp-doc [class*="language-"] code .diff {
+    margin: 0 -1rem;
+    padding: 0 1rem;
+    width: calc(100% + 2rem);
+  }
 }
 @media (min-width: 1280px) {
   .VPDoc.VPDoc .content.content { padding-right: 1.5rem; }
@@ -486,6 +570,11 @@ html.hide-nav .VPSidebar { --vp-nav-height: 64px; }
   .VPFeatures.VPFeatures,
   .VPHome .vp-doc.container.container { padding-left: 2rem; padding-right: 2rem; }
 }
+/* 首页 feature 卡下面的正文（英文首页那段语言说明）。VitePress 不给间距，原样
+   贴着卡片 8px，而且铺满整页宽。和卡片拉开一段，行宽收到正文的范围。中文首页
+   没有正文，:has 让空容器不占地方。 */
+.VPHome .vp-doc.container.container:has(p) { margin-top: 3rem; }
+.VPHome .vp-doc p { max-width: 72ch; }
 
 /* ---------------------------------------------------------------------------
    右侧「本页目录」。标题缩成小号的浅色标签，竖线只沿条目走，当前章节用品牌色
