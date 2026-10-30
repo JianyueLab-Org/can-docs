@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /**
  * 文档站的外壳：can-ui CanFrame（content 布局）包住 VitePress 默认布局。
- * 顶栏、全网切换、⌘K、明暗和页脚是 can-ui 的；侧栏、目录、正文、页尾是 VitePress 的。
+ * 顶栏、全网切换、⌘K 和明暗是 can-ui 的；侧栏、目录、正文、页尾是 VitePress 的。
  * 没有账户菜单和登录按钮：静态站读不到 HttpOnly 的会话 cookie。
  */
 import { computed, nextTick, onBeforeUnmount, onMounted, watch, watchEffect } from "vue";
@@ -44,11 +44,31 @@ watch(() => route.path, () => nextTick(demoteInnerMain), { flush: "post" });
 function stopVitepressHotkey(event: KeyboardEvent) {
   if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") event.stopPropagation();
 }
+// 法条体页面的目录有几十条，比视口长。VitePress 只点亮当前条目，不滚动目录，
+// 读到后面时点亮的那条在目录可见范围之外。正文滚动后，把它滚进目录的可见范围。
+let outlineFrame = 0;
+function revealActiveOutlineLink() {
+  cancelAnimationFrame(outlineFrame);
+  outlineFrame = requestAnimationFrame(() => {
+    const box = document.querySelector<HTMLElement>(".VPDoc .aside-container");
+    const link = box?.querySelector<HTMLElement>(".outline-link.active");
+    if (!box || !link) return;
+    const top = link.getBoundingClientRect().top - box.getBoundingClientRect().top;
+    const margin = box.clientHeight / 4;
+    if (top < margin || top > box.clientHeight - margin)
+      box.scrollTop += top - box.clientHeight / 2;
+  });
+}
 onMounted(() => {
   document.addEventListener("keydown", stopVitepressHotkey);
+  window.addEventListener("scroll", revealActiveOutlineLink, { passive: true });
   demoteInnerMain();
 });
-onBeforeUnmount(() => document.removeEventListener("keydown", stopVitepressHotkey));
+onBeforeUnmount(() => {
+  document.removeEventListener("keydown", stopVitepressHotkey);
+  window.removeEventListener("scroll", revealActiveOutlineLink);
+  cancelAnimationFrame(outlineFrame);
+});
 </script>
 
 <template>
@@ -68,9 +88,6 @@ onBeforeUnmount(() => document.removeEventListener("keydown", stopVitepressHotke
     <template #actions>
       <DocsSearch />
       <LocaleLink :label="dict.frame.switchLocale" />
-    </template>
-    <template #footer>
-      <p class="max-w-xs text-sm text-muted">{{ dict.frame.governingText }}</p>
     </template>
     <DefaultTheme.Layout>
       <template #not-found>

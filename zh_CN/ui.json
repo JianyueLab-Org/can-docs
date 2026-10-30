@@ -79,8 +79,7 @@
     "language": {
       "label": "选择语言"
     },
-    "switchLocale": "English",
-    "governingText": "规章制度以本站发布的版本为准。"
+    "switchLocale": "English"
   },
   "theme": {
     "nav": {

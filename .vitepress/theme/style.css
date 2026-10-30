@@ -435,11 +435,8 @@ html.hide-nav .VPSidebar { --vp-nav-height: 64px; }
 }
 .VPHero { margin-top: 0 !important; padding-top: 48px !important; }
 @media (min-width: 640px) { .VPHero { padding-top: 80px !important; } }
-/* 桌面上侧栏和目录底部的遮罩是 fixed 的，会盖住文档流末尾 can-ui 的页脚。页脚
-   抬到侧栏（25）之上、顶栏（40）之下。窄屏侧栏是抽屉，不用抬，抬了反而压住本地导航。 */
-@media (min-width: 960px) {
-  #main-content ~ footer { position: relative; z-index: 30; }
-}
+/* 不显示 can-ui 的站点页脚。CanFrame 的 content 布局没有关掉它的选项。 */
+#main-content ~ footer { display: none; }
 
 /* ---------------------------------------------------------------------------
    顶栏里的全文搜索（VitePress 的按钮，放在 CanFrame 的 actions 槽里）。形状照
@@ -577,12 +574,21 @@ html.hide-nav .VPSidebar { --vp-nav-height: 64px; }
 .VPHome .vp-doc p { max-width: 72ch; }
 
 /* ---------------------------------------------------------------------------
-   右侧「本页目录」。标题缩成小号的浅色标签，竖线只沿条目走，当前章节用品牌色
-   和竖线上的标记标出。
-   VitePress 在 `outline.js` 里把标记的 top 写死为 `offsetTop + 39px`，即
-   「标题块高 + 条目行高 / 2 − 标记高 / 2」恒为 39：标题块 34px（28 + 6）、
-   行高 28px、标记 18px，正好凑上。改这三个数之一，要一起改。
+   右侧「本页目录」。标题缩成小号的浅色标签。
+   竖线是一条连续的线，跟着缩进走：章的条目在最左，进入下面的条时以一段 S 形
+   曲线弯进一级缩进，条结束后再以 S 形曲线弯回最左，接下一章。直线由各条目的
+   左边框拼成；曲线是条目列表上下留白里的一段三次贝塞尔（SVG 遮罩，颜色取
+   --vp-c-divider，跟着明暗走）。当前条目把自己那段换成品牌色，所以 VitePress
+   自带的滑动标记不用。
+   遮罩的 viewBox 是 14 × 20：宽 = 缩进 12 + 线宽 2，高 = 弯道 20，两端的 x 是
+   两条直线的中心（1 和 13）。改 --toc-indent、--toc-line 或 --toc-bend，要一起
+   改这两个 SVG。
 --------------------------------------------------------------------------- */
+.VPDocAsideOutline {
+  --toc-line: 2px;
+  --toc-indent: 12px;
+  --toc-bend: 20px;
+}
 .VPDocAsideOutline .content.content {
   border-left: 0;
   padding-left: 0;
@@ -595,22 +601,77 @@ html.hide-nav .VPSidebar { --vp-nav-height: 64px; }
   letter-spacing: 0.04em;
   color: var(--vp-c-text-3);
 }
-.VPDocAsideOutline .content > .root {
-  border-left: 1px solid var(--vp-c-divider);
-  padding-left: 14px;
-}
 .VPDocAsideOutline .outline-marker.outline-marker {
-  left: 0;
+  display: none;
 }
 .VPDocAsideOutline .outline-link.outline-link {
-  line-height: 28px;
+  border-left: var(--toc-line) solid var(--vp-c-divider);
+  padding: 4px 0 4px 12px;
+  line-height: 20px;
   font-size: 13px;
+  white-space: normal;
+  overflow-wrap: anywhere;
   color: var(--vp-c-text-2);
+  transition:
+    color var(--duration-fast) var(--ease-out-quint),
+    border-color var(--duration-fast) var(--ease-out-quint);
 }
-.VPDocAsideOutline .outline-link.outline-link:hover {
+.VPDocAsideOutline .root > li > .outline-link.outline-link {
+  font-weight: 600;
   color: var(--vp-c-text-1);
 }
-.VPDocAsideOutline .outline-link.outline-link.active {
+.VPDocAsideOutline .nested.nested {
+  position: relative;
+  padding: var(--toc-bend) 0 0 var(--toc-indent);
+}
+.VPDocAsideOutline .nested .outline-link.outline-link {
+  font-size: 12.5px;
+}
+.VPDocAsideOutline .outline-link.outline-link:hover {
   color: var(--vp-c-brand-1);
-  font-weight: 500;
+}
+.VPDocAsideOutline .outline-link.outline-link.active {
+  border-left-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+}
+
+/* 弯道。最后一章后面没有线可接，不画「出」。 */
+.VPDocAsideOutline .root > li:has(> .nested):not(:last-child) {
+  position: relative;
+  padding-bottom: var(--toc-bend);
+}
+.VPDocAsideOutline .nested::before,
+.VPDocAsideOutline .root > li:has(> .nested):not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: calc(var(--toc-indent) + var(--toc-line));
+  height: var(--toc-bend);
+  background-color: var(--vp-c-divider);
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  pointer-events: none;
+}
+.VPDocAsideOutline .nested::before {
+  top: 0;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 20' preserveAspectRatio='none'%3E%3Cpath d='M1 0C1 10 13 10 13 20' fill='none' stroke='black' stroke-width='2'/%3E%3C/svg%3E");
+}
+.VPDocAsideOutline .root > li:has(> .nested):not(:last-child)::after {
+  bottom: 0;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 20' preserveAspectRatio='none'%3E%3Cpath d='M13 0C13 10 1 10 1 20' fill='none' stroke='black' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+/* 法条体页面的「条」是 h3（锚点 #第十五条 / #article-15），好进目录、好被链接。
+   正文里它只是条文的标签，不该和章抢层级：字号收到比正文稍大，和下面的条文贴
+   近一些。 */
+.vp-doc h3[id^="第"],
+.vp-doc h3[id^="article-"] {
+  margin-top: 28px;
+  font-size: 17px;
+  line-height: 26px;
+}
+.vp-doc h3[id^="第"] + p,
+.vp-doc h3[id^="article-"] + p {
+  margin-top: 6px;
 }

@@ -2,9 +2,13 @@
 
 ## <span class="regulation-status regulation-status-pending">第一章　总则</span>
 
-<span class="regulation-status regulation-status-pending">**第一条（制定目的）**　为规范教员日常教学、权限使用、行为管理和资格维护，保障学员接受公平、连续、统一的培训，制定本条例。</span>
+### <span class="regulation-status regulation-status-pending">第一条（制定目的）</span> {#第一条}
 
-<span class="regulation-status regulation-status-pending">**第二条（适用范围）**　本条例适用于：</span>
+<span class="regulation-status regulation-status-pending">为规范教员日常教学、权限使用、行为管理和资格维护，保障学员接受公平、连续、统一的培训，制定本条例。</span>
+
+### <span class="regulation-status regulation-status-pending">第二条（适用范围）</span> {#第二条}
+
+<span class="regulation-status regulation-status-pending">本条例适用于：</span>
 
 <span class="regulation-status regulation-status-pending">（一）正式教员；</span>
 
@@ -14,7 +18,9 @@
 
 ## <span class="regulation-status regulation-status-pending">第二章　教员权限与职责</span>
 
-<span class="regulation-status regulation-status-pending">**第三条（教员可以行使的权限）**　在授权范围内，教员可以：</span>
+### <span class="regulation-status regulation-status-pending">第三条（教员可以行使的权限）</span> {#第三条}
+
+<span class="regulation-status regulation-status-pending">在授权范围内，教员可以：</span>
 
 <span class="regulation-status regulation-status-pending">（一）对学员进行理论讲解和实操指导；</span>
 
@@ -28,7 +34,9 @@
 
 <span class="regulation-status regulation-status-pending">（六）在授权范围内使用训练席位和教学资源。</span>
 
-<span class="regulation-status regulation-status-pending">**第四条（教员不得行使的权限）**　教员不得擅自：</span>
+### <span class="regulation-status regulation-status-pending">第四条（教员不得行使的权限）</span> {#第四条}
+
+<span class="regulation-status regulation-status-pending">教员不得擅自：</span>
 
 <span class="regulation-status regulation-status-pending">（一）授予、取消或永久变更学员等级；</span>
 
@@ -44,7 +52,9 @@
 
 <span class="regulation-status regulation-status-pending">（七）将个人争议带入培训、考核或评分。</span>
 
-<span class="regulation-status regulation-status-pending">**第五条（教员日常职责）**　教员应当：</span>
+### <span class="regulation-status regulation-status-pending">第五条（教员日常职责）</span> {#第五条}
+
+<span class="regulation-status regulation-status-pending">教员应当：</span>
 
 <span class="regulation-status regulation-status-pending">（一）实施培训；</span>
 
@@ -66,7 +76,9 @@
 
 ## <span class="regulation-status regulation-status-pending">第三章　教学行为规范</span>
 
-<span class="regulation-status regulation-status-pending">**第六条（教学沟通要求）**　教员应当：</span>
+### <span class="regulation-status regulation-status-pending">第六条（教学沟通要求）</span> {#第六条}
+
+<span class="regulation-status regulation-status-pending">教员应当：</span>
 
 <span class="regulation-status regulation-status-pending">（一）使用清晰、准确、可理解的语言；</span>
 
@@ -82,7 +94,9 @@
 
 <span class="regulation-status regulation-status-pending">教员不得使用侮辱、歧视、威胁、嘲讽或打击报复性语言。</span>
 
-<span class="regulation-status regulation-status-pending">**第七条（反馈要求）**　反馈原则上应采用“事实—影响—建议”的结构。</span>
+### <span class="regulation-status regulation-status-pending">第七条（反馈要求）</span> {#第七条}
+
+<span class="regulation-status regulation-status-pending">反馈原则上应采用“事实—影响—建议”的结构。</span>
 
 <span class="regulation-status regulation-status-pending">示例：</span>
 
@@ -92,7 +106,9 @@
 
 <span class="regulation-status regulation-status-pending">反馈不得仅写“表现不好”“经验不足”“注意力不集中”等无法核实的结论。</span>
 
-<span class="regulation-status regulation-status-pending">**第八条（统一标准要求）**　教员不得因以下因素改变培训标准：</span>
+### <span class="regulation-status regulation-status-pending">第八条（统一标准要求）</span> {#第八条}
+
+<span class="regulation-status regulation-status-pending">教员不得因以下因素改变培训标准：</span>
 
 <span class="regulation-status regulation-status-pending">（一）私人关系；</span>
 
@@ -110,7 +126,9 @@
 
 ## <span class="regulation-status regulation-status-pending">第四章　利益冲突与回避</span>
 
-<span class="regulation-status regulation-status-pending">**第九条（应当回避的情形）**　出现以下情形时，教员应主动向教员主管报告并回避：</span>
+### <span class="regulation-status regulation-status-pending">第九条（应当回避的情形）</span> {#第九条}
+
+<span class="regulation-status regulation-status-pending">出现以下情形时，教员应主动向教员主管报告并回避：</span>
 
 <span class="regulation-status regulation-status-pending">（一）与学员存在尚未解决的私人争议；</span>
 
@@ -124,7 +142,9 @@
 
 <span class="regulation-status regulation-status-pending">（六）其他足以影响公正判断的情形。</span>
 
-<span class="regulation-status regulation-status-pending">**第十条（回避处理）**　回避后，由教员主管指定其他具备相应授权的教员或考官接替。</span>
+### <span class="regulation-status regulation-status-pending">第十条（回避处理）</span> {#第十条}
+
+<span class="regulation-status regulation-status-pending">回避后，由教员主管指定其他具备相应授权的教员或考官接替。</span>
 
 <span class="regulation-status regulation-status-pending">如因人员不足无法完全回避，应：</span>
 
@@ -136,7 +156,9 @@
 
 ## <span class="regulation-status regulation-status-pending">第五章　教学记录和档案管理</span>
 
-<span class="regulation-status regulation-status-pending">**第十一条（记录内容）**　每次正式培训原则上应记录：</span>
+### <span class="regulation-status regulation-status-pending">第十一条（记录内容）</span> {#第十一条}
+
+<span class="regulation-status regulation-status-pending">每次正式培训原则上应记录：</span>
 
 <span class="regulation-status regulation-status-pending">（一）学员 CID 和当前等级；</span>
 
@@ -158,7 +180,9 @@
 
 <span class="regulation-status regulation-status-pending">（十）学员和教员确认信息。</span>
 
-<span class="regulation-status regulation-status-pending">**第十二条（记录真实性）**　教员不得：</span>
+### <span class="regulation-status regulation-status-pending">第十二条（记录真实性）</span> {#第十二条}
+
+<span class="regulation-status regulation-status-pending">教员不得：</span>
 
 <span class="regulation-status regulation-status-pending">（一）伪造培训时间；</span>
 
@@ -172,7 +196,9 @@
 
 <span class="regulation-status regulation-status-pending">如需修改，应保留原记录、修改时间、修改人和修改理由。</span>
 
-<span class="regulation-status regulation-status-pending">**第十三条（档案权限）**　培训档案原则上由教员主管统一管理。</span>
+### <span class="regulation-status regulation-status-pending">第十三条（档案权限）</span> {#第十三条}
+
+<span class="regulation-status regulation-status-pending">培训档案原则上由教员主管统一管理。</span>
 
 <span class="regulation-status regulation-status-pending">可查阅人员包括：</span>
 
@@ -194,7 +220,9 @@
 
 ## <span class="regulation-status regulation-status-pending">第六章　教员继续资格</span>
 
-<span class="regulation-status regulation-status-pending">**第十四条（持续履职要求）**　教员应当：</span>
+### <span class="regulation-status regulation-status-pending">第十四条（持续履职要求）</span> {#第十四条}
+
+<span class="regulation-status regulation-status-pending">教员应当：</span>
 
 <span class="regulation-status regulation-status-pending">（一）按要求完成教学任务；</span>
 
@@ -210,7 +238,9 @@
 
 <span class="regulation-status regulation-status-pending">（七）在授权范围内持续保持业务能力。</span>
 
-<span class="regulation-status regulation-status-pending">**第十五条（不活跃管理）**　连续 6 个月无有效教学记录的教员，教员主管可以将其状态调整为：</span>
+### <span class="regulation-status regulation-status-pending">第十五条（不活跃管理）</span> {#第十五条}
+
+<span class="regulation-status regulation-status-pending">连续 6 个月无有效教学记录的教员，教员主管可以将其状态调整为：</span>
 
 - <span class="regulation-status regulation-status-pending">正常；</span>
 
@@ -230,7 +260,9 @@
 
 ## <span class="regulation-status regulation-status-pending">第七章　晋级、降级、暂停和取消资格</span>
 
-<span class="regulation-status regulation-status-pending">**第十六条（教员晋级）**　教员晋级应根据以下证据综合判断：</span>
+### <span class="regulation-status regulation-status-pending">第十六条（教员晋级）</span> {#第十六条}
+
+<span class="regulation-status regulation-status-pending">教员晋级应根据以下证据综合判断：</span>
 
 <span class="regulation-status regulation-status-pending">（一）已完成当前等级规定的教学任务；</span>
 
@@ -244,7 +276,9 @@
 
 <span class="regulation-status regulation-status-pending">（六）无尚未处理完毕的严重违规。</span>
 
-<span class="regulation-status regulation-status-pending">**第十七条（限制执教）**　出现以下情形之一，可以限制教员部分权限：</span>
+### <span class="regulation-status regulation-status-pending">第十七条（限制执教）</span> {#第十七条}
+
+<span class="regulation-status regulation-status-pending">出现以下情形之一，可以限制教员部分权限：</span>
 
 <span class="regulation-status regulation-status-pending">（一）某一席位能力出现持续性问题；</span>
 
@@ -258,7 +292,9 @@
 
 <span class="regulation-status regulation-status-pending">限制执教不等同于取消教员资格。</span>
 
-<span class="regulation-status regulation-status-pending">**第十八条（暂停执教）**　出现以下情形之一，可以暂停教员全部或部分教学权限：</span>
+### <span class="regulation-status regulation-status-pending">第十八条（暂停执教）</span> {#第十八条}
+
+<span class="regulation-status regulation-status-pending">出现以下情形之一，可以暂停教员全部或部分教学权限：</span>
 
 <span class="regulation-status regulation-status-pending">（一）发生重大教学失误；</span>
 
@@ -268,7 +304,9 @@
 
 <span class="regulation-status regulation-status-pending">（四）在调查期间继续使用相关权限可能影响公平或安全。</span>
 
-<span class="regulation-status regulation-status-pending">**第十九条（取消教员资格）**　出现以下情形之一，可以取消教员资格：</span>
+### <span class="regulation-status regulation-status-pending">第十九条（取消教员资格）</span> {#第十九条}
+
+<span class="regulation-status regulation-status-pending">出现以下情形之一，可以取消教员资格：</span>
 
 <span class="regulation-status regulation-status-pending">（一）伪造考核结果或培训记录；</span>
 
@@ -284,9 +322,13 @@
 
 ## <span class="regulation-status regulation-status-pending">第八章　紧急临时授权</span>
 
-<span class="regulation-status regulation-status-pending">**第二十条（临时授权适用情形）**　在正式教员临时不足、特殊活动、重大培训任务或其他确有必要的情况下，可以实施临时授权。</span>
+### <span class="regulation-status regulation-status-pending">第二十条（临时授权适用情形）</span> {#第二十条}
 
-<span class="regulation-status regulation-status-pending">**第二十一条（临时授权要求）**　临时授权必须：</span>
+<span class="regulation-status regulation-status-pending">在正式教员临时不足、特殊活动、重大培训任务或其他确有必要的情况下，可以实施临时授权。</span>
+
+### <span class="regulation-status regulation-status-pending">第二十一条（临时授权要求）</span> {#第二十一条}
+
+<span class="regulation-status regulation-status-pending">临时授权必须：</span>
 
 <span class="regulation-status regulation-status-pending">（一）明确授权人；</span>
 
@@ -302,7 +344,9 @@
 
 <span class="regulation-status regulation-status-pending">临时授权不得超过 15 日，不得自动转化为正式教员资格。</span>
 
-<span class="regulation-status regulation-status-pending">**第二十二条（临时授权限制）**　临时授权人员不得：</span>
+### <span class="regulation-status regulation-status-pending">第二十二条（临时授权限制）</span> {#第二十二条}
+
+<span class="regulation-status regulation-status-pending">临时授权人员不得：</span>
 
 <span class="regulation-status regulation-status-pending">（一）独立实施正式资格考试；</span>
 
@@ -316,9 +360,13 @@
 
 ## <span class="regulation-status regulation-status-pending">第十章　制度解释和修订</span>
 
-<span class="regulation-status regulation-status-pending">**第二十六条（解释权）**　本条例由 CAN PRC 分部管理组负责解释。</span>
+### <span class="regulation-status regulation-status-pending">第二十六条（解释权）</span> {#第二十六条}
 
-<span class="regulation-status regulation-status-pending">**第二十七条（修订机制）**　出现以下情形时，应评估是否修订本条例：</span>
+<span class="regulation-status regulation-status-pending">本条例由 CAN PRC 分部管理组负责解释。</span>
+
+### <span class="regulation-status regulation-status-pending">第二十七条（修订机制）</span> {#第二十七条}
+
+<span class="regulation-status regulation-status-pending">出现以下情形时，应评估是否修订本条例：</span>
 
 <span class="regulation-status regulation-status-pending">（一）席位体系或等级体系发生变化；</span>
 
@@ -330,6 +378,8 @@
 
 <span class="regulation-status regulation-status-pending">（五）平台软件或培训方式发生重大变化。</span>
 
-<span class="regulation-status regulation-status-pending">**第二十八条（违规处理和申诉）**　教员或学员对培训、考核或处理结果有异议的，可以在结果公布后 7 日内以邮箱形式向分部管理提交书面申诉，且应带有相关证据。无法联系分部主管的，可联系管理组，由管理组代为转交。</span>
+### <span class="regulation-status regulation-status-pending">第二十八条（违规处理和申诉）</span> {#第二十八条}
+
+<span class="regulation-status regulation-status-pending">教员或学员对培训、考核或处理结果有异议的，可以在结果公布后 7 日内以邮箱形式向分部管理提交书面申诉，且应带有相关证据。无法联系分部主管的，可联系管理组，由管理组代为转交。</span>
 
 <span class="regulation-status regulation-status-pending">对分部主管的申诉处理结果有异议的，或教员或学员认为有必要的，按照[CAN 总则](/zh_CN/regulation) 第三十八条相关要求向 [feedback@ceruleanavi.net](mailto:feedback@ceruleanavi.net) 提交相关反馈，由管理组处理。</span>

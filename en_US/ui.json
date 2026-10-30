@@ -79,8 +79,7 @@
     "language": {
       "label": "Select language"
     },
-    "switchLocale": "简体中文",
-    "governingText": "The documents are published in Chinese; the Chinese text governs."
+    "switchLocale": "简体中文"
   },
   "theme": {
     "nav": {

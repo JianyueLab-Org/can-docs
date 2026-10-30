@@ -12,11 +12,17 @@ These General Regulations are issued and amended by the Cerulean Aviation Networ
 
 ## Chapter I　General Provisions
 
-**Article 1 (Purpose and Basis)**　These General Regulations are established to regulate the conduct of pilots, controllers and platform administrators on CAN, ensure the orderly operation of online activities, protect the legitimate rights and interests of users, and support the healthy development of the platform.
+### Article 1 (Purpose and Basis) {#article-1}
 
-**Article 2 (Operating Entity)**　CAN is a flight simulation network operated and administered by JianyueLab Org., the open-source community department of JIANYELAB LTD (UK company number 16913067), and maintains an independent management system for its day-to-day operations.
+These General Regulations are established to regulate the conduct of pilots, controllers and platform administrators on CAN, ensure the orderly operation of online activities, protect the legitimate rights and interests of users, and support the healthy development of the platform.
 
-**Article 3 (Definitions)**　For the purposes of these General Regulations:
+### Article 2 (Operating Entity) {#article-2}
+
+CAN is a flight simulation network operated and administered by JianyueLab Org., the open-source community department of JIANYELAB LTD (UK company number 16913067), and maintains an independent management system for its day-to-day operations.
+
+### Article 3 (Definitions) {#article-3}
+
+For the purposes of these General Regulations:
 
 (1) “CAN” or “the platform” means Cerulean Aviation Network;
 
@@ -30,23 +36,31 @@ These General Regulations are issued and amended by the Cerulean Aviation Networ
 
 (6) “Management Group” means the platform administrators listed in Article 47 of these General Regulations.
 
-**Article 4 (Scope of Application)**　These General Regulations apply to all users. By registering an account, a user is deemed to agree to comply with these General Regulations. By connecting, a user is deemed to accept the binding force of these General Regulations throughout the entire connection.
+### Article 4 (Scope of Application) {#article-4}
+
+These General Regulations apply to all users. By registering an account, a user is deemed to agree to comply with these General Regulations. By connecting, a user is deemed to accept the binding force of these General Regulations throughout the entire connection.
 
 In addition to these General Regulations, controllers must comply with the [CAN Controller Regulations](/zh_CN/atc). If the two documents conflict, these General Regulations prevail.
 
-**Article 5 (Version and Effect)**　These General Regulations are the currently effective text of the CAN regulations and take effect in accordance with Article 49.
+### Article 5 (Version and Effect) {#article-5}
+
+These General Regulations are the currently effective text of the CAN regulations and take effect in accordance with Article 49.
 
 The CAN Regulations (Third Edition) are repealed upon the effective date of these General Regulations. The [Third Edition](/zh_CN/archive/regulation_3rd), [Second Edition](/zh_CN/archive/regulation_2nd) and [First Edition](/zh_CN/archive/regulation) have been moved to the archive for reference only and are no longer binding.
 
 ## Chapter II　Basic User Rules
 
-**Article 6 (Respect and Courtesy)**　Users must show respect and basic courtesy towards other users, community participants and platform administrators while participating in the platform community or connecting to the platform.
+### Article 6 (Respect and Courtesy) {#article-6}
+
+Users must show respect and basic courtesy towards other users, community participants and platform administrators while participating in the platform community or connecting to the platform.
 
 Malicious attacks, insults, harassment, discrimination and other conduct that harms others are prohibited. Conduct that damages the reputation or healthy development of the platform is also prohibited.
 
 Users must respect platform administrators and personnel who organize and prepare platform materials at all times.
 
-**Article 7 (Truthful Information)**　Users must provide truthful information to the platform and its administrators. The Management Group may take action under Article 44 against a user who provides false information.
+### Article 7 (Truthful Information) {#article-7}
+
+Users must provide truthful information to the platform and its administrators. The Management Group may take action under Article 44 against a user who provides false information.
 
 (1) The platform will not request sensitive personal information, including but not limited to a legal name, date of birth or home address;
 
@@ -54,15 +68,23 @@ Users must respect platform administrators and personnel who organize and prepar
 
 (3) Users must choose an appropriate nickname. Offensive or politically sensitive nicknames are prohibited.
 
-**Article 8 (Accounts)**　An account may be used only by its holder. Users must not lend their CAN accounts to others.
+### Article 8 (Accounts) {#article-8}
+
+An account may be used only by its holder. Users must not lend their CAN accounts to others.
 
 Conduct carried out through a user's account is deemed to be conduct of that user.
 
-**Article 9 (Clients and Data)**　Users must always use the latest version of the client and keep navigation data up to date.
+### Article 9 (Clients and Data) {#article-9}
 
-**Article 10 (Number of Connections)**　Each user may establish only one valid connection at a time, including pilot and controller connections. Connections established in OBS status are exempt from this rule.
+Users must always use the latest version of the client and keep navigation data up to date.
 
-**Article 11 (Compliance with Administration)**　Platform administrators have the authority to intervene in a user's connection, and users must follow their instructions.
+### Article 10 (Number of Connections) {#article-10}
+
+Each user may establish only one valid connection at a time, including pilot and controller connections. Connections established in OBS status are exempt from this rule.
+
+### Article 11 (Compliance with Administration) {#article-11}
+
+Platform administrators have the authority to intervene in a user's connection, and users must follow their instructions.
 
 During a connection, users may contact an online platform administrator for assistance by sending a private message through `.wallop`. All `.wallop` messages will be recorded and retained.
 
@@ -70,85 +92,135 @@ Matters outside a connection must be submitted by email in accordance with Artic
 
 ## Chapter III　Pilot Rules
 
-**Article 12 (Prohibition on Simulating Restricted Flight Activities)**　While connected, users must not simulate flight activities restricted in real life, including but not limited to entering prohibited areas, hijacking and radio failure.
+### Article 12 (Prohibition on Simulating Restricted Flight Activities) {#article-12}
+
+While connected, users must not simulate flight activities restricted in real life, including but not limited to entering prohibited areas, hijacking and radio failure.
 
 An exception may be granted at the discretion of the relevant controller when the activity takes place in controlled airspace and the corresponding controller has granted permission.
 
-**Article 13 (Connection Location)**　When connecting, users must not spawn or establish a connection anywhere other than a parking stand, and must not pause in the air.
+### Article 13 (Connection Location) {#article-13}
+
+When connecting, users must not spawn or establish a connection anywhere other than a parking stand, and must not pause in the air.
 
 An exception may be granted with the prior permission of the relevant controller.
 
-**Article 14 (Flight Plans)**　After connecting, users must submit an appropriate flight plan or complete it in advance.
+### Article 14 (Flight Plans) {#article-14}
+
+After connecting, users must submit an appropriate flight plan or complete it in advance.
 
 When a controller is online, a user must submit a flight plan and obtain clearance before moving the aircraft. For local flights, the route must be entered as `LOCAL`.
 
-**Article 15 (Callsigns)**　While connected, users should not use callsigns with special significance, such as the callsign of a flight that crashed in real life. If this Article is violated, the controller may order the crew concerned to change its callsign.
+### Article 15 (Callsigns) {#article-15}
 
-**Article 16 (Maintaining Contact)**　Users must remain in communication with the controller responsible for their area and comply with the controller's instructions.
+While connected, users should not use callsigns with special significance, such as the callsign of a flight that crashed in real life. If this Article is violated, the controller may order the crew concerned to change its callsign.
+
+### Article 16 (Maintaining Contact) {#article-16}
+
+Users must remain in communication with the controller responsible for their area and comply with the controller's instructions.
 
 If a controller cannot be reached by voice or text, the user must contact a platform administrator through `.wallop` in accordance with Article 11 for further assistance.
 
 The same procedure applies when a controller is unable to provide service.
 
-**Article 17 (Controlled Airspace)**　Users must not enter controlled airspace without permission, except when directed or approved by a controller. If a violation is discovered, the controller may use radar vectors to guide the aircraft concerned out of controlled airspace as soon as possible.
+### Article 17 (Controlled Airspace) {#article-17}
+
+Users must not enter controlled airspace without permission, except when directed or approved by a controller. If a violation is discovered, the controller may use radar vectors to guide the aircraft concerned out of controlled airspace as soon as possible.
 
 Users within a controlled area must request and comply with controller instructions.
 
-**Article 18 (Routes and Flight Levels)**　IFR en-route flights must use cruising flight levels that comply with RVSM rules, unless otherwise assigned by a controller.
+### Article 18 (Routes and Flight Levels) {#article-18}
 
-**Article 19 (Arrival and Departure Procedures)**　Arrivals and departures must use the standard instrument departure or arrival procedure (SID/STAR) in the latest published navigation data, or accept radar vectors from a controller.
+IFR en-route flights must use cruising flight levels that comply with RVSM rules, unless otherwise assigned by a controller.
 
-**Article 20 (Prohibition on Time Acceleration)**　Users must not use time acceleration during a connected flight. Time acceleration may mislead a controller's assessment, except when directed by a controller.
+### Article 19 (Arrival and Departure Procedures) {#article-19}
 
-**Article 21 (Avoidance)**　An aircraft conducting a normal flight must give way to an aircraft known to require a forced landing.
+Arrivals and departures must use the standard instrument departure or arrival procedure (SID/STAR) in the latest published navigation data, or accept radar vectors from a controller.
 
-**Article 22 (Emergency Conditions)**　When encountering an emergency while connected, a user may seek assistance from a controller or contact a platform administrator in accordance with Article 11.
+### Article 20 (Prohibition on Time Acceleration) {#article-20}
+
+Users must not use time acceleration during a connected flight. Time acceleration may mislead a controller's assessment, except when directed by a controller.
+
+### Article 21 (Avoidance) {#article-21}
+
+An aircraft conducting a normal flight must give way to an aircraft known to require a forced landing.
+
+### Article 22 (Emergency Conditions) {#article-22}
+
+When encountering an emergency while connected, a user may seek assistance from a controller or contact a platform administrator in accordance with Article 11.
 
 ## Chapter IV　Controller Rules
 
-**Article 23 (Qualifications)**　Only a user who has passed the assessment under the [CAN Controller Regulations](/zh_CN/atc) and has been granted the corresponding controlling privileges may provide control services as a controller. A controller must not provide services beyond the scope of the privileges granted to them.
+### Article 23 (Qualifications) {#article-23}
+
+Only a user who has passed the assessment under the [CAN Controller Regulations](/zh_CN/atc) and has been granted the corresponding controlling privileges may provide control services as a controller. A controller must not provide services beyond the scope of the privileges granted to them.
 
 The specific assessment content and additional requirements are prescribed and published by each division's director according to the division's operating circumstances.
 
 <span class="regulation-status regulation-status-effective">Division management, applications for controller privileges, training, assessment, authorization, downgrading and cancellation are governed by Chapters II to V of the [CAN Controller Regulations](/zh_CN/atc).</span>
 
-**Article 24 (Basic Duties)**　When providing control services, a controller must comply with these General Regulations, respond calmly to conflicts, treat crews courteously and answer their questions.
+### Article 24 (Basic Duties) {#article-24}
+
+When providing control services, a controller must comply with these General Regulations, respond calmly to conflicts, treat crews courteously and answer their questions.
 
 A controller provides control services only, while the pilot in command is the primary decision-maker for the aircraft. A controller must make every effort to serve the crew, but must not make decisions on behalf of the pilot in command.
 
-**Article 25 (Opening a Position and Coordination)**　Before connecting, a controller must coordinate the division and transfer of control areas with other controllers who are already online.
+### Article 25 (Opening a Position and Coordination) {#article-25}
+
+Before connecting, a controller must coordinate the division and transfer of control areas with other controllers who are already online.
 
 When a controller opens a higher-level position while a lower-level position is unattended, the controller must provide compatible service for the lower-level area.
 
-**Article 26 (Position Changes)**　When a crew is within a controller's area of responsibility, the controller must not change positions frequently. A controller may change positions no more than three times in one hour.
+### Article 26 (Position Changes) {#article-26}
+
+When a crew is within a controller's area of responsibility, the controller must not change positions frequently. A controller may change positions no more than three times in one hour.
 
 When changing positions, the controller must also change the corresponding frequency.
 
-**Article 27 (Traffic Flow Control)**　When necessary, a controller must control surface traffic flow.
+### Article 27 (Traffic Flow Control) {#article-27}
 
-**Article 28 (Service Attitude)**　A controller's role is to provide control services, not to assert authority. When a crew encounters difficulties or makes a mistake, the controller must help and guide the crew in a friendly manner and **must not mock or blame the crew**.
+When necessary, a controller must control surface traffic flow.
+
+### Article 28 (Service Attitude) {#article-28}
+
+A controller's role is to provide control services, not to assert authority. When a crew encounters difficulties or makes a mistake, the controller must help and guide the crew in a friendly manner and **must not mock or blame the crew**.
 
 ## Chapter V　Communication Standards
 
-**Article 29 (Communication Language)**　Air-ground communications must be conducted in English or the designated language.
+### Article 29 (Communication Language) {#article-29}
 
-**Article 30 (Emergency Frequency)**　121.500 MHz is the emergency frequency and must not be occupied for non-emergency purposes.
+Air-ground communications must be conducted in English or the designated language.
 
-**Article 31 (Priority of Instructions)**　A controller's instructions have final execution priority.
+### Article 30 (Emergency Frequency) {#article-30}
 
-**Article 32 (Frequency Disputes)**　When a pilot and a controller disagree, they must not occupy the frequency to argue and must submit feedback in accordance with Article 38.
+121.500 MHz is the emergency frequency and must not be occupied for non-emergency purposes.
 
-**Article 33 (Uncontrolled Frequency)**　In uncontrolled airspace, 122.800 MHz is the standard coordination frequency. Aircraft must coordinate avoidance with one another.
+### Article 31 (Priority of Instructions) {#article-31}
 
-**Article 34 (Chat on Frequency)**　When crews need to chat on frequency, they should use 123.450 MHz.
+A controller's instructions have final execution priority.
+
+### Article 32 (Frequency Disputes) {#article-32}
+
+When a pilot and a controller disagree, they must not occupy the frequency to argue and must submit feedback in accordance with Article 38.
+
+### Article 33 (Uncontrolled Frequency) {#article-33}
+
+In uncontrolled airspace, 122.800 MHz is the standard coordination frequency. Aircraft must coordinate avoidance with one another.
+
+### Article 34 (Chat on Frequency) {#article-34}
+
+When crews need to chat on frequency, they should use 123.450 MHz.
 
 When traffic is light, crews and controllers may chat on frequency, but instructions take priority. Chat must not interrupt a controller issuing an instruction or a crew reading one back.
 
 ## Chapter VI　Handling of Emergencies
 
-**Article 35 (Declaration of Distress)**　When an aircraft is in distress, it must first clearly declare “Mayday” or “Pan-pan” by voice and then set transponder code 7700. The same rule applies when no controller is present.
+### Article 35 (Declaration of Distress) {#article-35}
 
-**Article 36 (Investigation and Records)**　All emergencies are reviewed and investigated by the Management Group and recorded in the archives.
+When an aircraft is in distress, it must first clearly declare “Mayday” or “Pan-pan” by voice and then set transponder code 7700. The same rule applies when no controller is present.
+
+### Article 36 (Investigation and Records) {#article-36}
+
+All emergencies are reviewed and investigated by the Management Group and recorded in the archives.
 
 Negligent handling, concealment or similar circumstances will be entered into the user's credit record.
 
@@ -158,9 +230,13 @@ The retention period for credit records is governed by the second paragraph of A
 
 ## Chapter VII　Suggestions, Feedback and Processing
 
-**Article 37 (Right to Submit)**　All users have the right to submit suggestions and feedback to the platform Management Group.
+### Article 37 (Right to Submit) {#article-37}
 
-**Article 38 (Method of Submission)**　Feedback must be sent by email from the email address used to register the user's account to [feedback@ceruleanavi.net](mailto:feedback@ceruleanavi.net).
+All users have the right to submit suggestions and feedback to the platform Management Group.
+
+### Article 38 (Method of Submission) {#article-38}
+
+Feedback must be sent by email from the email address used to register the user's account to [feedback@ceruleanavi.net](mailto:feedback@ceruleanavi.net).
 
 <span class="regulation-status regulation-status-effective">Complaints concerning improper conduct by any person on the platform, including but not limited to pilots, controllers, division administrators and members of the Management Group, must likewise be submitted by email in accordance with the preceding paragraph.</span>
 
@@ -172,7 +248,9 @@ The preceding paragraph does not affect a user's right to seek assistance during
 
 Applications, training and assessment matters concerning controller privileges are handled by the division director designated under Article 7 of the CAN Controller Regulations and are not subject to this Article.
 
-**Article 39 (Responsible Administrator and Transfer)**　Feedback is handled by the first administrator who accepts it. That administrator is the responsible administrator for the feedback.
+### Article 39 (Responsible Administrator and Transfer) {#article-39}
+
+Feedback is handled by the first administrator who accepts it. That administrator is the responsible administrator for the feedback.
 
 (1) An administrator may transfer feedback to another administrator, but only once;
 
@@ -182,27 +260,37 @@ Applications, training and assessment matters concerning controller privileges a
 
 An internal record created under item (3) of the preceding paragraph is retained until the relevant user closes their account.
 
-**Article 40 (Anonymity Protection)**　Platform administrators have a duty to protect the anonymity of feedback submitters.
+### Article 40 (Anonymity Protection) {#article-40}
+
+Platform administrators have a duty to protect the anonymity of feedback submitters.
 
 This protection does not apply when the submitter expressly or implicitly reveals their identity during the feedback process.
 
-**Article 41 (Publication)**　After formal investigation and processing, the content of all feedback and the outcome must be published on the website.
+### Article 41 (Publication) {#article-41}
+
+After formal investigation and processing, the content of all feedback and the outcome must be published on the website.
 
 The identity of the feedback submitter must be removed from the publication.
 
 When no administrative decision has been made, the published content must be fully anonymized and must not identify any specific user.
 
-**Article 42 (Review)**　A person who disagrees with the outcome of feedback processing may apply for a second review. The application must still be submitted in accordance with Article 38 and must state that it is an application for review. The review must be conducted by an administrator other than the responsible administrator.
+### Article 42 (Review) {#article-42}
+
+A person who disagrees with the outcome of feedback processing may apply for a second review. The application must still be submitted in accordance with Article 38 and must state that it is an application for review. The review must be conducted by an administrator other than the responsible administrator.
 
 (1) The same feedback may be reviewed no more than twice;
 
 (2) The same event and the same fault are subject to a single review and will be reviewed only once. Other feedback concerning the same event and fault will be incorporated into that review and will not be accepted separately.
 
-**Article 43 (Non-retroactivity)**　These General Regulations do not apply retroactively.
+### Article 43 (Non-retroactivity) {#article-43}
+
+These General Regulations do not apply retroactively.
 
 Conduct occurring before these General Regulations take effect is handled under the regulations in force when the conduct occurred. The corresponding text is available in the [archive](/zh_CN/archive/regulation_3rd).
 
-**Article 44 (Measures)**　The Management Group may take measures against users who violate these General Regulations based on the investigation findings.
+### Article 44 (Measures) {#article-44}
+
+The Management Group may take measures against users who violate these General Regulations based on the investigation findings.
 
 The type and extent of a sanction are determined at the responsible administrator's discretion based on the circumstances, consequences, whether it is a first offense and the user's attitude afterward.
 
@@ -212,7 +300,9 @@ Where detailed regulations such as the CAN Controller Regulations provide separa
 
 A person who disagrees with a sanction may apply for review in accordance with Article 42.
 
-**Article 45 (Request for Disclosure)**　A user may ask the Management Group to disclose or publish information such as the process by which feedback was handled and the related procedural records.
+### Article 45 (Request for Disclosure) {#article-45}
+
+A user may ask the Management Group to disclose or publish information such as the process by which feedback was handled and the related procedural records.
 
 The request must be submitted in accordance with Article 38.
 
@@ -222,11 +312,15 @@ Disclosure is subject to the anonymity protection in Article 40 and the provisio
 
 ## Chapter VIII　Disclaimer
 
-**Article 46 (Limited Use)**　All materials, data and instructions provided by the platform are for flight simulation purposes only and must not be used for real-world aviation activities.
+### Article 46 (Limited Use) {#article-46}
+
+All materials, data and instructions provided by the platform are for flight simulation purposes only and must not be used for real-world aviation activities.
 
 ## Chapter IX　Supplementary Provisions
 
-**Article 47 (Management Group)**　The members and contact information of the CAN Management Group are as follows:
+### Article 47 (Management Group) {#article-47}
+
+The members and contact information of the CAN Management Group are as follows:
 
 <div class="organization-chart" role="img" aria-label="The Platform Director oversees the Deputy Directors for Administration and Operations; below them are the Director of Operations, the Director of Controller Training and Division Administration, and other Management Group members; the Director of Controller Training and Division Administration oversees the Mainland China, Hong Kong, Japan, United States and ROC divisions">
   <div class="organization-chart__node organization-chart__node--director">Platform Director</div>
@@ -268,9 +362,13 @@ The email addresses in the table are for routine contact and do not accept feedb
 
 Account closure may be completed independently on the website under “Personal Panel → Account”: export personal data and then close the account. The account becomes inaccessible immediately after closure. The account record is retained for one year, during which the same email address and CAN ID may not be registered again. If the account cannot be accessed, the user may contact the Director by email.
 
-**Article 48 (Privacy Policy and Terms of Service)**　The platform is operated and administered by JianyueLab Org., the open-source community department of JianyueLab Ltd. Member accounts are controlled by the platform, are not migrated to other JianyueLab products and are not handled through a third-party account system. Personal data is stored on JianyueLab's servers and infrastructure. The [Privacy Notice](/zh_CN/privacy) applies to the processing of personal information. The [JianyueLab Terms of Service](https://jianyuelab.co/legal/tos/) apply to the service.
+### Article 48 (Privacy Policy and Terms of Service) {#article-48}
 
-**Article 49 (Amendments, Publication and Status Markers)**　An amendment to these General Regulations must be published for 15 days in advance. After the publication period ends and the amendment takes effect, the amended provisions must be marked for 30 days. A summary, status, publication date, effective date and related information for each amendment must be recorded in the [Revision History and Notices](/zh_CN/revisions).
+The platform is operated and administered by JianyueLab Org., the open-source community department of JianyueLab Ltd. Member accounts are controlled by the platform, are not migrated to other JianyueLab products and are not handled through a third-party account system. Personal data is stored on JianyueLab's servers and infrastructure. The [Privacy Notice](/zh_CN/privacy) applies to the processing of personal information. The [JianyueLab Terms of Service](https://jianyuelab.co/legal/tos/) apply to the service.
+
+### Article 49 (Amendments, Publication and Status Markers) {#article-49}
+
+An amendment to these General Regulations must be published for 15 days in advance. After the publication period ends and the amendment takes effect, the amended provisions must be marked for 30 days. A summary, status, publication date, effective date and related information for each amendment must be recorded in the [Revision History and Notices](/zh_CN/revisions).
 
 The following status markers are used in these General Regulations:
 
@@ -300,10 +398,14 @@ The updates in the preceding paragraph must not change the meaning or scope of a
 
 An amendment taking effect immediately under the second or fourth paragraph remains subject to Article 50.
 
-**Article 50 (User Objections)**　A user other than a member of the Management Group who objects to these General Regulations or an amendment may submit the objection. If the number of objecting users exceeds one third of the platform's total users, the amendment is suspended and the Management Group must coordinate with users again. If the number exceeds two thirds, the amendment is repealed.
+### Article 50 (User Objections) {#article-50}
+
+A user other than a member of the Management Group who objects to these General Regulations or an amendment may submit the objection. If the number of objecting users exceeds one third of the platform's total users, the amendment is suspended and the Management Group must coordinate with users again. If the number exceeds two thirds, the amendment is repealed.
 
 An objection must be submitted in accordance with Article 38. The Management Group will verify the number of objections and handle them under the preceding paragraph.
 
-**Article 51 (Interpretation and Feedback)**　These General Regulations are interpreted by the Cerulean Aviation Network Management Group.
+### Article 51 (Interpretation and Feedback) {#article-51}
+
+These General Regulations are interpreted by the Cerulean Aviation Network Management Group.
 
 Questions or suggestions concerning these General Regulations must be sent by email to [feedback@ceruleanavi.net](mailto:feedback@ceruleanavi.net) in accordance with Article 38.

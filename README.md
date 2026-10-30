@@ -34,7 +34,7 @@ en_US/
 
 `ui.json` 的键名沿用 can-web 词典里 `docs.sections.*` 和 `frame.docs.*` 的路径，
 两边可以直接对着搬。`frame` 块是外壳（`CanFrame`）用的文案：跳转到主内容、菜单、
-快速跳转、外观、语言切换、规章以本站为准的声明。没有 `theme.network`：网络站点
+快速跳转、外观、语言切换。没有 `theme.network`：网络站点
 列表不在这里。`.vitepress/config.mts` 只从这两份文件里取字，导航结构本身
 写成一份共用的 `themeConfigFor()`，免得各语言各自漂移。两份词典的键必须一一对
 应，链接地址集中在 `config.mts` 顶部的 `DOC` 里。
@@ -92,13 +92,14 @@ en_US/
 
 - VitePress 自带导航条隐藏，顶栏是 `CanFrame` 的。
 - 导航来自 `themeConfig.nav`。
-- 站点列表、网络切换、页脚和 ICP 备案来自 can-ui 的 `sites.ts`，本仓库不留副本。
+- 站点列表和网络切换来自 can-ui 的 `sites.ts`，本仓库不留副本。
+- 不显示 can-ui 的站点页脚（含 ICP 备案）：`style.css` 把 `#main-content ~ footer` 设为 `display: none`。
 - ⌘K 是 can-ui 的快速跳转。全文搜索是 VitePress 的搜索按钮，或按 `/`。
 - 外观由 can-ui 管，存在 `theme` cookie 里；`<head>` 里内联同一段判断，避免闪烁。
 - 语言切换是 `LocaleLink.vue`，直接跳到另一种语言的首页。
 - 不放登录按钮和账号菜单：这是静态站，读不到会话。
 - 颜色、圆角、阴影、字体在 `style.css` 里全部指向 can-ui 的变量，没有本地取值。
-- 页面满宽，边距和顶栏、页脚相同；`style.css` 末尾放开 VitePress 的 1440px 等上限。只有文章正文保留 `.content-container` 的行宽。
+- 页面满宽，边距和顶栏相同；`style.css` 末尾放开 VitePress 的 1440px 等上限。只有文章正文保留 `.content-container` 的行宽。
 - 404 是 can-ui 的 `NotFound`，经 `Layout.vue` 的 `not-found` 插槽。
 
 ## 安装

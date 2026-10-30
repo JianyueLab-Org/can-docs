@@ -2,9 +2,13 @@
 
 ## <span class="regulation-status regulation-status-pending">第一章　总则</span>
 
-<span class="regulation-status regulation-status-pending">**第一条（目的）**　为规范 CAN 天蓝模拟飞行平台 PRC 本部空中交通管制部门教员的选拔、培训、考核和任命工作，建立公平、透明、可追溯的教员资格认定机制，制定本办法。</span>
+### <span class="regulation-status regulation-status-pending">第一条（目的）</span> {#第一条}
 
-<span class="regulation-status regulation-status-pending">**第二条（适用范围）**　本办法适用于：</span>
+<span class="regulation-status regulation-status-pending">为规范 CAN 天蓝模拟飞行平台 PRC 本部空中交通管制部门教员的选拔、培训、考核和任命工作，建立公平、透明、可追溯的教员资格认定机制，制定本办法。</span>
+
+### <span class="regulation-status regulation-status-pending">第二条（适用范围）</span> {#第二条}
+
+<span class="regulation-status regulation-status-pending">本办法适用于：</span>
 
 <span class="regulation-status regulation-status-pending">（一）PRC 本部空中交通管制部门教员的申请、见习、考核和任命；</span>
 
@@ -12,7 +16,9 @@
 
 <span class="regulation-status regulation-status-pending">（三）教员资格恢复、重新认定及相关复核事项。</span>
 
-<span class="regulation-status regulation-status-pending">**第三条（基本原则）**　教员资格认定遵循以下原则：</span>
+### <span class="regulation-status regulation-status-pending">第三条（基本原则）</span> {#第三条}
+
+<span class="regulation-status regulation-status-pending">教员资格认定遵循以下原则：</span>
 
 <span class="regulation-status regulation-status-pending">（一）能力导向原则；</span>
 
@@ -30,7 +36,9 @@
 
 ## <span class="regulation-status regulation-status-pending">第二章　术语和角色定义</span>
 
-<span class="regulation-status regulation-status-pending">**第五条（术语定义）**　本办法中：</span>
+### <span class="regulation-status regulation-status-pending">第五条（术语定义）</span> {#第五条}
+
+<span class="regulation-status regulation-status-pending">本办法中：</span>
 
 <span class="regulation-status regulation-status-pending">（一）**学员**：正在接受本部门管制技能、运行规则或席位能力培训的人员。</span>
 
@@ -46,7 +54,9 @@
 
 ## <span class="regulation-status regulation-status-pending">第三章　教员等级与岗位定位</span>
 
-<span class="regulation-status regulation-status-pending">**第六条（教员岗位定位）**　教员是本部门承担管制培训、能力指导、运行复盘和学员评价工作的专业人员。</span>
+### <span class="regulation-status regulation-status-pending">第六条（教员岗位定位）</span> {#第六条}
+
+<span class="regulation-status regulation-status-pending">教员是本部门承担管制培训、能力指导、运行复盘和学员评价工作的专业人员。</span>
 
 <span class="regulation-status regulation-status-pending">教员的核心职责是：</span>
 
@@ -60,7 +70,9 @@
 
 <span class="regulation-status regulation-status-pending">（五）形成完整、真实、可追溯的培训记录。</span>
 
-<span class="regulation-status regulation-status-pending">**第八条（教员资格与席位权限分离）**　取得 I1、I2 或 I3 教员资格，不代表自动获得所有席位的教学权限。</span>
+### <span class="regulation-status regulation-status-pending">第八条（教员资格与席位权限分离）</span> {#第八条}
+
+<span class="regulation-status regulation-status-pending">取得 I1、I2 或 I3 教员资格，不代表自动获得所有席位的教学权限。</span>
 
 <span class="regulation-status regulation-status-pending">教员只能在以下范围内执教：</span>
 
@@ -74,7 +86,9 @@
 
 ## <span class="regulation-status regulation-status-pending">第四章　申请条件</span>
 
-<span class="regulation-status regulation-status-pending">**第九条（基本申请条件）**　申请教员资格的人员应同时满足：</span>
+### <span class="regulation-status regulation-status-pending">第九条（基本申请条件）</span> {#第九条}
+
+<span class="regulation-status regulation-status-pending">申请教员资格的人员应同时满足：</span>
 
 <span class="regulation-status regulation-status-pending">（一）为 CAN 天蓝模拟飞行平台 PRC 本部正式成员或为访问分部成员，且已在相应的主分部取得教员权限；</span>
 
@@ -96,7 +110,9 @@
 
 <span class="regulation-status regulation-status-pending">（十）至少参与过 3 次本部（包括本部和其他分部）组织的专业活动。</span>
 
-<span class="regulation-status regulation-status-pending">**第十条（有效业务能力证明）**　由于本部门目前没有最低值班时长要求，申请人应向本部相关管理员和教员证明近期业务能力。需要满足的条件如下：</span>
+### <span class="regulation-status regulation-status-pending">第十条（有效业务能力证明）</span> {#第十条}
+
+<span class="regulation-status regulation-status-pending">由于本部门目前没有最低值班时长要求，申请人应向本部相关管理员和教员证明近期业务能力。需要满足的条件如下：</span>
 
 <span class="regulation-status regulation-status-pending">**总管制小时数 + 引荐教员数 × 30 ≥ 100**</span>
 
@@ -112,7 +128,9 @@
 <span class="regulation-status regulation-status-pending">即使您的管制时长大于 100，也需至少一位教员引荐。</span>
 :::
 
-<span class="regulation-status regulation-status-pending">**第十一条（不予受理情形）**　有下列情形之一的，原则上不予受理：</span>
+### <span class="regulation-status regulation-status-pending">第十一条（不予受理情形）</span> {#第十一条}
+
+<span class="regulation-status regulation-status-pending">有下列情形之一的，原则上不予受理：</span>
 
 <span class="regulation-status regulation-status-pending">（一）正处于暂停资格、限制权限或纪律调查期间；</span>
 
@@ -128,7 +146,9 @@
 
 ## <span class="regulation-status regulation-status-pending">第五章　申请和审核流程</span>
 
-<span class="regulation-status regulation-status-pending">**第十二条（申请材料及其格式）**　申请人应在申请前检查自身是否符合基本申请条件和有效业务能力证明，避免无效申请。</span>
+### <span class="regulation-status regulation-status-pending">第十二条（申请材料及其格式）</span> {#第十二条}
+
+<span class="regulation-status regulation-status-pending">申请人应在申请前检查自身是否符合基本申请条件和有效业务能力证明，避免无效申请。</span>
 
 <span class="regulation-status regulation-status-pending">申请人应提交下列材料：</span>
 
@@ -138,7 +158,9 @@
 
 <span class="regulation-status regulation-status-pending">（三）有效业务能力证明：引荐您的教员的基本信息。</span>
 
-<span class="regulation-status regulation-status-pending">**第十三条（资格初审）**　教员主管负责资格初审，重点审核：</span>
+### <span class="regulation-status regulation-status-pending">第十三条（资格初审）</span> {#第十三条}
+
+<span class="regulation-status regulation-status-pending">教员主管负责资格初审，重点审核：</span>
 
 <span class="regulation-status regulation-status-pending">（一）申请人是否符合基本条件；</span>
 
@@ -162,7 +184,9 @@
 
 - <span class="regulation-status regulation-status-pending">不予受理。</span>
 
-<span class="regulation-status regulation-status-pending">**第十四条（实操考核）**　实操考核应通过模拟运行、案例处置、复盘讲解或监督值班等方式进行。</span>
+### <span class="regulation-status regulation-status-pending">第十四条（实操考核）</span> {#第十四条}
+
+<span class="regulation-status regulation-status-pending">实操考核应通过模拟运行、案例处置、复盘讲解或监督值班等方式进行。</span>
 
 <span class="regulation-status regulation-status-pending">考核内容包括：</span>
 
@@ -194,7 +218,9 @@
 
 <span class="regulation-status regulation-status-pending">（五）管理组认定不得通过考核的。</span>
 
-<span class="regulation-status regulation-status-pending">**第十六条（见习教员阶段）**　通过初审和理论考试后，申请人进入见习教员阶段。</span>
+### <span class="regulation-status regulation-status-pending">第十六条（见习教员阶段）</span> {#第十六条}
+
+<span class="regulation-status regulation-status-pending">通过初审和理论考试后，申请人进入见习教员阶段。</span>
 
 <span class="regulation-status regulation-status-pending">除教员主管另行批准外，见习阶段至少包括：</span>
 
@@ -220,7 +246,9 @@
 
 <span class="regulation-status regulation-status-pending">（五）在未授权席位上独立执教。</span>
 
-<span class="regulation-status regulation-status-pending">**第十七条（试教考核）**　试教应至少包含：</span>
+### <span class="regulation-status regulation-status-pending">第十七条（试教考核）</span> {#第十七条}
+
+<span class="regulation-status regulation-status-pending">试教应至少包含：</span>
 
 <span class="regulation-status regulation-status-pending">（一）课前目标说明；</span>
 
@@ -234,7 +262,9 @@
 
 <span class="regulation-status regulation-status-pending">试教考核由至少一名正式教员或经批准的高级教员实施。申请人的直接指导教员可以提供意见，但原则上不得作为唯一评审人。</span>
 
-<span class="regulation-status regulation-status-pending">**第十八条（正式任命条件）**　申请人同时满足以下条件后，方可正式任命：</span>
+### <span class="regulation-status regulation-status-pending">第十八条（正式任命条件）</span> {#第十八条}
+
+<span class="regulation-status regulation-status-pending">申请人同时满足以下条件后，方可正式任命：</span>
 
 <span class="regulation-status regulation-status-pending">（一）通过资格初审；</span>
 
@@ -252,4 +282,6 @@
 
 <span class="regulation-status regulation-status-pending">满足以上条件后，教员由部门主管或授权负责人正式任命。</span>
 
-<span class="regulation-status regulation-status-pending">**第十九条（资格有效期）**　教员资格原则上有效期为 12 个月，但与[第二部分第十五条](/zh_CN/instructor-management)冲突时，按照第二部分第十五条执行。</span>
+### <span class="regulation-status regulation-status-pending">第十九条（资格有效期）</span> {#第十九条}
+
+<span class="regulation-status regulation-status-pending">教员资格原则上有效期为 12 个月，但与[第二部分第十五条](/zh_CN/instructor-management#第十五条)冲突时，按照第二部分第十五条执行。</span>
