@@ -43,6 +43,11 @@
           "howToBecome": "How to Become a Controller",
           "professionalGuidelines": "ATC Professional Guidelines",
           "trainingObserver": "Training Observation Rules",
+          "instructorSystem": "Instructor Management",
+          "instructorRatings": "Rating Definitions",
+          "instructorQualification": "Instructor Qualification",
+          "instructorManagement": "Instructor Management Regulations",
+          "instructorTraining": "Instructor Training and Assessment",
           "atisPrompt": "ATIS Generation Prompt"
         }
       },

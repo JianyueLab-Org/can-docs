@@ -43,6 +43,11 @@
           "howToBecome": "如何成为管制员",
           "professionalGuidelines": "管制员准则",
           "trainingObserver": "培训旁听守则",
+          "instructorSystem": "教员管理制度",
+          "instructorRatings": "等级定义",
+          "instructorQualification": "教员资格认定办法",
+          "instructorManagement": "教员管理条例",
+          "instructorTraining": "教员培训与考核实施细则",
           "atisPrompt": "ATIS 生成提示词"
         }
       },

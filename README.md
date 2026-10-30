@@ -16,6 +16,10 @@ zh_CN/
   regulation.md        /zh_CN/regulation              平台总则（现行，第四版）
   revisions.md         /zh_CN/revisions               修订历史与公示信息
   atc.md               /zh_CN/atc                     管制员准则
+  instructor-ratings.md        /zh_CN/instructor-ratings        教员管理制度：等级定义（未施行）
+  instructor-qualification.md  /zh_CN/instructor-qualification  教员管理制度：教员资格认定办法（未施行）
+  instructor-management.md     /zh_CN/instructor-management     教员管理制度：教员管理条例（未施行）
+  instructor-training.md       /zh_CN/instructor-training       教员管理制度：教员培训与考核实施细则（未施行）
   ATIS_prompt.md        /zh_CN/ATIS_prompt             ATIS 生成提示词
   history.md           /zh_CN/history                 平台的历史
   privacy.md           /zh_CN/privacy                 隐私说明
