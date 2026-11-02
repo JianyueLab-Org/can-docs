@@ -362,7 +362,7 @@
 
 ### <span class="regulation-status regulation-status-pending">第二十六条（解释权）</span> {#第二十六条}
 
-<span class="regulation-status regulation-status-pending">本条例由 CAN PRC 分部管理组负责解释。</span>
+<span class="regulation-status regulation-status-pending">本条例由 CAN PRC 分部拟定，并由 CAN 管理组指定为所有分部使用，由CAN管理组负责解释。</span>
 
 ### <span class="regulation-status regulation-status-pending">第二十七条（修订机制）</span> {#第二十七条}
 
