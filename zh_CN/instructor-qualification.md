@@ -4,13 +4,13 @@
 
 ### <span class="regulation-status regulation-status-pending">第一条（目的）</span> {#第一条}
 
-<span class="regulation-status regulation-status-pending">为规范 CAN 天蓝模拟飞行平台 PRC 本部空中交通管制部门教员的选拔、培训、考核和任命工作，建立公平、透明、可追溯的教员资格认定机制，制定本办法。</span>
+<span class="regulation-status regulation-status-pending">为规范 CAN 天蓝模拟飞行平台空中交通管制相关教员的选拔、培训、考核和任命工作，建立公平、透明、可追溯的教员资格认定机制，制定本办法。</span>
 
 ### <span class="regulation-status regulation-status-pending">第二条（适用范围）</span> {#第二条}
 
 <span class="regulation-status regulation-status-pending">本办法适用于：</span>
 
-<span class="regulation-status regulation-status-pending">（一）PRC 本部空中交通管制部门教员的申请、见习、考核和任命；</span>
+<span class="regulation-status regulation-status-pending">（一）CAN 所有分部的空中交通管制部门教员的申请、见习、考核和任命；</span>
 
 <span class="regulation-status regulation-status-pending">（二）I1、I2、I3 各级教员资格的首次认定和晋级认定；</span>
 
@@ -90,7 +90,7 @@
 
 <span class="regulation-status regulation-status-pending">申请教员资格的人员应同时满足：</span>
 
-<span class="regulation-status regulation-status-pending">（一）为 CAN 天蓝模拟飞行平台 PRC 本部正式成员或为访问分部成员，且已在相应的主分部取得教员权限；</span>
+<span class="regulation-status regulation-status-pending">（一）为 CAN 天蓝模拟飞行平台相关分部本部正式成员，或为访问分部成员并已在相应的主分部取得教员权限；</span>
 
 <span class="regulation-status regulation-status-pending">（二）已取得 C2 及以上管制等级的席位资格；</span>
 
