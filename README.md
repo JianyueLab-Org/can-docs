@@ -167,6 +167,7 @@ frontmatter 里的 `editLink: false` 单独关掉了：它是被现行规章取�
 
 只有两种：`zh_CN`（简体中文）和 `en_US`（English）。
 `/zh_TW/*` 在 `deploy/nginx.conf` 里 301 到 `/zh_CN/*`。
+`/health` 由 `deploy/nginx.conf` 直接返回 200 `{"status":"ok","checks":{"nginx":"ok"}}`，给外部可用性监控用。
 
 **壳翻译了，正文没有。** 文档只有中文原文：规章是有处分效力的文本，非官方译本不
 该由这里直接发布。所以英文侧只有一个首页，导航和侧栏指向 `zh_CN/` 下的中文页
